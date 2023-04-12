@@ -16,7 +16,7 @@ public class Inertia extends frc.team88.ros.messages.RosMessage {
     private double izz = 0.0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/Inertia";
+    public final java.lang.String _type = "geometry_msgs/Inertia";
 
     public Inertia() {
 
@@ -98,7 +98,7 @@ public class Inertia extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

@@ -7,16 +7,16 @@ import com.google.gson.annotations.Expose;
 public class GoalID extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.Time stamp = new frc.team88.ros.messages.Time();
-    private String id = "";
+    private java.lang.String id = "";
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "actionlib_msgs/GoalID";
+    public final java.lang.String _type = "actionlib_msgs/GoalID";
 
     public GoalID() {
 
     }
 
-    public GoalID(frc.team88.ros.messages.Time stamp, String id) {
+    public GoalID(frc.team88.ros.messages.Time stamp, java.lang.String id) {
         this.stamp = stamp;
         this.id = id;
     }
@@ -29,14 +29,14 @@ public class GoalID extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.Time getStamp() {
         return this.stamp;
     }
-    public String getId() {
+    public java.lang.String getId() {
         return this.id;
     }
 
     public void setStamp(frc.team88.ros.messages.Time stamp) {
         this.stamp = stamp;
     }
-    public void setId(String id) {
+    public void setId(java.lang.String id) {
         this.id = id;
     }
 
@@ -44,7 +44,7 @@ public class GoalID extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

@@ -9,7 +9,7 @@ public class Bool extends frc.team88.ros.messages.RosMessage {
     private boolean data = false;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "std_msgs/Bool";
+    public final java.lang.String _type = "std_msgs/Bool";
 
     public Bool() {
 
@@ -35,7 +35,7 @@ public class Bool extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

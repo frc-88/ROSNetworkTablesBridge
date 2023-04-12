@@ -12,7 +12,7 @@ public class Quaternion extends frc.team88.ros.messages.RosMessage {
     private double w = 0.0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/Quaternion";
+    public final java.lang.String _type = "geometry_msgs/Quaternion";
 
     public Quaternion() {
 
@@ -62,7 +62,7 @@ public class Quaternion extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

@@ -1,13 +1,13 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.shape_msgs;
 
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.annotations.Expose;
 
 public class Plane extends frc.team88.ros.messages.RosMessage {
 
-    private Double[] coef = new Double[] {
+    private java.lang.Double[] coef = new java.lang.Double[] {
         0.0,
         0.0,
         0.0,
@@ -15,13 +15,13 @@ public class Plane extends frc.team88.ros.messages.RosMessage {
     };
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "shape_msgs/Plane";
+    public final java.lang.String _type = "shape_msgs/Plane";
 
     public Plane() {
 
     }
 
-    public Plane(Double[] coef) {
+    public Plane(java.lang.Double[] coef) {
         for (int index = 0; index < 4; index++) {
             this.coef[index] = coef[index];
         }
@@ -34,11 +34,11 @@ public class Plane extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public Double[] getCoef() {
+    public java.lang.Double[] getCoef() {
         return this.coef;
     }
 
-    public void setCoef(Double[] coef) {
+    public void setCoef(java.lang.Double[] coef) {
         this.coef = coef;
     }
 
@@ -46,7 +46,7 @@ public class Plane extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

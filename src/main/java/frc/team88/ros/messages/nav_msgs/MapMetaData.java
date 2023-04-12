@@ -13,7 +13,7 @@ public class MapMetaData extends frc.team88.ros.messages.RosMessage {
     private frc.team88.ros.messages.geometry_msgs.Pose origin = new frc.team88.ros.messages.geometry_msgs.Pose();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "nav_msgs/MapMetaData";
+    public final java.lang.String _type = "nav_msgs/MapMetaData";
 
     public MapMetaData() {
 
@@ -71,7 +71,7 @@ public class MapMetaData extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

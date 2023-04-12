@@ -1,32 +1,32 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.visualization_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Marker extends frc.team88.ros.messages.RosMessage {
     public static int ARROW = 0;
-    public static int SPHERE_LIST = 7;
     public static int CUBE = 1;
-    public static int TRIANGLE_LIST = 11;
-    public static int DELETE = 2;
-    public static int CUBE_LIST = 6;
-    public static int LINE_LIST = 5;
-    public static int CYLINDER = 3;
-    public static int ADD = 0;
-    public static int DELETEALL = 3;
-    public static int POINTS = 8;
-    public static int LINE_STRIP = 4;
     public static int SPHERE = 2;
+    public static int CYLINDER = 3;
+    public static int LINE_STRIP = 4;
+    public static int LINE_LIST = 5;
+    public static int CUBE_LIST = 6;
+    public static int SPHERE_LIST = 7;
+    public static int POINTS = 8;
     public static int TEXT_VIEW_FACING = 9;
     public static int MESH_RESOURCE = 10;
+    public static int TRIANGLE_LIST = 11;
+    public static int ADD = 0;
     public static int MODIFY = 0;
+    public static int DELETE = 2;
+    public static int DELETEALL = 3;
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
-    private String ns = "";
+    private java.lang.String ns = "";
     private int id = 0;
     private int type = 0;
     private int action = 0;
@@ -37,18 +37,18 @@ public class Marker extends frc.team88.ros.messages.RosMessage {
     private boolean frame_locked = false;
     private ArrayList<frc.team88.ros.messages.geometry_msgs.Point> points = new ArrayList<>();
     private ArrayList<frc.team88.ros.messages.std_msgs.ColorRGBA> colors = new ArrayList<>();
-    private String text = "";
-    private String mesh_resource = "";
+    private java.lang.String text = "";
+    private java.lang.String mesh_resource = "";
     private boolean mesh_use_embedded_materials = false;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "visualization_msgs/Marker";
+    public final java.lang.String _type = "visualization_msgs/Marker";
 
     public Marker() {
 
     }
 
-    public Marker(frc.team88.ros.messages.std_msgs.Header header, String ns, int id, int type, int action, frc.team88.ros.messages.geometry_msgs.Pose pose, frc.team88.ros.messages.geometry_msgs.Vector3 scale, frc.team88.ros.messages.std_msgs.ColorRGBA color, frc.team88.ros.messages.Duration lifetime, boolean frame_locked, frc.team88.ros.messages.geometry_msgs.Point[] points, frc.team88.ros.messages.std_msgs.ColorRGBA[] colors, String text, String mesh_resource, boolean mesh_use_embedded_materials) {
+    public Marker(frc.team88.ros.messages.std_msgs.Header header, java.lang.String ns, int id, int type, int action, frc.team88.ros.messages.geometry_msgs.Pose pose, frc.team88.ros.messages.geometry_msgs.Vector3 scale, frc.team88.ros.messages.std_msgs.ColorRGBA color, frc.team88.ros.messages.Duration lifetime, boolean frame_locked, frc.team88.ros.messages.geometry_msgs.Point[] points, frc.team88.ros.messages.std_msgs.ColorRGBA[] colors, java.lang.String text, java.lang.String mesh_resource, boolean mesh_use_embedded_materials) {
         this.header = header;
         this.ns = ns;
         this.id = id;
@@ -91,7 +91,7 @@ public class Marker extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.std_msgs.Header getHeader() {
         return this.header;
     }
-    public String getNs() {
+    public java.lang.String getNs() {
         return this.ns;
     }
     public int getId() {
@@ -124,10 +124,10 @@ public class Marker extends frc.team88.ros.messages.RosMessage {
     public ArrayList<frc.team88.ros.messages.std_msgs.ColorRGBA> getColors() {
         return this.colors;
     }
-    public String getText() {
+    public java.lang.String getText() {
         return this.text;
     }
-    public String getMeshResource() {
+    public java.lang.String getMeshResource() {
         return this.mesh_resource;
     }
     public boolean getMeshUseEmbeddedMaterials() {
@@ -137,7 +137,7 @@ public class Marker extends frc.team88.ros.messages.RosMessage {
     public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
         this.header = header;
     }
-    public void setNs(String ns) {
+    public void setNs(java.lang.String ns) {
         this.ns = ns;
     }
     public void setId(int id) {
@@ -170,10 +170,10 @@ public class Marker extends frc.team88.ros.messages.RosMessage {
     public void setColors(ArrayList<frc.team88.ros.messages.std_msgs.ColorRGBA> colors) {
         this.colors = colors;
     }
-    public void setText(String text) {
+    public void setText(java.lang.String text) {
         this.text = text;
     }
-    public void setMeshResource(String mesh_resource) {
+    public void setMeshResource(java.lang.String mesh_resource) {
         this.mesh_resource = mesh_resource;
     }
     public void setMeshUseEmbeddedMaterials(boolean mesh_use_embedded_materials) {
@@ -184,7 +184,7 @@ public class Marker extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

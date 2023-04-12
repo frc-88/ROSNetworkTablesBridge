@@ -8,16 +8,16 @@ public class InteractiveMarkerPose extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
     private frc.team88.ros.messages.geometry_msgs.Pose pose = new frc.team88.ros.messages.geometry_msgs.Pose();
-    private String name = "";
+    private java.lang.String name = "";
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "visualization_msgs/InteractiveMarkerPose";
+    public final java.lang.String _type = "visualization_msgs/InteractiveMarkerPose";
 
     public InteractiveMarkerPose() {
 
     }
 
-    public InteractiveMarkerPose(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.Pose pose, String name) {
+    public InteractiveMarkerPose(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.Pose pose, java.lang.String name) {
         this.header = header;
         this.pose = pose;
         this.name = name;
@@ -35,7 +35,7 @@ public class InteractiveMarkerPose extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.geometry_msgs.Pose getPose() {
         return this.pose;
     }
-    public String getName() {
+    public java.lang.String getName() {
         return this.name;
     }
 
@@ -45,7 +45,7 @@ public class InteractiveMarkerPose extends frc.team88.ros.messages.RosMessage {
     public void setPose(frc.team88.ros.messages.geometry_msgs.Pose pose) {
         this.pose = pose;
     }
-    public void setName(String name) {
+    public void setName(java.lang.String name) {
         this.name = name;
     }
 
@@ -53,7 +53,7 @@ public class InteractiveMarkerPose extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

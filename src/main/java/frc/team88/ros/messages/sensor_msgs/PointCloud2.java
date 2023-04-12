@@ -1,10 +1,10 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.sensor_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
@@ -16,17 +16,17 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
     private boolean is_bigendian = false;
     private int point_step = 0;
     private int row_step = 0;
-    private ArrayList<Char> data = new ArrayList<>();
+    private ArrayList<java.lang.Character> data = new ArrayList<>();
     private boolean is_dense = false;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/PointCloud2";
+    public final java.lang.String _type = "sensor_msgs/PointCloud2";
 
     public PointCloud2() {
 
     }
 
-    public PointCloud2(frc.team88.ros.messages.std_msgs.Header header, int height, int width, frc.team88.ros.messages.sensor_msgs.PointField[] fields, boolean is_bigendian, int point_step, int row_step, Char[] data, boolean is_dense) {
+    public PointCloud2(frc.team88.ros.messages.std_msgs.Header header, int height, int width, frc.team88.ros.messages.sensor_msgs.PointField[] fields, boolean is_bigendian, int point_step, int row_step, java.lang.Character[] data, boolean is_dense) {
         this.header = header;
         this.height = height;
         this.width = width;
@@ -75,7 +75,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
     public int getRowStep() {
         return this.row_step;
     }
-    public ArrayList<Char> getData() {
+    public ArrayList<java.lang.Character> getData() {
         return this.data;
     }
     public boolean getIsDense() {
@@ -103,7 +103,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
     public void setRowStep(int row_step) {
         this.row_step = row_step;
     }
-    public void setData(ArrayList<Char> data) {
+    public void setData(ArrayList<java.lang.Character> data) {
         this.data = data;
     }
     public void setIsDense(boolean is_dense) {
@@ -114,7 +114,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

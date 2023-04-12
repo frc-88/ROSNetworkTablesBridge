@@ -6,16 +6,16 @@ import com.google.gson.annotations.Expose;
 
 public class String extends frc.team88.ros.messages.RosMessage {
 
-    private String data = "";
+    private java.lang.String data = "";
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "std_msgs/String";
+    public final java.lang.String _type = "std_msgs/String";
 
     public String() {
 
     }
 
-    public String(String data) {
+    public String(java.lang.String data) {
         this.data = data;
     }
 
@@ -23,11 +23,11 @@ public class String extends frc.team88.ros.messages.RosMessage {
         this.data = jsonObj.get("data").getAsString();
     }
 
-    public String getData() {
+    public java.lang.String getData() {
         return this.data;
     }
 
-    public void setData(String data) {
+    public void setData(java.lang.String data) {
         this.data = data;
     }
 
@@ -35,7 +35,7 @@ public class String extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

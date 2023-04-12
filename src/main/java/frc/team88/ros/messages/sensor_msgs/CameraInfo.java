@@ -1,10 +1,10 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.sensor_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CameraInfo extends frc.team88.ros.messages.RosMessage {
@@ -12,9 +12,9 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
     private int height = 0;
     private int width = 0;
-    private String distortion_model = "";
-    private ArrayList<Double> D = new ArrayList<>();
-    private Double[] K = new Double[] {
+    private java.lang.String distortion_model = "";
+    private ArrayList<java.lang.Double> D = new ArrayList<>();
+    private java.lang.Double[] K = new java.lang.Double[] {
         0.0,
         0.0,
         0.0,
@@ -25,7 +25,7 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
         0.0,
         0.0
     };
-    private Double[] R = new Double[] {
+    private java.lang.Double[] R = new java.lang.Double[] {
         0.0,
         0.0,
         0.0,
@@ -36,7 +36,7 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
         0.0,
         0.0
     };
-    private Double[] P = new Double[] {
+    private java.lang.Double[] P = new java.lang.Double[] {
         0.0,
         0.0,
         0.0,
@@ -55,13 +55,13 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
     private frc.team88.ros.messages.sensor_msgs.RegionOfInterest roi = new frc.team88.ros.messages.sensor_msgs.RegionOfInterest();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/CameraInfo";
+    public final java.lang.String _type = "sensor_msgs/CameraInfo";
 
     public CameraInfo() {
 
     }
 
-    public CameraInfo(frc.team88.ros.messages.std_msgs.Header header, int height, int width, String distortion_model, Double[] D, Double[] K, Double[] R, Double[] P, int binning_x, int binning_y, frc.team88.ros.messages.sensor_msgs.RegionOfInterest roi) {
+    public CameraInfo(frc.team88.ros.messages.std_msgs.Header header, int height, int width, java.lang.String distortion_model, java.lang.Double[] D, java.lang.Double[] K, java.lang.Double[] R, java.lang.Double[] P, int binning_x, int binning_y, frc.team88.ros.messages.sensor_msgs.RegionOfInterest roi) {
         this.header = header;
         this.height = height;
         this.width = width;
@@ -115,19 +115,19 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
     public int getWidth() {
         return this.width;
     }
-    public String getDistortionModel() {
+    public java.lang.String getDistortionModel() {
         return this.distortion_model;
     }
-    public ArrayList<Double> getD() {
+    public ArrayList<java.lang.Double> getD() {
         return this.D;
     }
-    public Double[] getK() {
+    public java.lang.Double[] getK() {
         return this.K;
     }
-    public Double[] getR() {
+    public java.lang.Double[] getR() {
         return this.R;
     }
-    public Double[] getP() {
+    public java.lang.Double[] getP() {
         return this.P;
     }
     public int getBinningX() {
@@ -149,19 +149,19 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
     public void setWidth(int width) {
         this.width = width;
     }
-    public void setDistortionModel(String distortion_model) {
+    public void setDistortionModel(java.lang.String distortion_model) {
         this.distortion_model = distortion_model;
     }
-    public void setD(ArrayList<Double> D) {
+    public void setD(ArrayList<java.lang.Double> D) {
         this.D = D;
     }
-    public void setK(Double[] K) {
+    public void setK(java.lang.Double[] K) {
         this.K = K;
     }
-    public void setR(Double[] R) {
+    public void setR(java.lang.Double[] R) {
         this.R = R;
     }
-    public void setP(Double[] P) {
+    public void setP(java.lang.Double[] P) {
         this.P = P;
     }
     public void setBinningX(int binning_x) {
@@ -178,7 +178,7 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

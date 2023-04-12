@@ -6,18 +6,18 @@ import com.google.gson.annotations.Expose;
 
 public class MultiArrayDimension extends frc.team88.ros.messages.RosMessage {
 
-    private String label = "";
+    private java.lang.String label = "";
     private int size = 0;
     private int stride = 0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "std_msgs/MultiArrayDimension";
+    public final java.lang.String _type = "std_msgs/MultiArrayDimension";
 
     public MultiArrayDimension() {
 
     }
 
-    public MultiArrayDimension(String label, int size, int stride) {
+    public MultiArrayDimension(java.lang.String label, int size, int stride) {
         this.label = label;
         this.size = size;
         this.stride = stride;
@@ -29,7 +29,7 @@ public class MultiArrayDimension extends frc.team88.ros.messages.RosMessage {
         this.stride = jsonObj.get("stride").getAsInt();
     }
 
-    public String getLabel() {
+    public java.lang.String getLabel() {
         return this.label;
     }
     public int getSize() {
@@ -39,7 +39,7 @@ public class MultiArrayDimension extends frc.team88.ros.messages.RosMessage {
         return this.stride;
     }
 
-    public void setLabel(String label) {
+    public void setLabel(java.lang.String label) {
         this.label = label;
     }
     public void setSize(int size) {
@@ -53,7 +53,7 @@ public class MultiArrayDimension extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

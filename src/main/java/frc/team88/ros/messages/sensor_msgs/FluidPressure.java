@@ -11,7 +11,7 @@ public class FluidPressure extends frc.team88.ros.messages.RosMessage {
     private double variance = 0.0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/FluidPressure";
+    public final java.lang.String _type = "sensor_msgs/FluidPressure";
 
     public FluidPressure() {
 
@@ -53,7 +53,7 @@ public class FluidPressure extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

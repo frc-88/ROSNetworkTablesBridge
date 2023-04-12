@@ -10,7 +10,7 @@ public class Vector3Stamped extends frc.team88.ros.messages.RosMessage {
     private frc.team88.ros.messages.geometry_msgs.Vector3 vector = new frc.team88.ros.messages.geometry_msgs.Vector3();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/Vector3Stamped";
+    public final java.lang.String _type = "geometry_msgs/Vector3Stamped";
 
     public Vector3Stamped() {
 
@@ -44,7 +44,7 @@ public class Vector3Stamped extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

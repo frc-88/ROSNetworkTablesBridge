@@ -13,7 +13,7 @@ public class RegionOfInterest extends frc.team88.ros.messages.RosMessage {
     private boolean do_rectify = false;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/RegionOfInterest";
+    public final java.lang.String _type = "sensor_msgs/RegionOfInterest";
 
     public RegionOfInterest() {
 
@@ -71,7 +71,7 @@ public class RegionOfInterest extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

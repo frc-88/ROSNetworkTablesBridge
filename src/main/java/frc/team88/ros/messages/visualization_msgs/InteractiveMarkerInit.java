@@ -1,26 +1,26 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.visualization_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class InteractiveMarkerInit extends frc.team88.ros.messages.RosMessage {
 
-    private String server_id = "";
+    private java.lang.String server_id = "";
     private long seq_num = 0;
     private ArrayList<frc.team88.ros.messages.visualization_msgs.InteractiveMarker> markers = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "visualization_msgs/InteractiveMarkerInit";
+    public final java.lang.String _type = "visualization_msgs/InteractiveMarkerInit";
 
     public InteractiveMarkerInit() {
 
     }
 
-    public InteractiveMarkerInit(String server_id, long seq_num, frc.team88.ros.messages.visualization_msgs.InteractiveMarker[] markers) {
+    public InteractiveMarkerInit(java.lang.String server_id, long seq_num, frc.team88.ros.messages.visualization_msgs.InteractiveMarker[] markers) {
         this.server_id = server_id;
         this.seq_num = seq_num;
         this.markers = new ArrayList<>(Arrays.asList(markers));
@@ -34,7 +34,7 @@ public class InteractiveMarkerInit extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public String getServerId() {
+    public java.lang.String getServerId() {
         return this.server_id;
     }
     public long getSeqNum() {
@@ -44,7 +44,7 @@ public class InteractiveMarkerInit extends frc.team88.ros.messages.RosMessage {
         return this.markers;
     }
 
-    public void setServerId(String server_id) {
+    public void setServerId(java.lang.String server_id) {
         this.server_id = server_id;
     }
     public void setSeqNum(long seq_num) {
@@ -58,7 +58,7 @@ public class InteractiveMarkerInit extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

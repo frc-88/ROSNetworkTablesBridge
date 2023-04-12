@@ -10,7 +10,7 @@ public class TwistWithCovarianceStamped extends frc.team88.ros.messages.RosMessa
     private frc.team88.ros.messages.geometry_msgs.TwistWithCovariance twist = new frc.team88.ros.messages.geometry_msgs.TwistWithCovariance();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/TwistWithCovarianceStamped";
+    public final java.lang.String _type = "geometry_msgs/TwistWithCovarianceStamped";
 
     public TwistWithCovarianceStamped() {
 
@@ -44,7 +44,7 @@ public class TwistWithCovarianceStamped extends frc.team88.ros.messages.RosMessa
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

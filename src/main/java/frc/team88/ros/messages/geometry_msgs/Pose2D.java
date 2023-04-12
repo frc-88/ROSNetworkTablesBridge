@@ -11,7 +11,7 @@ public class Pose2D extends frc.team88.ros.messages.RosMessage {
     private double theta = 0.0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/Pose2D";
+    public final java.lang.String _type = "geometry_msgs/Pose2D";
 
     public Pose2D() {
 
@@ -53,7 +53,7 @@ public class Pose2D extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

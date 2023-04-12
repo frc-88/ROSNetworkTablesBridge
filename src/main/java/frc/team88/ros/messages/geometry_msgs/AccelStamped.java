@@ -10,7 +10,7 @@ public class AccelStamped extends frc.team88.ros.messages.RosMessage {
     private frc.team88.ros.messages.geometry_msgs.Accel accel = new frc.team88.ros.messages.geometry_msgs.Accel();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/AccelStamped";
+    public final java.lang.String _type = "geometry_msgs/AccelStamped";
 
     public AccelStamped() {
 
@@ -44,7 +44,7 @@ public class AccelStamped extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

@@ -1,10 +1,10 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.sensor_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PointCloud extends frc.team88.ros.messages.RosMessage {
@@ -14,7 +14,7 @@ public class PointCloud extends frc.team88.ros.messages.RosMessage {
     private ArrayList<frc.team88.ros.messages.sensor_msgs.ChannelFloat32> channels = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/PointCloud";
+    public final java.lang.String _type = "sensor_msgs/PointCloud";
 
     public PointCloud() {
 
@@ -60,7 +60,7 @@ public class PointCloud extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

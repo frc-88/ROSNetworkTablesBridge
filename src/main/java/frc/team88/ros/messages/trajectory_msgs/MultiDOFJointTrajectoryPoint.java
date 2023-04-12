@@ -1,10 +1,10 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.trajectory_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MultiDOFJointTrajectoryPoint extends frc.team88.ros.messages.RosMessage {
@@ -15,7 +15,7 @@ public class MultiDOFJointTrajectoryPoint extends frc.team88.ros.messages.RosMes
     private frc.team88.ros.messages.Duration time_from_start = new frc.team88.ros.messages.Duration();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "trajectory_msgs/MultiDOFJointTrajectoryPoint";
+    public final java.lang.String _type = "trajectory_msgs/MultiDOFJointTrajectoryPoint";
 
     public MultiDOFJointTrajectoryPoint() {
 
@@ -71,7 +71,7 @@ public class MultiDOFJointTrajectoryPoint extends frc.team88.ros.messages.RosMes
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

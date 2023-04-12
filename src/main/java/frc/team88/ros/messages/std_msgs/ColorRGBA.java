@@ -12,7 +12,7 @@ public class ColorRGBA extends frc.team88.ros.messages.RosMessage {
     private float a = 0.0f;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "std_msgs/ColorRGBA";
+    public final java.lang.String _type = "std_msgs/ColorRGBA";
 
     public ColorRGBA() {
 
@@ -62,7 +62,7 @@ public class ColorRGBA extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

@@ -1,26 +1,26 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.nav_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class OccupancyGrid extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
     private frc.team88.ros.messages.nav_msgs.MapMetaData info = new frc.team88.ros.messages.nav_msgs.MapMetaData();
-    private ArrayList<Byte> data = new ArrayList<>();
+    private ArrayList<java.lang.Byte> data = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "nav_msgs/OccupancyGrid";
+    public final java.lang.String _type = "nav_msgs/OccupancyGrid";
 
     public OccupancyGrid() {
 
     }
 
-    public OccupancyGrid(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.nav_msgs.MapMetaData info, Byte[] data) {
+    public OccupancyGrid(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.nav_msgs.MapMetaData info, java.lang.Byte[] data) {
         this.header = header;
         this.info = info;
         this.data = new ArrayList<>(Arrays.asList(data));
@@ -40,7 +40,7 @@ public class OccupancyGrid extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.nav_msgs.MapMetaData getInfo() {
         return this.info;
     }
-    public ArrayList<Byte> getData() {
+    public ArrayList<java.lang.Byte> getData() {
         return this.data;
     }
 
@@ -50,7 +50,7 @@ public class OccupancyGrid extends frc.team88.ros.messages.RosMessage {
     public void setInfo(frc.team88.ros.messages.nav_msgs.MapMetaData info) {
         this.info = info;
     }
-    public void setData(ArrayList<Byte> data) {
+    public void setData(ArrayList<java.lang.Byte> data) {
         this.data = data;
     }
 
@@ -58,7 +58,7 @@ public class OccupancyGrid extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

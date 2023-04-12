@@ -1,24 +1,24 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.sensor_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LaserEcho extends frc.team88.ros.messages.RosMessage {
 
-    private ArrayList<Float> echoes = new ArrayList<>();
+    private ArrayList<java.lang.Float> echoes = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/LaserEcho";
+    public final java.lang.String _type = "sensor_msgs/LaserEcho";
 
     public LaserEcho() {
 
     }
 
-    public LaserEcho(Float[] echoes) {
+    public LaserEcho(java.lang.Float[] echoes) {
         this.echoes = new ArrayList<>(Arrays.asList(echoes));
     }
 
@@ -28,11 +28,11 @@ public class LaserEcho extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public ArrayList<Float> getEchoes() {
+    public ArrayList<java.lang.Float> getEchoes() {
         return this.echoes;
     }
 
-    public void setEchoes(ArrayList<Float> echoes) {
+    public void setEchoes(ArrayList<java.lang.Float> echoes) {
         this.echoes = echoes;
     }
 
@@ -40,7 +40,7 @@ public class LaserEcho extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

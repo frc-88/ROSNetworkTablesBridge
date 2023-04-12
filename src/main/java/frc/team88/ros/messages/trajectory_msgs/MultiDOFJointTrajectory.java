@@ -1,26 +1,26 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.trajectory_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MultiDOFJointTrajectory extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
-    private ArrayList<String> joint_names = new ArrayList<>();
+    private ArrayList<java.lang.String> joint_names = new ArrayList<>();
     private ArrayList<frc.team88.ros.messages.trajectory_msgs.MultiDOFJointTrajectoryPoint> points = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "trajectory_msgs/MultiDOFJointTrajectory";
+    public final java.lang.String _type = "trajectory_msgs/MultiDOFJointTrajectory";
 
     public MultiDOFJointTrajectory() {
 
     }
 
-    public MultiDOFJointTrajectory(frc.team88.ros.messages.std_msgs.Header header, String[] joint_names, frc.team88.ros.messages.trajectory_msgs.MultiDOFJointTrajectoryPoint[] points) {
+    public MultiDOFJointTrajectory(frc.team88.ros.messages.std_msgs.Header header, java.lang.String[] joint_names, frc.team88.ros.messages.trajectory_msgs.MultiDOFJointTrajectoryPoint[] points) {
         this.header = header;
         this.joint_names = new ArrayList<>(Arrays.asList(joint_names));
         this.points = new ArrayList<>(Arrays.asList(points));
@@ -39,7 +39,7 @@ public class MultiDOFJointTrajectory extends frc.team88.ros.messages.RosMessage 
     public frc.team88.ros.messages.std_msgs.Header getHeader() {
         return this.header;
     }
-    public ArrayList<String> getJointNames() {
+    public ArrayList<java.lang.String> getJointNames() {
         return this.joint_names;
     }
     public ArrayList<frc.team88.ros.messages.trajectory_msgs.MultiDOFJointTrajectoryPoint> getPoints() {
@@ -49,7 +49,7 @@ public class MultiDOFJointTrajectory extends frc.team88.ros.messages.RosMessage 
     public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
         this.header = header;
     }
-    public void setJointNames(ArrayList<String> joint_names) {
+    public void setJointNames(ArrayList<java.lang.String> joint_names) {
         this.joint_names = joint_names;
     }
     public void setPoints(ArrayList<frc.team88.ros.messages.trajectory_msgs.MultiDOFJointTrajectoryPoint> points) {
@@ -60,7 +60,7 @@ public class MultiDOFJointTrajectory extends frc.team88.ros.messages.RosMessage 
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

@@ -1,26 +1,26 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.sensor_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CompressedImage extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
-    private String format = "";
-    private ArrayList<Char> data = new ArrayList<>();
+    private java.lang.String format = "";
+    private ArrayList<java.lang.Character> data = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/CompressedImage";
+    public final java.lang.String _type = "sensor_msgs/CompressedImage";
 
     public CompressedImage() {
 
     }
 
-    public CompressedImage(frc.team88.ros.messages.std_msgs.Header header, String format, Char[] data) {
+    public CompressedImage(frc.team88.ros.messages.std_msgs.Header header, java.lang.String format, java.lang.Character[] data) {
         this.header = header;
         this.format = format;
         this.data = new ArrayList<>(Arrays.asList(data));
@@ -37,20 +37,20 @@ public class CompressedImage extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.std_msgs.Header getHeader() {
         return this.header;
     }
-    public String getFormat() {
+    public java.lang.String getFormat() {
         return this.format;
     }
-    public ArrayList<Char> getData() {
+    public ArrayList<java.lang.Character> getData() {
         return this.data;
     }
 
     public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
         this.header = header;
     }
-    public void setFormat(String format) {
+    public void setFormat(java.lang.String format) {
         this.format = format;
     }
-    public void setData(ArrayList<Char> data) {
+    public void setData(ArrayList<java.lang.Character> data) {
         this.data = data;
     }
 
@@ -58,7 +58,7 @@ public class CompressedImage extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

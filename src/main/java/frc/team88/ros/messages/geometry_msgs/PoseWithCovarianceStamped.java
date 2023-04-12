@@ -10,7 +10,7 @@ public class PoseWithCovarianceStamped extends frc.team88.ros.messages.RosMessag
     private frc.team88.ros.messages.geometry_msgs.PoseWithCovariance pose = new frc.team88.ros.messages.geometry_msgs.PoseWithCovariance();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/PoseWithCovarianceStamped";
+    public final java.lang.String _type = "geometry_msgs/PoseWithCovarianceStamped";
 
     public PoseWithCovarianceStamped() {
 
@@ -44,7 +44,7 @@ public class PoseWithCovarianceStamped extends frc.team88.ros.messages.RosMessag
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

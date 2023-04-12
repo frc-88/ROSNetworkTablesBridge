@@ -8,11 +8,7 @@ public class Empty extends frc.team88.ros.messages.RosMessage {
 
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "std_msgs/Empty";
-
-    public Empty() {
-
-    }
+    public final java.lang.String _type = "std_msgs/Empty";
 
     public Empty() {
 
@@ -28,7 +24,7 @@ public class Empty extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

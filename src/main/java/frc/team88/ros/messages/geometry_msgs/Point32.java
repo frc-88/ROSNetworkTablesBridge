@@ -11,7 +11,7 @@ public class Point32 extends frc.team88.ros.messages.RosMessage {
     private float z = 0.0f;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/Point32";
+    public final java.lang.String _type = "geometry_msgs/Point32";
 
     public Point32() {
 
@@ -53,7 +53,7 @@ public class Point32 extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

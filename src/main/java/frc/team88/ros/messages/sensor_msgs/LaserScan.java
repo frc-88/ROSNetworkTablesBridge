@@ -1,10 +1,10 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.sensor_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LaserScan extends frc.team88.ros.messages.RosMessage {
@@ -17,17 +17,17 @@ public class LaserScan extends frc.team88.ros.messages.RosMessage {
     private float scan_time = 0.0f;
     private float range_min = 0.0f;
     private float range_max = 0.0f;
-    private ArrayList<Float> ranges = new ArrayList<>();
-    private ArrayList<Float> intensities = new ArrayList<>();
+    private ArrayList<java.lang.Float> ranges = new ArrayList<>();
+    private ArrayList<java.lang.Float> intensities = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/LaserScan";
+    public final java.lang.String _type = "sensor_msgs/LaserScan";
 
     public LaserScan() {
 
     }
 
-    public LaserScan(frc.team88.ros.messages.std_msgs.Header header, float angle_min, float angle_max, float angle_increment, float time_increment, float scan_time, float range_min, float range_max, Float[] ranges, Float[] intensities) {
+    public LaserScan(frc.team88.ros.messages.std_msgs.Header header, float angle_min, float angle_max, float angle_increment, float time_increment, float scan_time, float range_min, float range_max, java.lang.Float[] ranges, java.lang.Float[] intensities) {
         this.header = header;
         this.angle_min = angle_min;
         this.angle_max = angle_max;
@@ -81,10 +81,10 @@ public class LaserScan extends frc.team88.ros.messages.RosMessage {
     public float getRangeMax() {
         return this.range_max;
     }
-    public ArrayList<Float> getRanges() {
+    public ArrayList<java.lang.Float> getRanges() {
         return this.ranges;
     }
-    public ArrayList<Float> getIntensities() {
+    public ArrayList<java.lang.Float> getIntensities() {
         return this.intensities;
     }
 
@@ -112,10 +112,10 @@ public class LaserScan extends frc.team88.ros.messages.RosMessage {
     public void setRangeMax(float range_max) {
         this.range_max = range_max;
     }
-    public void setRanges(ArrayList<Float> ranges) {
+    public void setRanges(ArrayList<java.lang.Float> ranges) {
         this.ranges = ranges;
     }
-    public void setIntensities(ArrayList<Float> intensities) {
+    public void setIntensities(ArrayList<java.lang.Float> intensities) {
         this.intensities = intensities;
     }
 
@@ -123,7 +123,7 @@ public class LaserScan extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

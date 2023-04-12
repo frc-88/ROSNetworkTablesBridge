@@ -1,14 +1,14 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.geometry_msgs;
 
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.annotations.Expose;
 
 public class PoseWithCovariance extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.geometry_msgs.Pose pose = new frc.team88.ros.messages.geometry_msgs.Pose();
-    private Double[] covariance = new Double[] {
+    private java.lang.Double[] covariance = new java.lang.Double[] {
         0.0,
         0.0,
         0.0,
@@ -48,13 +48,13 @@ public class PoseWithCovariance extends frc.team88.ros.messages.RosMessage {
     };
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/PoseWithCovariance";
+    public final java.lang.String _type = "geometry_msgs/PoseWithCovariance";
 
     public PoseWithCovariance() {
 
     }
 
-    public PoseWithCovariance(frc.team88.ros.messages.geometry_msgs.Pose pose, Double[] covariance) {
+    public PoseWithCovariance(frc.team88.ros.messages.geometry_msgs.Pose pose, java.lang.Double[] covariance) {
         this.pose = pose;
         for (int index = 0; index < 36; index++) {
             this.covariance[index] = covariance[index];
@@ -72,14 +72,14 @@ public class PoseWithCovariance extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.geometry_msgs.Pose getPose() {
         return this.pose;
     }
-    public Double[] getCovariance() {
+    public java.lang.Double[] getCovariance() {
         return this.covariance;
     }
 
     public void setPose(frc.team88.ros.messages.geometry_msgs.Pose pose) {
         this.pose = pose;
     }
-    public void setCovariance(Double[] covariance) {
+    public void setCovariance(java.lang.Double[] covariance) {
         this.covariance = covariance;
     }
 
@@ -87,7 +87,7 @@ public class PoseWithCovariance extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

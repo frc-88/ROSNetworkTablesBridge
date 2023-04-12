@@ -9,7 +9,7 @@ public class Int8 extends frc.team88.ros.messages.RosMessage {
     private byte data = 0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "std_msgs/Int8";
+    public final java.lang.String _type = "std_msgs/Int8";
 
     public Int8() {
 
@@ -35,7 +35,7 @@ public class Int8 extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

@@ -8,16 +8,16 @@ public class TimeReference extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
     private frc.team88.ros.messages.Time time_ref = new frc.team88.ros.messages.Time();
-    private String source = "";
+    private java.lang.String source = "";
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/TimeReference";
+    public final java.lang.String _type = "sensor_msgs/TimeReference";
 
     public TimeReference() {
 
     }
 
-    public TimeReference(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.Time time_ref, String source) {
+    public TimeReference(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.Time time_ref, java.lang.String source) {
         this.header = header;
         this.time_ref = time_ref;
         this.source = source;
@@ -35,7 +35,7 @@ public class TimeReference extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.Time getTimeRef() {
         return this.time_ref;
     }
-    public String getSource() {
+    public java.lang.String getSource() {
         return this.source;
     }
 
@@ -45,7 +45,7 @@ public class TimeReference extends frc.team88.ros.messages.RosMessage {
     public void setTimeRef(frc.team88.ros.messages.Time time_ref) {
         this.time_ref = time_ref;
     }
-    public void setSource(String source) {
+    public void setSource(java.lang.String source) {
         this.source = source;
     }
 
@@ -53,7 +53,7 @@ public class TimeReference extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

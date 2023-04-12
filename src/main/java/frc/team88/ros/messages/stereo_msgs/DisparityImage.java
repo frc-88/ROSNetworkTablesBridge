@@ -16,7 +16,7 @@ public class DisparityImage extends frc.team88.ros.messages.RosMessage {
     private float delta_d = 0.0f;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "stereo_msgs/DisparityImage";
+    public final java.lang.String _type = "stereo_msgs/DisparityImage";
 
     public DisparityImage() {
 
@@ -98,7 +98,7 @@ public class DisparityImage extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

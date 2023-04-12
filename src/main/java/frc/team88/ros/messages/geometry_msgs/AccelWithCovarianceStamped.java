@@ -10,7 +10,7 @@ public class AccelWithCovarianceStamped extends frc.team88.ros.messages.RosMessa
     private frc.team88.ros.messages.geometry_msgs.AccelWithCovariance accel = new frc.team88.ros.messages.geometry_msgs.AccelWithCovariance();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/AccelWithCovarianceStamped";
+    public final java.lang.String _type = "geometry_msgs/AccelWithCovarianceStamped";
 
     public AccelWithCovarianceStamped() {
 
@@ -44,7 +44,7 @@ public class AccelWithCovarianceStamped extends frc.team88.ros.messages.RosMessa
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

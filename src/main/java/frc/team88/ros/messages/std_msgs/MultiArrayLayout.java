@@ -1,10 +1,10 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.std_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MultiArrayLayout extends frc.team88.ros.messages.RosMessage {
@@ -13,7 +13,7 @@ public class MultiArrayLayout extends frc.team88.ros.messages.RosMessage {
     private int data_offset = 0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "std_msgs/MultiArrayLayout";
+    public final java.lang.String _type = "std_msgs/MultiArrayLayout";
 
     public MultiArrayLayout() {
 
@@ -49,7 +49,7 @@ public class MultiArrayLayout extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

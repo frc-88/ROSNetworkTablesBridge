@@ -1,15 +1,15 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.sensor_msgs;
 
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.annotations.Expose;
 
 public class MagneticField extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
     private frc.team88.ros.messages.geometry_msgs.Vector3 magnetic_field = new frc.team88.ros.messages.geometry_msgs.Vector3();
-    private Double[] magnetic_field_covariance = new Double[] {
+    private java.lang.Double[] magnetic_field_covariance = new java.lang.Double[] {
         0.0,
         0.0,
         0.0,
@@ -22,13 +22,13 @@ public class MagneticField extends frc.team88.ros.messages.RosMessage {
     };
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/MagneticField";
+    public final java.lang.String _type = "sensor_msgs/MagneticField";
 
     public MagneticField() {
 
     }
 
-    public MagneticField(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.Vector3 magnetic_field, Double[] magnetic_field_covariance) {
+    public MagneticField(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.Vector3 magnetic_field, java.lang.Double[] magnetic_field_covariance) {
         this.header = header;
         this.magnetic_field = magnetic_field;
         for (int index = 0; index < 9; index++) {
@@ -51,7 +51,7 @@ public class MagneticField extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.geometry_msgs.Vector3 getMagneticField() {
         return this.magnetic_field;
     }
-    public Double[] getMagneticFieldCovariance() {
+    public java.lang.Double[] getMagneticFieldCovariance() {
         return this.magnetic_field_covariance;
     }
 
@@ -61,7 +61,7 @@ public class MagneticField extends frc.team88.ros.messages.RosMessage {
     public void setMagneticField(frc.team88.ros.messages.geometry_msgs.Vector3 magnetic_field) {
         this.magnetic_field = magnetic_field;
     }
-    public void setMagneticFieldCovariance(Double[] magnetic_field_covariance) {
+    public void setMagneticFieldCovariance(java.lang.Double[] magnetic_field_covariance) {
         this.magnetic_field_covariance = magnetic_field_covariance;
     }
 
@@ -69,7 +69,7 @@ public class MagneticField extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

@@ -1,26 +1,26 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.sensor_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Joy extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
-    private ArrayList<Float> axes = new ArrayList<>();
-    private ArrayList<Int> buttons = new ArrayList<>();
+    private ArrayList<java.lang.Float> axes = new ArrayList<>();
+    private ArrayList<java.lang.Integer> buttons = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/Joy";
+    public final java.lang.String _type = "sensor_msgs/Joy";
 
     public Joy() {
 
     }
 
-    public Joy(frc.team88.ros.messages.std_msgs.Header header, Float[] axes, Int[] buttons) {
+    public Joy(frc.team88.ros.messages.std_msgs.Header header, java.lang.Float[] axes, java.lang.Integer[] buttons) {
         this.header = header;
         this.axes = new ArrayList<>(Arrays.asList(axes));
         this.buttons = new ArrayList<>(Arrays.asList(buttons));
@@ -39,20 +39,20 @@ public class Joy extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.std_msgs.Header getHeader() {
         return this.header;
     }
-    public ArrayList<Float> getAxes() {
+    public ArrayList<java.lang.Float> getAxes() {
         return this.axes;
     }
-    public ArrayList<Int> getButtons() {
+    public ArrayList<java.lang.Integer> getButtons() {
         return this.buttons;
     }
 
     public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
         this.header = header;
     }
-    public void setAxes(ArrayList<Float> axes) {
+    public void setAxes(ArrayList<java.lang.Float> axes) {
         this.axes = axes;
     }
-    public void setButtons(ArrayList<Int> buttons) {
+    public void setButtons(ArrayList<java.lang.Integer> buttons) {
         this.buttons = buttons;
     }
 
@@ -60,7 +60,7 @@ public class Joy extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

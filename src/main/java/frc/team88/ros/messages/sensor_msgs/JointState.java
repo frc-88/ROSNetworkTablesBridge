@@ -1,28 +1,28 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.sensor_msgs;
 
-import java.util.ArrayList;
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class JointState extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
-    private ArrayList<String> name = new ArrayList<>();
-    private ArrayList<Double> position = new ArrayList<>();
-    private ArrayList<Double> velocity = new ArrayList<>();
-    private ArrayList<Double> effort = new ArrayList<>();
+    private ArrayList<java.lang.String> name = new ArrayList<>();
+    private ArrayList<java.lang.Double> position = new ArrayList<>();
+    private ArrayList<java.lang.Double> velocity = new ArrayList<>();
+    private ArrayList<java.lang.Double> effort = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/JointState";
+    public final java.lang.String _type = "sensor_msgs/JointState";
 
     public JointState() {
 
     }
 
-    public JointState(frc.team88.ros.messages.std_msgs.Header header, String[] name, Double[] position, Double[] velocity, Double[] effort) {
+    public JointState(frc.team88.ros.messages.std_msgs.Header header, java.lang.String[] name, java.lang.Double[] position, java.lang.Double[] velocity, java.lang.Double[] effort) {
         this.header = header;
         this.name = new ArrayList<>(Arrays.asList(name));
         this.position = new ArrayList<>(Arrays.asList(position));
@@ -49,32 +49,32 @@ public class JointState extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.std_msgs.Header getHeader() {
         return this.header;
     }
-    public ArrayList<String> getName() {
+    public ArrayList<java.lang.String> getName() {
         return this.name;
     }
-    public ArrayList<Double> getPosition() {
+    public ArrayList<java.lang.Double> getPosition() {
         return this.position;
     }
-    public ArrayList<Double> getVelocity() {
+    public ArrayList<java.lang.Double> getVelocity() {
         return this.velocity;
     }
-    public ArrayList<Double> getEffort() {
+    public ArrayList<java.lang.Double> getEffort() {
         return this.effort;
     }
 
     public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
         this.header = header;
     }
-    public void setName(ArrayList<String> name) {
+    public void setName(ArrayList<java.lang.String> name) {
         this.name = name;
     }
-    public void setPosition(ArrayList<Double> position) {
+    public void setPosition(ArrayList<java.lang.Double> position) {
         this.position = position;
     }
-    public void setVelocity(ArrayList<Double> velocity) {
+    public void setVelocity(ArrayList<java.lang.Double> velocity) {
         this.velocity = velocity;
     }
-    public void setEffort(ArrayList<Double> effort) {
+    public void setEffort(ArrayList<java.lang.Double> effort) {
         this.effort = effort;
     }
 
@@ -82,7 +82,7 @@ public class JointState extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

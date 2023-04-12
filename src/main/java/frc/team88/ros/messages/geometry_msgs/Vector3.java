@@ -11,7 +11,7 @@ public class Vector3 extends frc.team88.ros.messages.RosMessage {
     private double z = 0.0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/Vector3";
+    public final java.lang.String _type = "geometry_msgs/Vector3";
 
     public Vector3() {
 
@@ -53,7 +53,7 @@ public class Vector3 extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

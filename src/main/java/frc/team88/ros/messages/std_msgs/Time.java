@@ -9,7 +9,7 @@ public class Time extends frc.team88.ros.messages.RosMessage {
     private frc.team88.ros.messages.Time data = new frc.team88.ros.messages.Time();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "std_msgs/Time";
+    public final java.lang.String _type = "std_msgs/Time";
 
     public Time() {
 
@@ -35,7 +35,7 @@ public class Time extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

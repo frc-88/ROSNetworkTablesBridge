@@ -6,17 +6,17 @@ import com.google.gson.annotations.Expose;
 
 public class KeyValue extends frc.team88.ros.messages.RosMessage {
 
-    private String key = "";
-    private String value = "";
+    private java.lang.String key = "";
+    private java.lang.String value = "";
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "diagnostic_msgs/KeyValue";
+    public final java.lang.String _type = "diagnostic_msgs/KeyValue";
 
     public KeyValue() {
 
     }
 
-    public KeyValue(String key, String value) {
+    public KeyValue(java.lang.String key, java.lang.String value) {
         this.key = key;
         this.value = value;
     }
@@ -26,17 +26,17 @@ public class KeyValue extends frc.team88.ros.messages.RosMessage {
         this.value = jsonObj.get("value").getAsString();
     }
 
-    public String getKey() {
+    public java.lang.String getKey() {
         return this.key;
     }
-    public String getValue() {
+    public java.lang.String getValue() {
         return this.value;
     }
 
-    public void setKey(String key) {
+    public void setKey(java.lang.String key) {
         this.key = key;
     }
-    public void setValue(String value) {
+    public void setValue(java.lang.String value) {
         this.value = value;
     }
 
@@ -44,7 +44,7 @@ public class KeyValue extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

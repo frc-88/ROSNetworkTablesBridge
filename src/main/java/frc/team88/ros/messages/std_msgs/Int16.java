@@ -9,7 +9,7 @@ public class Int16 extends frc.team88.ros.messages.RosMessage {
     private short data = 0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "std_msgs/Int16";
+    public final java.lang.String _type = "std_msgs/Int16";
 
     public Int16() {
 
@@ -35,7 +35,7 @@ public class Int16 extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

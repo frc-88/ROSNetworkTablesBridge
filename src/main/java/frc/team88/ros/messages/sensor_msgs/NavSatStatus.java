@@ -5,20 +5,20 @@ import com.google.gson.JsonObject;
 import com.google.gson.annotations.Expose;
 
 public class NavSatStatus extends frc.team88.ros.messages.RosMessage {
-    public static int SERVICE_GPS = 1;
-    public static int SERVICE_GALILEO = 8;
+    public static int STATUS_NO_FIX = -1;
     public static int STATUS_FIX = 0;
-    public static int STATUS_GBAS_FIX = 2;
     public static int STATUS_SBAS_FIX = 1;
+    public static int STATUS_GBAS_FIX = 2;
+    public static int SERVICE_GPS = 1;
     public static int SERVICE_GLONASS = 2;
     public static int SERVICE_COMPASS = 4;
-    public static int STATUS_NO_FIX = -1;
+    public static int SERVICE_GALILEO = 8;
 
     private byte status = 0;
     private short service = 0;
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "sensor_msgs/NavSatStatus";
+    public final java.lang.String _type = "sensor_msgs/NavSatStatus";
 
     public NavSatStatus() {
 
@@ -52,7 +52,7 @@ public class NavSatStatus extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }

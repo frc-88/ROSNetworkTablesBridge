@@ -10,7 +10,7 @@ public class PolygonStamped extends frc.team88.ros.messages.RosMessage {
     private frc.team88.ros.messages.geometry_msgs.Polygon polygon = new frc.team88.ros.messages.geometry_msgs.Polygon();
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/PolygonStamped";
+    public final java.lang.String _type = "geometry_msgs/PolygonStamped";
 
     public PolygonStamped() {
 
@@ -44,7 +44,7 @@ public class PolygonStamped extends frc.team88.ros.messages.RosMessage {
         return ginst.toJsonTree(this).getAsJsonObject();
     }
 
-    public String toString() {
+    public java.lang.String toString() {
         return ginst.toJson(this);
     }
 }
