@@ -40,7 +40,7 @@ publishing {
             archivesBaseName = 'ROSNetworkTablesBridge'
             artifactId = "ROSNetworkTablesBridge"
             group = "io.github.frc-88"
-            version = "0.0.1-alpha"
+            version = "0.0.2-alpha"
 
             from components.java
 
