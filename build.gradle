@@ -12,13 +12,13 @@ targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
     jcenter()
-    mavenCentral()
+    maven { url "https://jitpack.io" }
+    maven { url "https://frcmaven.wpi.edu/artifactory/release" }
 }
 
 dependencies {
     implementation wpi.java.deps.wpilib()
     implementation wpi.java.vendor.java()
-    implementation 'com.google.guava:guava:29.0-jre'
     implementation 'com.google.code.gson:gson:2.10.1'
 }
 
