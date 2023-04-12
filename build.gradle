@@ -4,22 +4,20 @@ plugins {
     id "maven-publish"
 }
 
-repositories { 
-    jcenter()
-    mavenCentral()
-    maven { url "https://jitpack.io" }
-}
+group = 'com.github.jitpack'
+version = '2.0'
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
-// Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
-// Also defines JUnit 5.
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
 dependencies {
-    implementation wpi.java.deps.wpilib()
-    implementation wpi.java.vendor.java()
+    implementation 'com.google.guava:guava:29.0-jre'
     implementation 'com.google.code.gson:gson:2.10.1'
-    implementation 'com.github.jitpack:gradle-simple:1.0'
 }
 
 java {
