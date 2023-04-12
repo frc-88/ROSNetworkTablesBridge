@@ -1,0 +1,41 @@
+plugins {
+    id "java"
+    id "edu.wpi.first.GradleRIO" version "2023.4.3"
+    id "maven-publish"
+}
+
+repositories { 
+    jcenter()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+// Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.
+// Also defines JUnit 5.
+dependencies {
+    implementation wpi.java.deps.wpilib()
+    implementation wpi.java.vendor.java()
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.github.jitpack:gradle-simple:1.0'
+}
+
+java {
+	withSourcesJar()
+	withJavadocJar()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+		from components.java
+        }
+    }
+}
+
+wrapper {
+    gradleVersion = "7.3.3"
+    distributionType = Wrapper.DistributionType.ALL
+}

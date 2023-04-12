@@ -1,0 +1,13 @@
+# ROS stuff
+--extra-index-url https://rospypi.github.io/simple/
+actionlib-msgs
+diagnostic-msgs
+geometry-msgs
+rospy
+rospy-builder
+nav-msgs
+std-msgs
+sensor-msgs
+visualization-msgs
+tf2-msgs
+genpy
