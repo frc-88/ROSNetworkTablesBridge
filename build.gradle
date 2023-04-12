@@ -29,15 +29,49 @@ java {
 	withSourcesJar()
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-		from components.java
-        }
-    }
-}
-
 wrapper {
     gradleVersion = "7.3.3"
     distributionType = Wrapper.DistributionType.ALL
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            archivesBaseName = 'ROSNetworkTablesBridge'
+            artifactId = "ROSNetworkTablesBridge"
+            group = "io.github.frc-88"
+            version = "0.0.1-alpha"
+
+            from components.java
+
+            pom {
+                name = 'ROSNetworkTablesBridge'
+                description = 'A bridge to ROS via NetworkTables'
+                url = 'https://github.com/frc-88/ROSNetworkTablesBridge'
+                inceptionYear = '2023'
+
+                scm {
+                    url = 'https://github.com/frc-88/ROSNetworkTablesBridge'
+                    connection = 'https://github.com/frc-88/ROSNetworkTablesBridge'
+                    developerConnection = 'https://github.com/frc-88/ROSNetworkTablesBridge'
+                }
+
+                licenses {
+                    license {
+                        name = 'The MIT License'
+                        url = 'https://github.com/frc-88/ROSNetworkTablesBridge/blob/master/LICENSE.md'
+                        distribution = 'repo'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'woz4tetra'
+                        name = 'Ben Warwick'
+                        email = 'woz4tetra@gmail.com'
+                    }
+                }
+            }
+        }
+    }
 }
