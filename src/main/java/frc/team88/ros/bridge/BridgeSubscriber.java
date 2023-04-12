@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import edu.wpi.first.math.Pair;
+import frc.team88.ros.Pair;
 import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.networktables.StringSubscriber;
 import edu.wpi.first.networktables.TimestampedString;

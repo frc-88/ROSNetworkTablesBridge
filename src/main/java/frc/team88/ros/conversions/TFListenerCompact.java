@@ -3,7 +3,7 @@ package frc.team88.ros.conversions;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.wpi.first.math.Pair;
+import frc.team88.ros.Pair;
 import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.wpilibj.RobotController;
 import frc.team88.ros.bridge.BridgeSubscriber;

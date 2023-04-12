@@ -1,6 +1,6 @@
 package frc.team88.ros.bridge;
 
-import edu.wpi.first.math.Pair;
+import frc.team88.ros.Pair;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.networktables.PubSubOption;
