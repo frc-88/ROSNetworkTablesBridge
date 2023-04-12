@@ -1,0 +1,59 @@
+// Auto generated!! Do not modify.
+package frc.team88.ros.messages.sensor_msgs;
+
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.Expose;
+
+public class TimeReference extends frc.team88.ros.messages.RosMessage {
+
+    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.Time time_ref = new frc.team88.ros.messages.Time();
+    private String source = "";
+
+    @Expose(serialize = false, deserialize = false)
+    public final String _type = "sensor_msgs/TimeReference";
+
+    public TimeReference() {
+
+    }
+
+    public TimeReference(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.Time time_ref, String source) {
+        this.header = header;
+        this.time_ref = time_ref;
+        this.source = source;
+    }
+
+    public TimeReference(JsonObject jsonObj) {
+        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.time_ref = new frc.team88.ros.messages.Time(jsonObj.get("time_ref").getAsJsonObject());
+        this.source = jsonObj.get("source").getAsString();
+    }
+
+    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+        return this.header;
+    }
+    public frc.team88.ros.messages.Time getTimeRef() {
+        return this.time_ref;
+    }
+    public String getSource() {
+        return this.source;
+    }
+
+    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+        this.header = header;
+    }
+    public void setTimeRef(frc.team88.ros.messages.Time time_ref) {
+        this.time_ref = time_ref;
+    }
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public JsonObject toJSON() {
+        return ginst.toJsonTree(this).getAsJsonObject();
+    }
+
+    public String toString() {
+        return ginst.toJson(this);
+    }
+}

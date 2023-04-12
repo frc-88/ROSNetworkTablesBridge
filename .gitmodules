@@ -1,0 +1,3 @@
+[submodule "ros_networktables_bridge_genmsg"]
+	path = ros_networktables_bridge_genmsg
+	url = git@github.com:frc-88/ros_networktables_bridge_genmsg.git

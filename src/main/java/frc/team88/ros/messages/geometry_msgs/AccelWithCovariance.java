@@ -5,9 +5,9 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonElement;
 import com.google.gson.annotations.Expose;
 
-public class TwistWithCovariance extends frc.team88.ros.messages.RosMessage {
+public class AccelWithCovariance extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.geometry_msgs.Twist twist = new frc.team88.ros.messages.geometry_msgs.Twist();
+    private frc.team88.ros.messages.geometry_msgs.Accel accel = new frc.team88.ros.messages.geometry_msgs.Accel();
     private Double[] covariance = new Double[] {
         0.0,
         0.0,
@@ -48,36 +48,36 @@ public class TwistWithCovariance extends frc.team88.ros.messages.RosMessage {
     };
 
     @Expose(serialize = false, deserialize = false)
-    public final String _type = "geometry_msgs/TwistWithCovariance";
+    public final String _type = "geometry_msgs/AccelWithCovariance";
 
-    public TwistWithCovariance() {
+    public AccelWithCovariance() {
 
     }
 
-    public TwistWithCovariance(frc.team88.ros.messages.geometry_msgs.Twist twist, Double[] covariance) {
-        this.twist = twist;
+    public AccelWithCovariance(frc.team88.ros.messages.geometry_msgs.Accel accel, Double[] covariance) {
+        this.accel = accel;
         for (int index = 0; index < 36; index++) {
             this.covariance[index] = covariance[index];
         }
     }
 
-    public TwistWithCovariance(JsonObject jsonObj) {
-        this.twist = new frc.team88.ros.messages.geometry_msgs.Twist(jsonObj.get("twist").getAsJsonObject());
+    public AccelWithCovariance(JsonObject jsonObj) {
+        this.accel = new frc.team88.ros.messages.geometry_msgs.Accel(jsonObj.get("accel").getAsJsonObject());
         int covariance_element_index = 0;
         for (JsonElement covariance_element : jsonObj.getAsJsonArray("covariance")) {
             this.covariance[covariance_element_index] = covariance_element.getAsDouble();
         }
     }
 
-    public frc.team88.ros.messages.geometry_msgs.Twist getTwist() {
-        return this.twist;
+    public frc.team88.ros.messages.geometry_msgs.Accel getAccel() {
+        return this.accel;
     }
     public Double[] getCovariance() {
         return this.covariance;
     }
 
-    public void setTwist(frc.team88.ros.messages.geometry_msgs.Twist twist) {
-        this.twist = twist;
+    public void setAccel(frc.team88.ros.messages.geometry_msgs.Accel accel) {
+        this.accel = accel;
     }
     public void setCovariance(Double[] covariance) {
         this.covariance = covariance;

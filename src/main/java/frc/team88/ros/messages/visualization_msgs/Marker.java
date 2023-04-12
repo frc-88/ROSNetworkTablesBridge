@@ -1,29 +1,29 @@
 // Auto generated!! Do not modify.
 package frc.team88.ros.messages.visualization_msgs;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import java.util.ArrayList;
+import com.google.gson.annotations.Expose;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonElement;
 import java.util.Arrays;
 
 public class Marker extends frc.team88.ros.messages.RosMessage {
-    public static int LINE_STRIP = 4;
+    public static int ARROW = 0;
+    public static int SPHERE_LIST = 7;
+    public static int CUBE = 1;
     public static int TRIANGLE_LIST = 11;
     public static int DELETE = 2;
-    public static int CYLINDER = 3;
-    public static int SPHERE = 2;
-    public static int ARROW = 0;
-    public static int CUBE = 1;
-    public static int MESH_RESOURCE = 10;
-    public static int SPHERE_LIST = 7;
-    public static int ADD = 0;
-    public static int TEXT_VIEW_FACING = 9;
-    public static int DELETEALL = 3;
     public static int CUBE_LIST = 6;
-    public static int MODIFY = 0;
     public static int LINE_LIST = 5;
+    public static int CYLINDER = 3;
+    public static int ADD = 0;
+    public static int DELETEALL = 3;
     public static int POINTS = 8;
+    public static int LINE_STRIP = 4;
+    public static int SPHERE = 2;
+    public static int TEXT_VIEW_FACING = 9;
+    public static int MESH_RESOURCE = 10;
+    public static int MODIFY = 0;
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
     private String ns = "";
