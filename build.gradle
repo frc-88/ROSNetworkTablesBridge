@@ -1,8 +1,11 @@
 plugins {
     id "java"
-    id "edu.wpi.first.GradleRIO" version "2023.4.3"
+    id "edu.wpi.first.GradleRIO" version "2023.4.3" apply false
     id "maven-publish"
 }
+
+apply plugin: "edu.wpi.first.GradleRIO"
+apply plugin: "maven-publish"
 
 group = 'com.github.jitpack'
 version = '2.0'
