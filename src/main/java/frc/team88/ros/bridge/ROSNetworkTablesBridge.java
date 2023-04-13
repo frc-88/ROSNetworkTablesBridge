@@ -2,25 +2,27 @@ package frc.team88.ros.bridge;
 
 import frc.team88.ros.Pair;
 import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.networktables.PubSubOption;
 import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.networktables.StringSubscriber;
 
 public class ROSNetworkTablesBridge {
-    private NetworkTableInstance instance;
-    private NetworkTable rosToNtSubtable;
-    private NetworkTable ntToRosSubtable;
-    private double updateInterval;
+    private final NetworkTable rosToNtSubtable;
+    private final NetworkTable ntToRosSubtable;
+    private final double updateInterval;
 
-    public ROSNetworkTablesBridge(String address, int port, double updateInterval) {
-        instance = NetworkTableInstance.create();
-        instance.startClient3("bridge");
-        instance.setServer(address, port);
+    public ROSNetworkTablesBridge(NetworkTable table, double updateInterval) {
         this.updateInterval = updateInterval;
 
-        rosToNtSubtable = instance.getTable("ros_to_nt");
-        ntToRosSubtable = instance.getTable("nt_to_ros");
+        rosToNtSubtable = table.getSubTable("ros_to_nt");
+        ntToRosSubtable = table.getSubTable("nt_to_ros");
+    }
+
+    public ROSNetworkTablesBridge(NetworkTable rosToNtSubtable, NetworkTable ntToRosSubtable, double updateInterval) {
+        this.updateInterval = updateInterval;
+
+        this.rosToNtSubtable = rosToNtSubtable;
+        this.ntToRosSubtable = ntToRosSubtable;
     }
 
     public StringPublisher advertise(String topicName) {
