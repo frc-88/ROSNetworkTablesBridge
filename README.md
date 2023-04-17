@@ -2,7 +2,7 @@
 
 ROSNetworkTablesBridge is a WPILib Java tool that bridges the roboRIO to ROS (Robot Operating System) using NetworkTables and JSON formatted NT entries. This project aims to provide a seamless integration between FRC (FIRST Robotics Competition) robots using WPILib and ROS, enabling advanced robot control, sensor integration, and autonomy.
 
-For now, this project is Java and ROS1 Noetic only. I may work on older versions of ROS, but hasn't been tested on those.
+For now, this project is Java and ROS1 Noetic only. It may work on older versions of ROS, but hasn't been tested on those.
 
 # Features
 
