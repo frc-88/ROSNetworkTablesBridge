@@ -16,7 +16,7 @@ For now, this project is Java and ROS1 Noetic only. It may work on older version
 
 - WPILib Java development environment setup
 - roboRIO with updated firmware
-- ROS environment setup (tested with ROS Noetic and ROS2 Foxy)
+- ROS environment setup (tested with ROS Noetic)
 
 # Installation
 
