@@ -26,8 +26,7 @@ For now, this project is Java and ROS1 Noetic only. It may work on older version
 ...
 
 repositories {
-    ...
-
+    mavenCentral()
     maven { url "https://jitpack.io" }
 }
 
@@ -144,30 +143,34 @@ git clone https://github.com/frc-88/ros_networktables_bridge_genmsg.git
 
 ### On macOS and linux
 
-- Install python dependencies: `sudo apt-get install python3-pip python3-setuptools`
+- Install python dependencies:
+
+  - On Ubuntu: `sudo apt-get install python3-pip python3-setuptools`
+  - On macOS: TODO
 
 - Create `build-java-messages.sh`, a convenience script for generating messages.
+
+  ```bash
+  #!/bin/bash
+    BASE_DIR=$(realpath "$(dirname $0)")
+
+    GEN_DIR=${BASE_DIR}/ros_networktables_bridge_genmsg
+
+    ${GEN_DIR}/build-rospy-messages.sh ~/tj2_ros/src/tj2_interfaces
+    export PYTHONPATH=${GEN_DIR}/genmsg/tj2_interfaces:$PYTHONPATH
+    source ${GEN_DIR}/venv/bin/activate
+    python3 ${GEN_DIR}/main.py -r 'src/main/java' -m 'frc/robot/ros/messages' -s ${BASE_DIR}/source_list.json
+  ```
+
+- Make this file an executable: `chmod +x build-java-messages.sh`
+
+- Run the file `./build-java-messsages.sh`
 
 - Replace `~/tj2_ros/src/tj2_interfaces` with the directory of your custom messages package containing a `msg/` folder. See this tutorial on how to generate a custom message package in ROS: <http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv>.
 
 - replace `tj2_interfaces` in the PYTHONPATH variable with your package name.
 
 - replace `frc/robot/ros/messages` with your desired output directory.
-
-```bash
-#!/bin/bash
-BASE_DIR=$(realpath "$(dirname $0)")
-
-GEN_DIR=${BASE_DIR}/ros_networktables_bridge_genmsg
-
-${GEN_DIR}/build-rospy-messages.sh ~/tj2_ros/src/tj2_interfaces
-export PYTHONPATH=${GEN_DIR}/genmsg/tj2_interfaces:$PYTHONPATH
-source ${GEN_DIR}/venv/bin/activate
-python3 ${GEN_DIR}/main.py -r 'src/main/java' -m 'frc/robot/ros/messages' -s ${BASE_DIR}/source_list.json
-```
-
-- Make this file an executable: `chmod +x build-java-messages.sh`
-- Run the file `./build-java-messsages.sh`
 
 ### On Windows
 
