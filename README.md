@@ -152,6 +152,11 @@ git clone https://github.com/frc-88/ros_networktables_bridge_genmsg.git
     - `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
     - `brew install python`
 
+- Run setup script:
+```bash
+./ros_networktables_bridge_genmsg/setup.sh
+```
+
 - Create `build-java-messages.sh`, a convenience script for generating messages.
 
 ```bash
@@ -193,6 +198,11 @@ python3 ${GEN_DIR}/main.py -r 'src/main/java' -m 'frc/robot/ros/messages' -s ${B
     - Type the path of the install python executable. For me, that was `C:\Python311\python.exe`
     - Click Ok -> Ok -> Ok
     - Relaunch VS Code to refresh environment variables
+
+- Run setup script:
+```bash
+.\ros_networktables_bridge_genmsg\setup.bat
+```
 
 - Create `build-java-messages.bat`, a convenience script for generating messages.
 
