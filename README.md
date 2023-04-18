@@ -70,8 +70,10 @@ public class CoprocessorBridge extends SubsystemBase {
      * @param updateDelay        The time delay (in milliseconds) between updates (I recommend 20)
      */
     public CoprocessorBridge(String coprocessorAddress, int coprocessorPort, int updateDelay) {
-        // Initialize target network table. In this example, the host is the coprocessor.
-        // The host can easily be changed to be the roboRIO.
+        // If the NetworkTables server is on the roboRIO:
+        // NetworkTableInstance instance = NetworkTableInstance.getDefault();
+
+        // If the NetworkTables server is on the coprocessor:
         NetworkTableInstance instance = NetworkTableInstance.create();
         instance.startClient3("bridge");
         instance.setServer(coprocessorAddress, coprocessorPort);

@@ -5,8 +5,6 @@ import java.lang.reflect.InvocationTargetException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import frc.team88.ros.Pair;
-import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.networktables.StringSubscriber;
 import edu.wpi.first.networktables.TimestampedString;
 import frc.team88.ros.messages.RosMessage;
@@ -24,7 +22,6 @@ public class BridgeSubscriber<T extends RosMessage> {
     private String topicName;
     private Class<T> reference;
     private StringSubscriber sub = null;
-    private StringPublisher pub = null;
     private long prevAtomic = 0;
 
     /**
@@ -51,17 +48,11 @@ public class BridgeSubscriber<T extends RosMessage> {
         // Initialize the StringSubscriber and StringPublisher if they haven't been
         // already
         if (this.sub == null) {
-            Pair<StringSubscriber, StringPublisher> pair = this.bridge.subscribe(this.topicName);
-            this.sub = pair.getFirst();
-            this.pub = pair.getSecond();
-            this.pub.set("");
+            this.sub = this.bridge.subscribe(this.topicName);
         }
-        // Check if the subscribed topic exists, and create it if necessary
-        if (!this.sub.exists()) {
-            System.out.println("Creating topic " + this.topicName);
-            // Push an empty value so ROS knows to populate this entry.
-            this.pub.set("");
-        }
+        // Update topics entry
+        this.bridge.sendTopicRequests();
+
         // Retrieve the latest data with a timestamp from the StringSubscriber
         TimestampedString stampedString = this.sub.getAtomic();
 

@@ -1,8 +1,11 @@
 package frc.team88.ros.bridge;
 
-import frc.team88.ros.Pair;
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.PubSubOption;
+import edu.wpi.first.networktables.StringArrayPublisher;
 import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.networktables.StringSubscriber;
 
@@ -15,6 +18,10 @@ import edu.wpi.first.networktables.StringSubscriber;
 public class ROSNetworkTablesBridge {
     private final NetworkTable rosToNtSubtable;
     private final NetworkTable ntToRosSubtable;
+    private final StringArrayPublisher rosToNtRequestedTopicsEntry;
+    private final StringArrayPublisher ntToRosRequestedTopicsEntry;
+    private final List<String> rosToNtRequestedTopics = new ArrayList<>();
+    private final List<String> ntToRosRequestedTopics = new ArrayList<>();
     private final double updateInterval;
 
     /**
@@ -30,6 +37,8 @@ public class ROSNetworkTablesBridge {
 
         rosToNtSubtable = table.getSubTable("ros_to_nt");
         ntToRosSubtable = table.getSubTable("nt_to_ros");
+        rosToNtRequestedTopicsEntry = getTopicRequestPublisher(rosToNtSubtable);
+        ntToRosRequestedTopicsEntry = getTopicRequestPublisher(ntToRosSubtable);
     }
 
     /**
@@ -48,6 +57,25 @@ public class ROSNetworkTablesBridge {
 
         this.rosToNtSubtable = rosToNtSubtable;
         this.ntToRosSubtable = ntToRosSubtable;
+        rosToNtRequestedTopicsEntry = getTopicRequestPublisher(rosToNtSubtable);
+        ntToRosRequestedTopicsEntry = getTopicRequestPublisher(ntToRosSubtable);
+    }
+
+    /**
+     * Get topic request entry. This topic signals ROS what topics to subscribe to.
+     * 
+     * @return An StringArrayPublisher object
+     */
+    private StringArrayPublisher getTopicRequestPublisher(NetworkTable table) {
+        return table.getStringArrayTopic("@topics").publish(PubSubOption.periodic(this.updateInterval));
+    }
+
+    /**
+     * Send all currently requested topics to the topics request entries.
+     */
+    public void sendTopicRequests() {
+        rosToNtRequestedTopicsEntry.set(rosToNtRequestedTopics.toArray(String[]::new));
+        ntToRosRequestedTopicsEntry.set(ntToRosRequestedTopics.toArray(String[]::new));
     }
 
     /**
@@ -69,6 +97,8 @@ public class ROSNetworkTablesBridge {
         StringPublisher pub = ntToRosSubtable.getStringTopic(ntTopic)
                 .publish(PubSubOption.periodic(this.updateInterval));
         pub.set("");
+        ntToRosRequestedTopics.add(ntTopic);
+        sendTopicRequests();
         return pub;
     }
 
@@ -85,15 +115,15 @@ public class ROSNetworkTablesBridge {
      * /tj2/odom
      *
      * @param topicName The name of the topic to be subscribed to
-     * @return A Pair containing the StringSubscriber and StringPublisher for the
-     *         specified topic
+     * @return A StringSubscriber for the specified topic
      */
-    public Pair<StringSubscriber, StringPublisher> subscribe(String topicName) {
+    public StringSubscriber subscribe(String topicName) {
         System.out.println("Subscribing to " + topicName);
         String ntTopic = topicName.replace('/', '\\');
         StringSubscriber sub = rosToNtSubtable.getStringTopic(ntTopic).subscribe("", PubSubOption.sendAll(true),
                 PubSubOption.periodic(this.updateInterval));
-        StringPublisher pub = rosToNtSubtable.getStringTopic(ntTopic).publish();
-        return new Pair<>(sub, pub);
+        rosToNtRequestedTopics.add(ntTopic);
+        sendTopicRequests();
+        return sub;
     }
 }

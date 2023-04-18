@@ -85,6 +85,9 @@ public class BridgePublisher<T extends RosMessage> {
         if (this.pub == null) {
             this.pub = this.bridge.advertise(this.topicName);
         }
+        // Update topics entry
+        this.bridge.sendTopicRequests();
+
         String input = msg.toString();
         if (input.length() == 0) {
             return;
