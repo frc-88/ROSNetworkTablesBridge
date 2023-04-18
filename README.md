@@ -148,7 +148,9 @@ git clone https://github.com/frc-88/ros_networktables_bridge_genmsg.git
 - Install python dependencies:
 
   - On Ubuntu: `sudo apt-get install python3-pip python3-setuptools`
-  - On macOS: TODO
+  - On macOS (homebrew method):
+    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    - brew install python
 
 - Create `build-java-messages.sh`, a convenience script for generating messages.
 
@@ -166,13 +168,13 @@ python3 ${GEN_DIR}/main.py -r 'src/main/java' -m 'frc/robot/ros/messages' -s ${B
 
 - Make this file an executable: `chmod +x build-java-messages.sh`
 
-- Run the file `./build-java-messsages.sh`
-
 - Replace `~/tj2_ros/src/tj2_interfaces` with the directory of your custom messages package containing a `msg/` folder. See this tutorial on how to generate a custom message package in ROS: <http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv>.
 
 - replace `tj2_interfaces` in the PYTHONPATH variable with your package name.
 
 - replace `frc/robot/ros/messages` with your desired output directory.
+
+- Run the file `./build-java-messsages.sh`
 
 ### On Windows
 
@@ -191,7 +193,30 @@ python3 ${GEN_DIR}/main.py -r 'src/main/java' -m 'frc/robot/ros/messages' -s ${B
     - Type the path of the install python executable. For me, that was `C:\Python311\python.exe`
     - Click Ok -> Ok -> Ok
     - Relaunch VS Code to refresh environment variables
-- 
+
+- Create `build-java-messages.bat`, a convenience script for generating messages.
+
+```bat
+@echo off
+
+SET BASE_DIR=%~dp0
+
+SET GEN_DIR=%BASE_DIR%\ros_networktables_bridge_genmsg
+
+call %GEN_DIR%\build-rospy-messages.bat %userprofile%\tj2_ros\src\tj2_interfaces
+set PYTHONPATH=%GEN_DIR%\genmsg\tj2_interfaces:%PYTHONPATH%
+call "%GEN_DIR%\venv\Scripts\activate"
+SET BASE_DIR=%~dp0
+python "%GEN_DIR%\main.py" "-r" "src/main/java" "-m" "frc/robot/ros/messages" "-s" "%BASE_DIR%\source_list.json"
+```
+
+- Replace `%userprofile%\tj2_ros\src\tj2_interfaces` with the directory of your custom messages package containing a `msg/` folder. See this tutorial on how to generate a custom message package in ROS: <http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv>.
+
+- replace `tj2_interfaces` in the PYTHONPATH variable with your package name.
+
+- replace `frc/robot/ros/messages` with your desired output directory.
+
+- Run the file `.\build-java-messsages.bat`
 
 ### Import and usage of custom messages
 
