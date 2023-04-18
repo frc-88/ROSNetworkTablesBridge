@@ -281,7 +281,7 @@ public class CoprocessorBridge extends SubsystemBase {
 
 Check out the DiffyJrROS repository for a full example on how to use this library:
 
-<https://github.com/frc-88/DiffyJrROS/tree/a07c30bc2fd893d286f947317b4d7cdec6914b46>
+<[https://github.com/frc-88/DiffyJrROS/tree/a07c30bc2fd893d286f947317b4d7cdec6914b46](https://github.com/frc-88/DiffyJrROS/tree/b753445511a03ae45864346593733bb9b5cf8a88)>
 
 # Contributing
 
