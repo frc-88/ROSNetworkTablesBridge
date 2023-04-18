@@ -149,8 +149,8 @@ git clone https://github.com/frc-88/ros_networktables_bridge_genmsg.git
 
   - On Ubuntu: `sudo apt-get install python3-pip python3-setuptools`
   - On macOS (homebrew method):
-    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    - brew install python
+    - `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+    - `brew install python`
 
 - Create `build-java-messages.sh`, a convenience script for generating messages.
 
