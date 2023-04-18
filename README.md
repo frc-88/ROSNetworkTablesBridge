@@ -176,7 +176,22 @@ python3 ${GEN_DIR}/main.py -r 'src/main/java' -m 'frc/robot/ros/messages' -s ${B
 
 ### On Windows
 
-- TODO
+- Install python by your method of choice.
+    - I recommend through the community maintained package manager chocolatey: https://community.chocolatey.org/
+    - Download instructions here: https://chocolatey.org/install
+    - In an administrator powershell terminal, run: `choco install python`
+- Add python to your environment path.
+    - Press the Windows Key
+    - Search for "environment variables"
+    - Click the first entry
+    - Click `Environment Variables...`
+    - Click the entry for `Path`
+    - Click `Edit...`
+    - Click New
+    - Type the path of the install python executable. For me, that was `C:\Python311\python.exe`
+    - Click Ok -> Ok -> Ok
+    - Relaunch VS Code to refresh environment variables
+- 
 
 ### Import and usage of custom messages
 
