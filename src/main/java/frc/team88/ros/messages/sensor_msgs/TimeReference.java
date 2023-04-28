@@ -7,7 +7,7 @@ import com.google.gson.annotations.Expose;
 public class TimeReference extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
-    private frc.team88.ros.messages.Time time_ref = new frc.team88.ros.messages.Time();
+    private frc.team88.ros.messages.TimePrimitive time_ref = new frc.team88.ros.messages.TimePrimitive();
     private java.lang.String source = "";
 
     @Expose(serialize = false, deserialize = false)
@@ -17,7 +17,7 @@ public class TimeReference extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public TimeReference(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.Time time_ref, java.lang.String source) {
+    public TimeReference(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.TimePrimitive time_ref, java.lang.String source) {
         this.header = header;
         this.time_ref = time_ref;
         this.source = source;
@@ -25,14 +25,14 @@ public class TimeReference extends frc.team88.ros.messages.RosMessage {
 
     public TimeReference(JsonObject jsonObj) {
         this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
-        this.time_ref = new frc.team88.ros.messages.Time(jsonObj.get("time_ref").getAsJsonObject());
+        this.time_ref = new frc.team88.ros.messages.TimePrimitive(jsonObj.get("time_ref").getAsJsonObject());
         this.source = jsonObj.get("source").getAsString();
     }
 
     public frc.team88.ros.messages.std_msgs.Header getHeader() {
         return this.header;
     }
-    public frc.team88.ros.messages.Time getTimeRef() {
+    public frc.team88.ros.messages.TimePrimitive getTimeRef() {
         return this.time_ref;
     }
     public java.lang.String getSource() {
@@ -42,7 +42,7 @@ public class TimeReference extends frc.team88.ros.messages.RosMessage {
     public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
         this.header = header;
     }
-    public void setTimeRef(frc.team88.ros.messages.Time time_ref) {
+    public void setTimeRef(frc.team88.ros.messages.TimePrimitive time_ref) {
         this.time_ref = time_ref;
     }
     public void setSource(java.lang.String source) {

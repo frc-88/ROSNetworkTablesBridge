@@ -3,7 +3,7 @@ package frc.team88.ros.bridge;
 import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.wpilibj.RobotController;
 import frc.team88.ros.messages.RosMessage;
-import frc.team88.ros.messages.Time;
+import frc.team88.ros.messages.TimePrimitive;
 import frc.team88.ros.messages.std_msgs.Header;
 
 /**
@@ -51,7 +51,7 @@ public class BridgePublisher<T extends RosMessage> {
      * @param frame_id The frame_id to be set in the Header
      * @return A new Header object
      */
-    public Header getHeader(Time time, String frame_id) {
+    public Header getHeader(TimePrimitive time, String frame_id) {
         return new Header(getSeq(), time, frame_id);
     }
 
@@ -60,11 +60,11 @@ public class BridgePublisher<T extends RosMessage> {
      *
      * @return A new Time object representing the current time
      */
-    public Time getNow() {
+    public TimePrimitive getNow() {
         long localTime = RobotController.getFPGATime();
         int secs = (int) (localTime * 1e-6);
         int nsecs = (int) ((localTime - secs * 1e6) * 1e3);
-        return new Time(secs, nsecs);
+        return new TimePrimitive(secs, nsecs);
     }
 
     /**

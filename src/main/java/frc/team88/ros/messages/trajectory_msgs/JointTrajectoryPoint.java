@@ -13,7 +13,7 @@ public class JointTrajectoryPoint extends frc.team88.ros.messages.RosMessage {
     private ArrayList<java.lang.Double> velocities = new ArrayList<>();
     private ArrayList<java.lang.Double> accelerations = new ArrayList<>();
     private ArrayList<java.lang.Double> effort = new ArrayList<>();
-    private frc.team88.ros.messages.Duration time_from_start = new frc.team88.ros.messages.Duration();
+    private frc.team88.ros.messages.DurationPrimitive time_from_start = new frc.team88.ros.messages.DurationPrimitive();
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "trajectory_msgs/JointTrajectoryPoint";
@@ -22,7 +22,7 @@ public class JointTrajectoryPoint extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public JointTrajectoryPoint(java.lang.Double[] positions, java.lang.Double[] velocities, java.lang.Double[] accelerations, java.lang.Double[] effort, frc.team88.ros.messages.Duration time_from_start) {
+    public JointTrajectoryPoint(java.lang.Double[] positions, java.lang.Double[] velocities, java.lang.Double[] accelerations, java.lang.Double[] effort, frc.team88.ros.messages.DurationPrimitive time_from_start) {
         this.positions = new ArrayList<>(Arrays.asList(positions));
         this.velocities = new ArrayList<>(Arrays.asList(velocities));
         this.accelerations = new ArrayList<>(Arrays.asList(accelerations));
@@ -43,7 +43,7 @@ public class JointTrajectoryPoint extends frc.team88.ros.messages.RosMessage {
         for (JsonElement effort_element : jsonObj.getAsJsonArray("effort")) {
             this.effort.add(effort_element.getAsDouble());
         }
-        this.time_from_start = new frc.team88.ros.messages.Duration(jsonObj.get("time_from_start").getAsJsonObject());
+        this.time_from_start = new frc.team88.ros.messages.DurationPrimitive(jsonObj.get("time_from_start").getAsJsonObject());
     }
 
     public ArrayList<java.lang.Double> getPositions() {
@@ -58,7 +58,7 @@ public class JointTrajectoryPoint extends frc.team88.ros.messages.RosMessage {
     public ArrayList<java.lang.Double> getEffort() {
         return this.effort;
     }
-    public frc.team88.ros.messages.Duration getTimeFromStart() {
+    public frc.team88.ros.messages.DurationPrimitive getTimeFromStart() {
         return this.time_from_start;
     }
 
@@ -74,7 +74,7 @@ public class JointTrajectoryPoint extends frc.team88.ros.messages.RosMessage {
     public void setEffort(ArrayList<java.lang.Double> effort) {
         this.effort = effort;
     }
-    public void setTimeFromStart(frc.team88.ros.messages.Duration time_from_start) {
+    public void setTimeFromStart(frc.team88.ros.messages.DurationPrimitive time_from_start) {
         this.time_from_start = time_from_start;
     }
 

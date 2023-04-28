@@ -12,7 +12,7 @@ public class MultiDOFJointTrajectoryPoint extends frc.team88.ros.messages.RosMes
     private ArrayList<frc.team88.ros.messages.geometry_msgs.Transform> transforms = new ArrayList<>();
     private ArrayList<frc.team88.ros.messages.geometry_msgs.Twist> velocities = new ArrayList<>();
     private ArrayList<frc.team88.ros.messages.geometry_msgs.Twist> accelerations = new ArrayList<>();
-    private frc.team88.ros.messages.Duration time_from_start = new frc.team88.ros.messages.Duration();
+    private frc.team88.ros.messages.DurationPrimitive time_from_start = new frc.team88.ros.messages.DurationPrimitive();
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "trajectory_msgs/MultiDOFJointTrajectoryPoint";
@@ -21,7 +21,7 @@ public class MultiDOFJointTrajectoryPoint extends frc.team88.ros.messages.RosMes
 
     }
 
-    public MultiDOFJointTrajectoryPoint(frc.team88.ros.messages.geometry_msgs.Transform[] transforms, frc.team88.ros.messages.geometry_msgs.Twist[] velocities, frc.team88.ros.messages.geometry_msgs.Twist[] accelerations, frc.team88.ros.messages.Duration time_from_start) {
+    public MultiDOFJointTrajectoryPoint(frc.team88.ros.messages.geometry_msgs.Transform[] transforms, frc.team88.ros.messages.geometry_msgs.Twist[] velocities, frc.team88.ros.messages.geometry_msgs.Twist[] accelerations, frc.team88.ros.messages.DurationPrimitive time_from_start) {
         this.transforms = new ArrayList<>(Arrays.asList(transforms));
         this.velocities = new ArrayList<>(Arrays.asList(velocities));
         this.accelerations = new ArrayList<>(Arrays.asList(accelerations));
@@ -38,7 +38,7 @@ public class MultiDOFJointTrajectoryPoint extends frc.team88.ros.messages.RosMes
         for (JsonElement accelerations_element : jsonObj.getAsJsonArray("accelerations")) {
             this.accelerations.add(new frc.team88.ros.messages.geometry_msgs.Twist(accelerations_element.getAsJsonObject()));
         }
-        this.time_from_start = new frc.team88.ros.messages.Duration(jsonObj.get("time_from_start").getAsJsonObject());
+        this.time_from_start = new frc.team88.ros.messages.DurationPrimitive(jsonObj.get("time_from_start").getAsJsonObject());
     }
 
     public ArrayList<frc.team88.ros.messages.geometry_msgs.Transform> getTransforms() {
@@ -50,7 +50,7 @@ public class MultiDOFJointTrajectoryPoint extends frc.team88.ros.messages.RosMes
     public ArrayList<frc.team88.ros.messages.geometry_msgs.Twist> getAccelerations() {
         return this.accelerations;
     }
-    public frc.team88.ros.messages.Duration getTimeFromStart() {
+    public frc.team88.ros.messages.DurationPrimitive getTimeFromStart() {
         return this.time_from_start;
     }
 
@@ -63,7 +63,7 @@ public class MultiDOFJointTrajectoryPoint extends frc.team88.ros.messages.RosMes
     public void setAccelerations(ArrayList<frc.team88.ros.messages.geometry_msgs.Twist> accelerations) {
         this.accelerations = accelerations;
     }
-    public void setTimeFromStart(frc.team88.ros.messages.Duration time_from_start) {
+    public void setTimeFromStart(frc.team88.ros.messages.DurationPrimitive time_from_start) {
         this.time_from_start = time_from_start;
     }
 

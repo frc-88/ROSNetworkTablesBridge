@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class MapMetaData extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.Time map_load_time = new frc.team88.ros.messages.Time();
+    private frc.team88.ros.messages.TimePrimitive map_load_time = new frc.team88.ros.messages.TimePrimitive();
     private float resolution = 0.0f;
     private int width = 0;
     private int height = 0;
@@ -19,7 +19,7 @@ public class MapMetaData extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public MapMetaData(frc.team88.ros.messages.Time map_load_time, float resolution, int width, int height, frc.team88.ros.messages.geometry_msgs.Pose origin) {
+    public MapMetaData(frc.team88.ros.messages.TimePrimitive map_load_time, float resolution, int width, int height, frc.team88.ros.messages.geometry_msgs.Pose origin) {
         this.map_load_time = map_load_time;
         this.resolution = resolution;
         this.width = width;
@@ -28,14 +28,14 @@ public class MapMetaData extends frc.team88.ros.messages.RosMessage {
     }
 
     public MapMetaData(JsonObject jsonObj) {
-        this.map_load_time = new frc.team88.ros.messages.Time(jsonObj.get("map_load_time").getAsJsonObject());
+        this.map_load_time = new frc.team88.ros.messages.TimePrimitive(jsonObj.get("map_load_time").getAsJsonObject());
         this.resolution = jsonObj.get("resolution").getAsFloat();
         this.width = jsonObj.get("width").getAsInt();
         this.height = jsonObj.get("height").getAsInt();
         this.origin = new frc.team88.ros.messages.geometry_msgs.Pose(jsonObj.get("origin").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.Time getMapLoadTime() {
+    public frc.team88.ros.messages.TimePrimitive getMapLoadTime() {
         return this.map_load_time;
     }
     public float getResolution() {
@@ -51,7 +51,7 @@ public class MapMetaData extends frc.team88.ros.messages.RosMessage {
         return this.origin;
     }
 
-    public void setMapLoadTime(frc.team88.ros.messages.Time map_load_time) {
+    public void setMapLoadTime(frc.team88.ros.messages.TimePrimitive map_load_time) {
         this.map_load_time = map_load_time;
     }
     public void setResolution(float resolution) {

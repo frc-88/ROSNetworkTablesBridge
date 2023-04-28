@@ -2,33 +2,31 @@ package frc.team88.ros.messages;
 
 import com.google.gson.JsonObject;
 
-public class Time extends frc.team88.ros.messages.RosMessage {
+public class TimePrimitive extends frc.team88.ros.messages.RosMessage {
 
     private int secs = 0;
     private int nsecs = 0;
 
-    public final String _type = "std_msgs/Time";
-
-    public Time() {
+    public TimePrimitive() {
 
     }
 
-    public Time(int secs, int nsecs) {
+    public TimePrimitive(int secs, int nsecs) {
         this.secs = secs;
         this.nsecs = nsecs;
     }
 
-    public Time(double seconds) {
+    public TimePrimitive(double seconds) {
         this.secs = (int) seconds;
         this.nsecs = (int) (seconds * 1e9);
     }
 
-    public Time(JsonObject jsonObj) {
+    public TimePrimitive(JsonObject jsonObj) {
         this.secs = jsonObj.get("secs").getAsInt();
         this.nsecs = jsonObj.get("nsecs").getAsInt();
     }
 
-    public Time(Duration duration) {
+    public TimePrimitive(DurationPrimitive duration) {
         this.secs = duration.getSecs();
         this.nsecs = duration.getNsecs();
     }
@@ -61,11 +59,11 @@ public class Time extends frc.team88.ros.messages.RosMessage {
         return ginst.toJson(this);
     }
 
-    public Duration minus(Time other) {
-        return new Duration(this.secs - other.getSecs(), this.nsecs - other.getNsecs());
+    public DurationPrimitive minus(TimePrimitive other) {
+        return new DurationPrimitive(this.secs - other.getSecs(), this.nsecs - other.getNsecs());
     }
 
-    public Time plus(Duration other) {
-        return new Time(this.secs + other.getSecs(), this.nsecs + other.getNsecs());
+    public TimePrimitive plus(DurationPrimitive other) {
+        return new TimePrimitive(this.secs + other.getSecs(), this.nsecs + other.getNsecs());
     }
 }

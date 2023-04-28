@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class GoalID extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.Time stamp = new frc.team88.ros.messages.Time();
+    private frc.team88.ros.messages.TimePrimitive stamp = new frc.team88.ros.messages.TimePrimitive();
     private java.lang.String id = "";
 
     @Expose(serialize = false, deserialize = false)
@@ -16,24 +16,24 @@ public class GoalID extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public GoalID(frc.team88.ros.messages.Time stamp, java.lang.String id) {
+    public GoalID(frc.team88.ros.messages.TimePrimitive stamp, java.lang.String id) {
         this.stamp = stamp;
         this.id = id;
     }
 
     public GoalID(JsonObject jsonObj) {
-        this.stamp = new frc.team88.ros.messages.Time(jsonObj.get("stamp").getAsJsonObject());
+        this.stamp = new frc.team88.ros.messages.TimePrimitive(jsonObj.get("stamp").getAsJsonObject());
         this.id = jsonObj.get("id").getAsString();
     }
 
-    public frc.team88.ros.messages.Time getStamp() {
+    public frc.team88.ros.messages.TimePrimitive getStamp() {
         return this.stamp;
     }
     public java.lang.String getId() {
         return this.id;
     }
 
-    public void setStamp(frc.team88.ros.messages.Time stamp) {
+    public void setStamp(frc.team88.ros.messages.TimePrimitive stamp) {
         this.stamp = stamp;
     }
     public void setId(java.lang.String id) {

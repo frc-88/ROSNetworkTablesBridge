@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class Time extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.Time data = new frc.team88.ros.messages.Time();
+    private frc.team88.ros.messages.TimePrimitive data = new frc.team88.ros.messages.TimePrimitive();
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "std_msgs/Time";
@@ -15,19 +15,19 @@ public class Time extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Time(frc.team88.ros.messages.Time data) {
+    public Time(frc.team88.ros.messages.TimePrimitive data) {
         this.data = data;
     }
 
     public Time(JsonObject jsonObj) {
-        this.data = new frc.team88.ros.messages.Time(jsonObj.get("data").getAsJsonObject());
+        this.data = new frc.team88.ros.messages.TimePrimitive(jsonObj.get("data").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.Time getData() {
+    public frc.team88.ros.messages.TimePrimitive getData() {
         return this.data;
     }
 
-    public void setData(frc.team88.ros.messages.Time data) {
+    public void setData(frc.team88.ros.messages.TimePrimitive data) {
         this.data = data;
     }
 
