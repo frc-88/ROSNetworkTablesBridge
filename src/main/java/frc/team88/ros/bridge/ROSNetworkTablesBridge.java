@@ -1,11 +1,7 @@
 package frc.team88.ros.bridge;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.PubSubOption;
-import edu.wpi.first.networktables.StringArrayPublisher;
 import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.networktables.StringSubscriber;
 
@@ -18,10 +14,8 @@ import edu.wpi.first.networktables.StringSubscriber;
 public class ROSNetworkTablesBridge {
     private final NetworkTable rosToNtSubtable;
     private final NetworkTable ntToRosSubtable;
-    private final StringArrayPublisher rosToNtRequestedTopicsEntry;
-    private final StringArrayPublisher ntToRosRequestedTopicsEntry;
-    private final List<String> rosToNtRequestedTopics = new ArrayList<>();
-    private final List<String> ntToRosRequestedTopics = new ArrayList<>();
+    private final NetworkTable rosToNtRequestedTopicsTable;
+    private final NetworkTable ntToRosRequestedTopicsTable;
     private final double updateInterval;
     public final String TOPICS_ENTRY_KEY = "@topics";
 
@@ -38,8 +32,8 @@ public class ROSNetworkTablesBridge {
 
         rosToNtSubtable = table.getSubTable("ros_to_nt");
         ntToRosSubtable = table.getSubTable("nt_to_ros");
-        rosToNtRequestedTopicsEntry = getTopicRequestPublisher(rosToNtSubtable);
-        ntToRosRequestedTopicsEntry = getTopicRequestPublisher(ntToRosSubtable);
+        rosToNtRequestedTopicsTable = rosToNtSubtable.getSubTable(TOPICS_ENTRY_KEY);
+        ntToRosRequestedTopicsTable = ntToRosSubtable.getSubTable(TOPICS_ENTRY_KEY);
     }
 
     /**
@@ -58,25 +52,15 @@ public class ROSNetworkTablesBridge {
 
         this.rosToNtSubtable = rosToNtSubtable;
         this.ntToRosSubtable = ntToRosSubtable;
-        rosToNtRequestedTopicsEntry = getTopicRequestPublisher(rosToNtSubtable);
-        ntToRosRequestedTopicsEntry = getTopicRequestPublisher(ntToRosSubtable);
+        rosToNtRequestedTopicsTable = rosToNtSubtable.getSubTable(TOPICS_ENTRY_KEY);
+        ntToRosRequestedTopicsTable = ntToRosSubtable.getSubTable(TOPICS_ENTRY_KEY);
     }
 
     /**
-     * Get topic request entry. This topic signals ROS what topics to subscribe to.
-     * 
-     * @return An StringArrayPublisher object
+     * Set topic state on the request list table
      */
-    private StringArrayPublisher getTopicRequestPublisher(NetworkTable table) {
-        return table.getStringArrayTopic(TOPICS_ENTRY_KEY).publish(PubSubOption.periodic(this.updateInterval));
-    }
-
-    /**
-     * Send all currently requested topics to the topics request entries.
-     */
-    public void sendTopicRequests() {
-        rosToNtRequestedTopicsEntry.set(rosToNtRequestedTopics.toArray(String[]::new));
-        ntToRosRequestedTopicsEntry.set(ntToRosRequestedTopics.toArray(String[]::new));
+    private void setTopicEnable(NetworkTable topicsTable, String topic, boolean state) {
+        topicsTable.getEntry(topic).setBoolean(state);
     }
 
     /**
@@ -98,9 +82,19 @@ public class ROSNetworkTablesBridge {
         StringPublisher pub = ntToRosSubtable.getStringTopic(ntTopic)
                 .publish(PubSubOption.periodic(this.updateInterval));
         pub.set("");
-        ntToRosRequestedTopics.add(ntTopic);
-        sendTopicRequests();
+        setTopicEnable(ntToRosRequestedTopicsTable, ntTopic, true);
         return pub;
+    }
+
+    /**
+     * Closes a subscriber or publisher topic
+     *
+     * @param topicName The name of the topic to be closed
+     */
+    public void unregister(String topicName) {
+        System.out.println("Closing topic " + topicName);
+        String ntTopic = topicName.replace('/', '\\');
+        setTopicEnable(ntToRosRequestedTopicsTable, ntTopic, false);
     }
 
     /**
@@ -123,8 +117,7 @@ public class ROSNetworkTablesBridge {
         String ntTopic = topicName.replace('/', '\\');
         StringSubscriber sub = rosToNtSubtable.getStringTopic(ntTopic).subscribe("", PubSubOption.sendAll(true),
                 PubSubOption.periodic(this.updateInterval));
-        rosToNtRequestedTopics.add(ntTopic);
-        sendTopicRequests();
+        setTopicEnable(rosToNtRequestedTopicsTable, ntTopic, true);
         return sub;
     }
 }

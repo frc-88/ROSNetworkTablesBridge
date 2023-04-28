@@ -23,6 +23,7 @@ public class BridgeSubscriber<T extends RosMessage> {
     private Class<T> reference;
     private StringSubscriber sub = null;
     private long prevAtomic = 0;
+    private boolean enabled = true;
 
     /**
      * Constructor that initializes the BridgeSubscriber with a
@@ -45,13 +46,15 @@ public class BridgeSubscriber<T extends RosMessage> {
      *         null if no new data is available.
      */
     public T receive() {
+        if (!this.enabled) {
+            return null;
+        }
+
         // Initialize the StringSubscriber and StringPublisher if they haven't been
         // already
         if (this.sub == null) {
             this.sub = this.bridge.subscribe(this.topicName);
         }
-        // Update topics entry
-        this.bridge.sendTopicRequests();
 
         // Retrieve the latest data with a timestamp from the StringSubscriber
         TimestampedString stampedString = this.sub.getAtomic();
@@ -89,5 +92,20 @@ public class BridgeSubscriber<T extends RosMessage> {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * Enable subscriber (Subscribers are enabled on initialization).
+     */
+    public void register() {
+        this.enabled = true;
+    }
+
+    /**
+     * Disable subscriber (Subscribers are enabled on initialization).
+     */
+    public void unregister() {
+        this.enabled = false;
+        this.bridge.unregister(topicName);
     }
 }

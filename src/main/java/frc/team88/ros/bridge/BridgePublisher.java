@@ -19,6 +19,7 @@ public class BridgePublisher<T extends RosMessage> {
     private String topicName;
     private StringPublisher pub = null;
     private int seq = 0;
+    private boolean enabled = true;
 
     /**
      * Constructor that initializes the BridgePublisher with a
@@ -82,16 +83,32 @@ public class BridgePublisher<T extends RosMessage> {
      * @param msg The RosMessage to be sent
      */
     public void send(T msg) {
+        if (!this.enabled) {
+            return;
+        }
         if (this.pub == null) {
             this.pub = this.bridge.advertise(this.topicName);
         }
-        // Update topics entry
-        this.bridge.sendTopicRequests();
 
         String input = msg.toString();
         if (input.length() == 0) {
             return;
         }
         this.pub.set(input);
+    }
+
+    /**
+     * Enable publisher (Publisher are enabled on initialization).
+     */
+    public void register() {
+        this.enabled = true;
+    }
+
+    /**
+     * Disable publisher (Publisher are enabled on initialization).
+     */
+    public void unregister() {
+        this.enabled = false;
+        this.bridge.unregister(topicName);
     }
 }
