@@ -9,7 +9,7 @@ public class Range extends frc.team88.ros.messages.RosMessage {
     public static int INFRARED = 1;
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
-    private char radiation_type = '\0';
+    private char radiation_type = 0;
     private float field_of_view = 0.0f;
     private float min_range = 0.0f;
     private float max_range = 0.0f;

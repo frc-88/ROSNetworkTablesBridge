@@ -17,7 +17,7 @@ public class GoalStatus extends frc.team88.ros.messages.RosMessage {
     public static int LOST = 9;
 
     private frc.team88.ros.messages.actionlib_msgs.GoalID goal_id = new frc.team88.ros.messages.actionlib_msgs.GoalID();
-    private char status = '\0';
+    private char status = 0;
     private java.lang.String text = "";
 
     @Expose(serialize = false, deserialize = false)

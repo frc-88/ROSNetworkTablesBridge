@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class Char extends frc.team88.ros.messages.RosMessage {
 
-    private char data = '\0';
+    private char data = 0;
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "std_msgs/Char";

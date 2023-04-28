@@ -13,7 +13,7 @@ public class MenuEntry extends frc.team88.ros.messages.RosMessage {
     private int parent_id = 0;
     private java.lang.String title = "";
     private java.lang.String command = "";
-    private char command_type = '\0';
+    private char command_type = 0;
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "visualization_msgs/MenuEntry";

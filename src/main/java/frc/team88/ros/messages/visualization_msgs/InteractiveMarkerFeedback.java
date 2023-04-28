@@ -16,7 +16,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
     private java.lang.String client_id = "";
     private java.lang.String marker_name = "";
     private java.lang.String control_name = "";
-    private char event_type = '\0';
+    private char event_type = 0;
     private frc.team88.ros.messages.geometry_msgs.Pose pose = new frc.team88.ros.messages.geometry_msgs.Pose();
     private int menu_entry_id = 0;
     private frc.team88.ros.messages.geometry_msgs.Point mouse_point = new frc.team88.ros.messages.geometry_msgs.Point();

@@ -13,7 +13,7 @@ public class InteractiveMarkerUpdate extends frc.team88.ros.messages.RosMessage 
 
     private java.lang.String server_id = "";
     private long seq_num = 0;
-    private char type = '\0';
+    private char type = 0;
     private ArrayList<frc.team88.ros.messages.visualization_msgs.InteractiveMarker> markers = new ArrayList<>();
     private ArrayList<frc.team88.ros.messages.visualization_msgs.InteractiveMarkerPose> poses = new ArrayList<>();
     private ArrayList<java.lang.String> erases = new ArrayList<>();

@@ -13,7 +13,7 @@ public class TF2Error extends frc.team88.ros.messages.RosMessage {
     public static int TIMEOUT_ERROR = 5;
     public static int TRANSFORM_ERROR = 6;
 
-    private char error = '\0';
+    private char error = 0;
     private java.lang.String error_string = "";
 
     @Expose(serialize = false, deserialize = false)

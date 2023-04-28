@@ -16,7 +16,7 @@ public class PointField extends frc.team88.ros.messages.RosMessage {
 
     private java.lang.String name = "";
     private int offset = 0;
-    private char datatype = '\0';
+    private char datatype = 0;
     private int count = 0;
 
     @Expose(serialize = false, deserialize = false)

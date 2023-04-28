@@ -21,7 +21,7 @@ public class SolidPrimitive extends frc.team88.ros.messages.RosMessage {
     public static int CONE_HEIGHT = 0;
     public static int CONE_RADIUS = 1;
 
-    private char type = '\0';
+    private char type = 0;
     private ArrayList<java.lang.Double> dimensions = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)

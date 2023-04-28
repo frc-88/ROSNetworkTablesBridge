@@ -9,8 +9,8 @@ public class JoyFeedback extends frc.team88.ros.messages.RosMessage {
     public static int TYPE_RUMBLE = 1;
     public static int TYPE_BUZZER = 2;
 
-    private char type = '\0';
-    private char id = '\0';
+    private char type = 0;
+    private char id = 0;
     private float intensity = 0.0f;
 
     @Expose(serialize = false, deserialize = false)

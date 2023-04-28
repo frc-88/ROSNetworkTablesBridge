@@ -24,8 +24,8 @@ public class InteractiveMarkerControl extends frc.team88.ros.messages.RosMessage
 
     private java.lang.String name = "";
     private frc.team88.ros.messages.geometry_msgs.Quaternion orientation = new frc.team88.ros.messages.geometry_msgs.Quaternion();
-    private char orientation_mode = '\0';
-    private char interaction_mode = '\0';
+    private char orientation_mode = 0;
+    private char interaction_mode = 0;
     private boolean always_visible = false;
     private ArrayList<frc.team88.ros.messages.visualization_msgs.Marker> markers = new ArrayList<>();
     private boolean independent_marker_orientation = false;

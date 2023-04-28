@@ -27,7 +27,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
         0.0,
         0.0
     };
-    private char position_covariance_type = '\0';
+    private char position_covariance_type = 0;
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "sensor_msgs/NavSatFix";

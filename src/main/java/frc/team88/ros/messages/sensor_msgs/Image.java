@@ -13,7 +13,7 @@ public class Image extends frc.team88.ros.messages.RosMessage {
     private int height = 0;
     private int width = 0;
     private java.lang.String encoding = "";
-    private char is_bigendian = '\0';
+    private char is_bigendian = 0;
     private int step = 0;
     private ArrayList<java.lang.Character> data = new ArrayList<>();
 

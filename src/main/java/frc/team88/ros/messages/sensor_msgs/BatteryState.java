@@ -38,9 +38,9 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
     private float capacity = 0.0f;
     private float design_capacity = 0.0f;
     private float percentage = 0.0f;
-    private char power_supply_status = '\0';
-    private char power_supply_health = '\0';
-    private char power_supply_technology = '\0';
+    private char power_supply_status = 0;
+    private char power_supply_health = 0;
+    private char power_supply_technology = 0;
     private boolean present = false;
     private ArrayList<java.lang.Float> cell_voltage = new ArrayList<>();
     private ArrayList<java.lang.Float> cell_temperature = new ArrayList<>();

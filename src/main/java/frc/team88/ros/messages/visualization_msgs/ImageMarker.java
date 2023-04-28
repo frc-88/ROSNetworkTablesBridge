@@ -24,7 +24,7 @@ public class ImageMarker extends frc.team88.ros.messages.RosMessage {
     private frc.team88.ros.messages.geometry_msgs.Point position = new frc.team88.ros.messages.geometry_msgs.Point();
     private float scale = 0.0f;
     private frc.team88.ros.messages.std_msgs.ColorRGBA outline_color = new frc.team88.ros.messages.std_msgs.ColorRGBA();
-    private char filled = '\0';
+    private char filled = 0;
     private frc.team88.ros.messages.std_msgs.ColorRGBA fill_color = new frc.team88.ros.messages.std_msgs.ColorRGBA();
     private frc.team88.ros.messages.DurationPrimitive lifetime = new frc.team88.ros.messages.DurationPrimitive();
     private ArrayList<frc.team88.ros.messages.geometry_msgs.Point> points = new ArrayList<>();
