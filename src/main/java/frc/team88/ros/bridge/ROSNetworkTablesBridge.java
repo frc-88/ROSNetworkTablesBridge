@@ -68,7 +68,6 @@ public class ROSNetworkTablesBridge {
      * @return An StringArrayPublisher object
      */
     private StringArrayPublisher getTopicRequestPublisher(NetworkTable table) {
-        table.getEntry(TOPICS_ENTRY_KEY).clearPersistent();
         return table.getStringArrayTopic(TOPICS_ENTRY_KEY).publish(PubSubOption.periodic(this.updateInterval));
     }
 
@@ -96,7 +95,6 @@ public class ROSNetworkTablesBridge {
     public StringPublisher advertise(String topicName) {
         System.out.println("Publishing to " + topicName);
         String ntTopic = topicName.replace('/', '\\');
-        ntToRosSubtable.getEntry(ntTopic).clearPersistent();
         StringPublisher pub = ntToRosSubtable.getStringTopic(ntTopic)
                 .publish(PubSubOption.periodic(this.updateInterval));
         pub.set("");
@@ -123,7 +121,6 @@ public class ROSNetworkTablesBridge {
     public StringSubscriber subscribe(String topicName) {
         System.out.println("Subscribing to " + topicName);
         String ntTopic = topicName.replace('/', '\\');
-        rosToNtSubtable.getEntry(ntTopic).clearPersistent();
         StringSubscriber sub = rosToNtSubtable.getStringTopic(ntTopic).subscribe("", PubSubOption.sendAll(true),
                 PubSubOption.periodic(this.updateInterval));
         rosToNtRequestedTopics.add(ntTopic);
