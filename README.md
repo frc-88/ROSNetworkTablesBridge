@@ -130,15 +130,38 @@ If you want custom messages to be sent between ROS and the roboRIO, follow these
 git clone https://github.com/frc-88/ros_networktables_bridge_genmsg.git
 ```
 
-- Create `source_list.json` in the root of your project. This defines the names of the messages you want to import:
-
+- Create `source_list.json` in the root of your project. This defines the names of the messages you want to import.
+    - You can also put local directories like what I've done for tj2_interfaces
 ```
 {
     "sources": [
         "tj2_interfaces/GameObjectsStamped",
         "tj2_interfaces/Match",
         "tj2_interfaces/MatchPeriod",
-        "tj2_interfaces/NavX"
+        "tj2_interfaces/NavX",
+        "apriltag_ros/*"
+    ],
+    "repos": [
+        {
+            "local-name": "apriltag_ros",
+            "uri": "https://github.com/AprilRobotics/apriltag_ros.git",
+            "version": "master"
+        },
+        {
+            "local-name": "std_msgs",
+            "uri": "https://github.com/ros/std_msgs.git",
+            "version": "kinetic-devel"
+        },
+        {
+            "local-name": "common_msgs",
+            "uri": "https://github.com/ros/common_msgs.git",
+            "version": "noetic-devel"
+        },
+        {
+            "local-name": "tj2_interfaces",
+            "uri": "file:///home/ben/tj2_ros/src/tj2_interfaces",
+            "version": ""
+        }
     ]
 }
 ```
@@ -164,18 +187,16 @@ git clone https://github.com/frc-88/ros_networktables_bridge_genmsg.git
 BASE_DIR=$(realpath "$(dirname $0)")
 
 GEN_DIR=${BASE_DIR}/ros_networktables_bridge_genmsg
+GEN_MSG_ROOT=${GEN_DIR}/genmsg
+SOURCES_PATH=${BASE_DIR}/source_list.json
 
-${GEN_DIR}/build-rospy-messages.sh ~/tj2_ros/src/tj2_interfaces
-export PYTHONPATH=${GEN_DIR}/genmsg/tj2_interfaces:$PYTHONPATH
+${GEN_DIR}/build-rospy-messages.sh ${SOURCES_PATH}
 source ${GEN_DIR}/venv/bin/activate
-python3 ${GEN_DIR}/main.py -r 'src/main/java' -m 'frc/robot/ros/messages' -s ${BASE_DIR}/source_list.json
+source ${GEN_MSG_ROOT}/set_build_python_path.sh
+python3 ${GEN_DIR}/main.py -r 'src/main/java' -m 'frc/robot/ros/messages' -s ${SOURCES_PATH}
 ```
 
 - Make this file an executable: `chmod +x build-java-messages.sh`
-
-- Replace `~/tj2_ros/src/tj2_interfaces` with the directory of your custom messages package containing a `msg/` folder. See this tutorial on how to generate a custom message package in ROS: <http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv>.
-
-- replace `tj2_interfaces` in the PYTHONPATH variable with your package name.
 
 - replace `frc/robot/ros/messages` with your desired output directory.
 
@@ -211,18 +232,16 @@ python3 ${GEN_DIR}/main.py -r 'src/main/java' -m 'frc/robot/ros/messages' -s ${B
 
 SET BASE_DIR=%~dp0
 
-SET GEN_DIR=%BASE_DIR%\ros_networktables_bridge_genmsg
+SET GEN_DIR=%BASE_DIR%ros_networktables_bridge_genmsg
+SET GEN_MSG_ROOT=%GEN_DIR%\genmsg
+SET SOURCES_PATH=%BASE_DIR%source_list.json
 
-call %GEN_DIR%\build-rospy-messages.bat %userprofile%\tj2_ros\src\tj2_interfaces
-set PYTHONPATH=%GEN_DIR%\genmsg\tj2_interfaces:%PYTHONPATH%
+call "%GEN_DIR%\build-rospy-messages.bat"
 call "%GEN_DIR%\venv\Scripts\activate"
-SET BASE_DIR=%~dp0
-python "%GEN_DIR%\main.py" "-r" "src/main/java" "-m" "frc/robot/ros/messages" "-s" "%BASE_DIR%\source_list.json"
+call "%GEN_MSG_ROOT%\set_build_python_path.bat"
+python "%GEN_DIR%\clone_repos.py" "%SOURCES_PATH%" "%GEN_MSG_ROOT%"
+python "%GEN_DIR%\main.py" "-r" "src/main/java" "-m" "frc/robot/ros/messages" "-s" "%SOURCES_PATH%"
 ```
-
-- Replace `%userprofile%\tj2_ros\src\tj2_interfaces` with the directory of your custom messages package containing a `msg/` folder. See this tutorial on how to generate a custom message package in ROS: <http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv>.
-
-- replace `tj2_interfaces` in the PYTHONPATH variable with your package name.
 
 - replace `frc/robot/ros/messages` with your desired output directory.
 
