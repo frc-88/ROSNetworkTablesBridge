@@ -50,8 +50,7 @@ public class BridgeSubscriber<T extends RosMessage> {
             return null;
         }
 
-        // Initialize the StringSubscriber and StringPublisher if they haven't been
-        // already
+        // Initialize the data subscriber if it hasn't been already
         if (this.sub == null) {
             this.sub = this.bridge.subscribe(this.topicName);
         }

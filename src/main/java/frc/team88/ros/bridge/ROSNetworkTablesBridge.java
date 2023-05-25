@@ -1,5 +1,6 @@
 package frc.team88.ros.bridge;
 
+import edu.wpi.first.networktables.DoubleSubscriber;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.PubSubOption;
 import edu.wpi.first.networktables.StringPublisher;
@@ -16,8 +17,10 @@ public class ROSNetworkTablesBridge {
     private final NetworkTable ntToRosSubtable;
     private final NetworkTable rosToNtRequestedTopicsTable;
     private final NetworkTable ntToRosRequestedTopicsTable;
+    private final DoubleSubscriber timeSyncSub;
     private final double updateInterval;
     public final String TOPICS_ENTRY_KEY = "@topics";
+    public final String TIME_ENTRY_KEY = "@time";
 
     /**
      * Constructor that takes a single NetworkTable and creates ros_to_nt and
@@ -34,6 +37,12 @@ public class ROSNetworkTablesBridge {
         ntToRosSubtable = table.getSubTable("nt_to_ros");
         rosToNtRequestedTopicsTable = rosToNtSubtable.getSubTable(TOPICS_ENTRY_KEY);
         ntToRosRequestedTopicsTable = ntToRosSubtable.getSubTable(TOPICS_ENTRY_KEY);
+        timeSyncSub = makeTimeSyncSub();
+    }
+
+    private DoubleSubscriber makeTimeSyncSub() {
+        return rosToNtSubtable.getDoubleTopic(TIME_ENTRY_KEY).subscribe(0.0, PubSubOption.sendAll(true),
+                PubSubOption.periodic(this.updateInterval));
     }
 
     /**
@@ -54,6 +63,7 @@ public class ROSNetworkTablesBridge {
         this.ntToRosSubtable = ntToRosSubtable;
         rosToNtRequestedTopicsTable = rosToNtSubtable.getSubTable(TOPICS_ENTRY_KEY);
         ntToRosRequestedTopicsTable = ntToRosSubtable.getSubTable(TOPICS_ENTRY_KEY);
+        timeSyncSub = makeTimeSyncSub();
     }
 
     /**
@@ -119,5 +129,15 @@ public class ROSNetworkTablesBridge {
                 PubSubOption.periodic(this.updateInterval));
         setTopicEnable(rosToNtRequestedTopicsTable, ntTopic, true);
         return sub;
+    }
+
+    /**
+     * Getter for the timeSyncSub attribute.
+     *
+     * @return The DoubleSubscriber instance that is used for subscribing to time
+     *         synchronization data.
+     */
+    public DoubleSubscriber getTimeSyncSub() {
+        return timeSyncSub;
     }
 }

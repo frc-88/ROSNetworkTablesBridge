@@ -15,8 +15,9 @@ import frc.team88.ros.messages.std_msgs.Header;
  * @param <T> The type of RosMessage to be published
  */
 public class BridgePublisher<T extends RosMessage> {
-    private ROSNetworkTablesBridge bridge;
-    private String topicName;
+    private final ROSNetworkTablesBridge bridge;
+    private final String topicName;
+    private final TimeSyncManager timeSync;
     private StringPublisher pub = null;
     private int seq = 0;
     private boolean enabled = true;
@@ -31,6 +32,7 @@ public class BridgePublisher<T extends RosMessage> {
     public BridgePublisher(ROSNetworkTablesBridge bridge, String topicName) {
         this.bridge = bridge;
         this.topicName = topicName;
+        this.timeSync = new TimeSyncManager(bridge);
     }
 
     /**
@@ -45,6 +47,15 @@ public class BridgePublisher<T extends RosMessage> {
     }
 
     /**
+     * Gets time as remote time
+     *
+     * @return A new Time object representing the current remote time
+     */
+    public TimePrimitive getNow() {
+        return timeSync.getNow();
+    }
+
+    /**
      * Generates a Header with the current sequence number, specified time, and
      * specified frame_id.
      *
@@ -54,18 +65,6 @@ public class BridgePublisher<T extends RosMessage> {
      */
     public Header getHeader(TimePrimitive time, String frame_id) {
         return new Header(getSeq(), time, frame_id);
-    }
-
-    /**
-     * Gets the current time from the FPGA clock in a Time object.
-     *
-     * @return A new Time object representing the current time
-     */
-    public TimePrimitive getNow() {
-        long localTime = RobotController.getFPGATime();
-        int secs = (int) (localTime * 1e-6);
-        int nsecs = (int) ((localTime - secs * 1e6) * 1e3);
-        return new TimePrimitive(secs, nsecs);
     }
 
     /**
