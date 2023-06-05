@@ -1,6 +1,6 @@
 # Contributing to ROSNetworkTablesBridge
 
-Thank you for your interest in contributing to ROSNetworkTablesBridge! We appreciate the time and effort you're willing to put into improving this project. This document will provide you with guidelines to help make the contribution process as smooth as possible.
+Thank you for your interest in contributing to ROSNetworkTablesBridge! This document will provide you with guidelines to help make the contribution process as smooth as possible.
 
 # How to Contribute
 
@@ -18,7 +18,7 @@ Thank you for your interest in contributing to ROSNetworkTablesBridge! We apprec
   git checkout -b my-feature-branch
   ```
 
-4. **Make your changes**: Implement the feature or bugfix, following the project's code style and best practices.
+4. **Make your changes**: Implement the feature or bug fix, following the project's code style and best practices (WIP).
 
 5. **Commit your changes**: Commit your changes to the branch, using a descriptive commit message.
 
@@ -45,7 +45,7 @@ Thank you for your interest in contributing to ROSNetworkTablesBridge! We apprec
   git push origin my-feature-branch
   ```
 
-8. **Create a pull request**: Go to your forked repository on GitHub and create a new pull request. Fill out the pull request template with a detailed description of your changes, referencing any related issues.
+8. **Create a pull request**: Go to <https://github.com/frc-88/ROSNetworkTablesBridge/pulls> create a new pull request and select `compare across forks`. Select your branch. Fill out the pull request template (WIP) with a detailed description of your changes, referencing any related issues.
 
 9. **Wait for a review**: The project maintainers will review your pull request and provide feedback. Be prepared to make changes if necessary. Once your changes are approved, your pull request will be merged into the main branch.
 
@@ -59,6 +59,4 @@ When requesting a new feature, describe the feature in detail, explain why it wo
 
 # Community
 
-If you have any questions or need help, feel free to join our community chat or forum (if applicable). We're always happy to help and discuss ideas.
-
-Once again, thank you for considering contributing to ROSNetworkTablesBridge! Your contributions help make this project better for everyone.
+If you have any questions or need help, create a post on <https://www.chiefdelphi.com/> and tag [beb](https://www.chiefdelphi.com/u/beb/summary).

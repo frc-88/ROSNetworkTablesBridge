@@ -78,8 +78,8 @@ public class CoprocessorBridge extends SubsystemBase {
         m_ros_interface = new ROSNetworkTablesBridge(instance.getTable(""), updateDelay);
 
         // Initialize ROS bridge objects
-        m_pingSendSub = new BridgeSubscriber<>(m_ros_interface, "ping_send", Float64.class);
-        m_pingReturnPub = new BridgePublisher<>(m_ros_interface, "ping_return");
+        m_pingSendSub = new BridgeSubscriber<>(m_ros_interface, "/ping_send", Float64.class);
+        m_pingReturnPub = new BridgePublisher<>(m_ros_interface, "/ping_return");
     }
 
     /**
@@ -115,6 +115,14 @@ public class RobotContainer {
 
 }
 ```
+
+- Connect to your robot's network.
+
+- Run `WPILib: Deploy Robot Code` from the ctrl-shift-P menu.
+
+Now, when any ROS node publishes a `Float64` message on the `/ping_send` topic, the roboRIO will echo it back on `/ping_return` topic.
+
+See [this example](https://github.com/frc-88/tj2_ros/blob/342ea89ae359d42474c8d1d68c8dea20de64f43e/src/tj2_comm/src/tj2_comm.cpp#L56) on how to set this up on the ROS side.
 
 # Example
 
@@ -178,7 +186,7 @@ git clone https://github.com/frc-88/ros_networktables_bridge_genmsg.git
 
 - `repos` defines where to look for message definitions.
 
-  - _Important_: you must include message dependencies in the repos list. Just about every custom message relies on std_msgs and common_msgs, so they're included here.
+  - **Important**: you must include message dependencies in the repos list. Just about every custom message relies on std_msgs and common_msgs, so they're included here.
 
   - You can also put local directories like what I've done for tj2_interfaces
 
@@ -368,7 +376,7 @@ If I create a `BridgePublisher` with the topic `/imu` and the host node's namesp
 
 If I create a `BridgePublisher` with the topic `imu` and the host node's namespace is `/` (root), the topic will appear on the ROS side as `/imu`.
 
-This also applies to `BridgeSubscriber`. You can subscribe to any ROS topic you want as long as the message type is built in Java, just be aware that not preceding the topic name with "/" will put your topic into the host's relative namespace.
+This also applies to `BridgeSubscriber`. You can subscribe or publish to any ROS topic you want as long as the message type is built in Java, just be aware that not preceding the topic name with "/" will put your topic into the host's relative namespace.
 
 # Contributing
 
