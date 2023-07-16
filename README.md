@@ -71,7 +71,7 @@ public class CoprocessorBridge extends SubsystemBase {
     /**
      * Constructor for the CoprocessorBridge class.
      */
-    public CoprocessorBridge(int updateDelay) {
+    public CoprocessorBridge() {
         double updateDelay = 0.02;
         NetworkTableInstance instance = NetworkTableInstance.getDefault();
 
