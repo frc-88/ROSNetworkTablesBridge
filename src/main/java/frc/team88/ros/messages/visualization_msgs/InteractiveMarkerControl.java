@@ -24,8 +24,8 @@ public class InteractiveMarkerControl extends frc.team88.ros.messages.RosMessage
 
     private java.lang.String name = "";
     private frc.team88.ros.messages.geometry_msgs.Quaternion orientation = new frc.team88.ros.messages.geometry_msgs.Quaternion();
-    private char orientation_mode = 0;
-    private char interaction_mode = 0;
+    private byte orientation_mode = 0;
+    private byte interaction_mode = 0;
     private boolean always_visible = false;
     private ArrayList<frc.team88.ros.messages.visualization_msgs.Marker> markers = new ArrayList<>();
     private boolean independent_marker_orientation = false;
@@ -38,7 +38,7 @@ public class InteractiveMarkerControl extends frc.team88.ros.messages.RosMessage
 
     }
 
-    public InteractiveMarkerControl(java.lang.String name, frc.team88.ros.messages.geometry_msgs.Quaternion orientation, char orientation_mode, char interaction_mode, boolean always_visible, frc.team88.ros.messages.visualization_msgs.Marker[] markers, boolean independent_marker_orientation, java.lang.String description) {
+    public InteractiveMarkerControl(java.lang.String name, frc.team88.ros.messages.geometry_msgs.Quaternion orientation, byte orientation_mode, byte interaction_mode, boolean always_visible, frc.team88.ros.messages.visualization_msgs.Marker[] markers, boolean independent_marker_orientation, java.lang.String description) {
         this.name = name;
         this.orientation = orientation;
         this.orientation_mode = orientation_mode;
@@ -52,8 +52,8 @@ public class InteractiveMarkerControl extends frc.team88.ros.messages.RosMessage
     public InteractiveMarkerControl(JsonObject jsonObj) {
         this.name = jsonObj.get("name").getAsString();
         this.orientation = new frc.team88.ros.messages.geometry_msgs.Quaternion(jsonObj.get("orientation").getAsJsonObject());
-        this.orientation_mode = (char)jsonObj.get("orientation_mode").getAsByte();
-        this.interaction_mode = (char)jsonObj.get("interaction_mode").getAsByte();
+        this.orientation_mode = jsonObj.get("orientation_mode").getAsByte();
+        this.interaction_mode = jsonObj.get("interaction_mode").getAsByte();
         this.always_visible = jsonObj.get("always_visible").getAsBoolean();
         for (JsonElement markers_element : jsonObj.getAsJsonArray("markers")) {
             this.markers.add(new frc.team88.ros.messages.visualization_msgs.Marker(markers_element.getAsJsonObject()));
@@ -68,10 +68,10 @@ public class InteractiveMarkerControl extends frc.team88.ros.messages.RosMessage
     public frc.team88.ros.messages.geometry_msgs.Quaternion getOrientation() {
         return this.orientation;
     }
-    public char getOrientationMode() {
+    public byte getOrientationMode() {
         return this.orientation_mode;
     }
-    public char getInteractionMode() {
+    public byte getInteractionMode() {
         return this.interaction_mode;
     }
     public boolean getAlwaysVisible() {
@@ -93,10 +93,10 @@ public class InteractiveMarkerControl extends frc.team88.ros.messages.RosMessage
     public void setOrientation(frc.team88.ros.messages.geometry_msgs.Quaternion orientation) {
         this.orientation = orientation;
     }
-    public void setOrientationMode(char orientation_mode) {
+    public void setOrientationMode(byte orientation_mode) {
         this.orientation_mode = orientation_mode;
     }
-    public void setInteractionMode(char interaction_mode) {
+    public void setInteractionMode(byte interaction_mode) {
         this.interaction_mode = interaction_mode;
     }
     public void setAlwaysVisible(boolean always_visible) {

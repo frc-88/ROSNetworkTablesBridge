@@ -38,9 +38,9 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
     private float capacity = 0.0f;
     private float design_capacity = 0.0f;
     private float percentage = 0.0f;
-    private char power_supply_status = 0;
-    private char power_supply_health = 0;
-    private char power_supply_technology = 0;
+    private byte power_supply_status = 0;
+    private byte power_supply_health = 0;
+    private byte power_supply_technology = 0;
     private boolean present = false;
     private ArrayList<java.lang.Float> cell_voltage = new ArrayList<>();
     private ArrayList<java.lang.Float> cell_temperature = new ArrayList<>();
@@ -54,7 +54,7 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public BatteryState(frc.team88.ros.messages.std_msgs.Header header, float voltage, float temperature, float current, float charge, float capacity, float design_capacity, float percentage, char power_supply_status, char power_supply_health, char power_supply_technology, boolean present, java.lang.Float[] cell_voltage, java.lang.Float[] cell_temperature, java.lang.String location, java.lang.String serial_number) {
+    public BatteryState(frc.team88.ros.messages.std_msgs.Header header, float voltage, float temperature, float current, float charge, float capacity, float design_capacity, float percentage, byte power_supply_status, byte power_supply_health, byte power_supply_technology, boolean present, java.lang.Float[] cell_voltage, java.lang.Float[] cell_temperature, java.lang.String location, java.lang.String serial_number) {
         this.header = header;
         this.voltage = voltage;
         this.temperature = temperature;
@@ -82,9 +82,9 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
         this.capacity = jsonObj.get("capacity").getAsFloat();
         this.design_capacity = jsonObj.get("design_capacity").getAsFloat();
         this.percentage = jsonObj.get("percentage").getAsFloat();
-        this.power_supply_status = (char)jsonObj.get("power_supply_status").getAsByte();
-        this.power_supply_health = (char)jsonObj.get("power_supply_health").getAsByte();
-        this.power_supply_technology = (char)jsonObj.get("power_supply_technology").getAsByte();
+        this.power_supply_status = jsonObj.get("power_supply_status").getAsByte();
+        this.power_supply_health = jsonObj.get("power_supply_health").getAsByte();
+        this.power_supply_technology = jsonObj.get("power_supply_technology").getAsByte();
         this.present = jsonObj.get("present").getAsBoolean();
         for (JsonElement cell_voltage_element : jsonObj.getAsJsonArray("cell_voltage")) {
             this.cell_voltage.add(cell_voltage_element.getAsFloat());
@@ -120,13 +120,13 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
     public float getPercentage() {
         return this.percentage;
     }
-    public char getPowerSupplyStatus() {
+    public byte getPowerSupplyStatus() {
         return this.power_supply_status;
     }
-    public char getPowerSupplyHealth() {
+    public byte getPowerSupplyHealth() {
         return this.power_supply_health;
     }
-    public char getPowerSupplyTechnology() {
+    public byte getPowerSupplyTechnology() {
         return this.power_supply_technology;
     }
     public boolean getPresent() {
@@ -169,13 +169,13 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
     public void setPercentage(float percentage) {
         this.percentage = percentage;
     }
-    public void setPowerSupplyStatus(char power_supply_status) {
+    public void setPowerSupplyStatus(byte power_supply_status) {
         this.power_supply_status = power_supply_status;
     }
-    public void setPowerSupplyHealth(char power_supply_health) {
+    public void setPowerSupplyHealth(byte power_supply_health) {
         this.power_supply_health = power_supply_health;
     }
-    public void setPowerSupplyTechnology(char power_supply_technology) {
+    public void setPowerSupplyTechnology(byte power_supply_technology) {
         this.power_supply_technology = power_supply_technology;
     }
     public void setPresent(boolean present) {

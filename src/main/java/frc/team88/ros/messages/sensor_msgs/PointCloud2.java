@@ -16,7 +16,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
     private boolean is_bigendian = false;
     private int point_step = 0;
     private int row_step = 0;
-    private ArrayList<java.lang.Character> data = new ArrayList<>();
+    private ArrayList<java.lang.Byte> data = new ArrayList<>();
     private boolean is_dense = false;
 
     @Expose(serialize = false, deserialize = false)
@@ -26,7 +26,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public PointCloud2(frc.team88.ros.messages.std_msgs.Header header, int height, int width, frc.team88.ros.messages.sensor_msgs.PointField[] fields, boolean is_bigendian, int point_step, int row_step, java.lang.Character[] data, boolean is_dense) {
+    public PointCloud2(frc.team88.ros.messages.std_msgs.Header header, int height, int width, frc.team88.ros.messages.sensor_msgs.PointField[] fields, boolean is_bigendian, int point_step, int row_step, java.lang.Byte[] data, boolean is_dense) {
         this.header = header;
         this.height = height;
         this.width = width;
@@ -49,7 +49,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
         this.point_step = jsonObj.get("point_step").getAsInt();
         this.row_step = jsonObj.get("row_step").getAsInt();
         for (JsonElement data_element : jsonObj.getAsJsonArray("data")) {
-            this.data.add((char)data_element.getAsByte());
+            this.data.add(data_element.getAsByte());
         }
         this.is_dense = jsonObj.get("is_dense").getAsBoolean();
     }
@@ -75,7 +75,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
     public int getRowStep() {
         return this.row_step;
     }
-    public ArrayList<java.lang.Character> getData() {
+    public ArrayList<java.lang.Byte> getData() {
         return this.data;
     }
     public boolean getIsDense() {
@@ -103,7 +103,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
     public void setRowStep(int row_step) {
         this.row_step = row_step;
     }
-    public void setData(ArrayList<java.lang.Character> data) {
+    public void setData(ArrayList<java.lang.Byte> data) {
         this.data = data;
     }
     public void setIsDense(boolean is_dense) {

@@ -9,8 +9,8 @@ public class JoyFeedback extends frc.team88.ros.messages.RosMessage {
     public static int TYPE_RUMBLE = 1;
     public static int TYPE_BUZZER = 2;
 
-    private char type = 0;
-    private char id = 0;
+    private byte type = 0;
+    private byte id = 0;
     private float intensity = 0.0f;
 
     @Expose(serialize = false, deserialize = false)
@@ -20,32 +20,32 @@ public class JoyFeedback extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public JoyFeedback(char type, char id, float intensity) {
+    public JoyFeedback(byte type, byte id, float intensity) {
         this.type = type;
         this.id = id;
         this.intensity = intensity;
     }
 
     public JoyFeedback(JsonObject jsonObj) {
-        this.type = (char)jsonObj.get("type").getAsByte();
-        this.id = (char)jsonObj.get("id").getAsByte();
+        this.type = jsonObj.get("type").getAsByte();
+        this.id = jsonObj.get("id").getAsByte();
         this.intensity = jsonObj.get("intensity").getAsFloat();
     }
 
-    public char getType() {
+    public byte getType() {
         return this.type;
     }
-    public char getId() {
+    public byte getId() {
         return this.id;
     }
     public float getIntensity() {
         return this.intensity;
     }
 
-    public void setType(char type) {
+    public void setType(byte type) {
         this.type = type;
     }
-    public void setId(char id) {
+    public void setId(byte id) {
         this.id = id;
     }
     public void setIntensity(float intensity) {

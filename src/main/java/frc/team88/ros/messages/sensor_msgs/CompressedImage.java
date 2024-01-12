@@ -11,7 +11,7 @@ public class CompressedImage extends frc.team88.ros.messages.RosMessage {
 
     private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
     private java.lang.String format = "";
-    private ArrayList<java.lang.Character> data = new ArrayList<>();
+    private ArrayList<java.lang.Byte> data = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "sensor_msgs/CompressedImage";
@@ -20,7 +20,7 @@ public class CompressedImage extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public CompressedImage(frc.team88.ros.messages.std_msgs.Header header, java.lang.String format, java.lang.Character[] data) {
+    public CompressedImage(frc.team88.ros.messages.std_msgs.Header header, java.lang.String format, java.lang.Byte[] data) {
         this.header = header;
         this.format = format;
         this.data = new ArrayList<>(Arrays.asList(data));
@@ -30,7 +30,7 @@ public class CompressedImage extends frc.team88.ros.messages.RosMessage {
         this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
         this.format = jsonObj.get("format").getAsString();
         for (JsonElement data_element : jsonObj.getAsJsonArray("data")) {
-            this.data.add((char)data_element.getAsByte());
+            this.data.add(data_element.getAsByte());
         }
     }
 
@@ -40,7 +40,7 @@ public class CompressedImage extends frc.team88.ros.messages.RosMessage {
     public java.lang.String getFormat() {
         return this.format;
     }
-    public ArrayList<java.lang.Character> getData() {
+    public ArrayList<java.lang.Byte> getData() {
         return this.data;
     }
 
@@ -50,7 +50,7 @@ public class CompressedImage extends frc.team88.ros.messages.RosMessage {
     public void setFormat(java.lang.String format) {
         this.format = format;
     }
-    public void setData(ArrayList<java.lang.Character> data) {
+    public void setData(ArrayList<java.lang.Byte> data) {
         this.data = data;
     }
 

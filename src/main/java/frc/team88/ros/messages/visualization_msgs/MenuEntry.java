@@ -13,7 +13,7 @@ public class MenuEntry extends frc.team88.ros.messages.RosMessage {
     private int parent_id = 0;
     private java.lang.String title = "";
     private java.lang.String command = "";
-    private char command_type = 0;
+    private byte command_type = 0;
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "visualization_msgs/MenuEntry";
@@ -22,7 +22,7 @@ public class MenuEntry extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public MenuEntry(int id, int parent_id, java.lang.String title, java.lang.String command, char command_type) {
+    public MenuEntry(int id, int parent_id, java.lang.String title, java.lang.String command, byte command_type) {
         this.id = id;
         this.parent_id = parent_id;
         this.title = title;
@@ -35,7 +35,7 @@ public class MenuEntry extends frc.team88.ros.messages.RosMessage {
         this.parent_id = jsonObj.get("parent_id").getAsInt();
         this.title = jsonObj.get("title").getAsString();
         this.command = jsonObj.get("command").getAsString();
-        this.command_type = (char)jsonObj.get("command_type").getAsByte();
+        this.command_type = jsonObj.get("command_type").getAsByte();
     }
 
     public int getId() {
@@ -50,7 +50,7 @@ public class MenuEntry extends frc.team88.ros.messages.RosMessage {
     public java.lang.String getCommand() {
         return this.command;
     }
-    public char getCommandType() {
+    public byte getCommandType() {
         return this.command_type;
     }
 
@@ -66,7 +66,7 @@ public class MenuEntry extends frc.team88.ros.messages.RosMessage {
     public void setCommand(java.lang.String command) {
         this.command = command;
     }
-    public void setCommandType(char command_type) {
+    public void setCommandType(byte command_type) {
         this.command_type = command_type;
     }
 

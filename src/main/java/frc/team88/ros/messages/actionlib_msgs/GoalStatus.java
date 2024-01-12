@@ -17,7 +17,7 @@ public class GoalStatus extends frc.team88.ros.messages.RosMessage {
     public static int LOST = 9;
 
     private frc.team88.ros.messages.actionlib_msgs.GoalID goal_id = new frc.team88.ros.messages.actionlib_msgs.GoalID();
-    private char status = 0;
+    private byte status = 0;
     private java.lang.String text = "";
 
     @Expose(serialize = false, deserialize = false)
@@ -27,7 +27,7 @@ public class GoalStatus extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public GoalStatus(frc.team88.ros.messages.actionlib_msgs.GoalID goal_id, char status, java.lang.String text) {
+    public GoalStatus(frc.team88.ros.messages.actionlib_msgs.GoalID goal_id, byte status, java.lang.String text) {
         this.goal_id = goal_id;
         this.status = status;
         this.text = text;
@@ -35,14 +35,14 @@ public class GoalStatus extends frc.team88.ros.messages.RosMessage {
 
     public GoalStatus(JsonObject jsonObj) {
         this.goal_id = new frc.team88.ros.messages.actionlib_msgs.GoalID(jsonObj.get("goal_id").getAsJsonObject());
-        this.status = (char)jsonObj.get("status").getAsByte();
+        this.status = jsonObj.get("status").getAsByte();
         this.text = jsonObj.get("text").getAsString();
     }
 
     public frc.team88.ros.messages.actionlib_msgs.GoalID getGoalId() {
         return this.goal_id;
     }
-    public char getStatus() {
+    public byte getStatus() {
         return this.status;
     }
     public java.lang.String getText() {
@@ -52,7 +52,7 @@ public class GoalStatus extends frc.team88.ros.messages.RosMessage {
     public void setGoalId(frc.team88.ros.messages.actionlib_msgs.GoalID goal_id) {
         this.goal_id = goal_id;
     }
-    public void setStatus(char status) {
+    public void setStatus(byte status) {
         this.status = status;
     }
     public void setText(java.lang.String text) {

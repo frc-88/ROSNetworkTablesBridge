@@ -16,7 +16,7 @@ public class PointField extends frc.team88.ros.messages.RosMessage {
 
     private java.lang.String name = "";
     private int offset = 0;
-    private char datatype = 0;
+    private byte datatype = 0;
     private int count = 0;
 
     @Expose(serialize = false, deserialize = false)
@@ -26,7 +26,7 @@ public class PointField extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public PointField(java.lang.String name, int offset, char datatype, int count) {
+    public PointField(java.lang.String name, int offset, byte datatype, int count) {
         this.name = name;
         this.offset = offset;
         this.datatype = datatype;
@@ -36,7 +36,7 @@ public class PointField extends frc.team88.ros.messages.RosMessage {
     public PointField(JsonObject jsonObj) {
         this.name = jsonObj.get("name").getAsString();
         this.offset = jsonObj.get("offset").getAsInt();
-        this.datatype = (char)jsonObj.get("datatype").getAsByte();
+        this.datatype = jsonObj.get("datatype").getAsByte();
         this.count = jsonObj.get("count").getAsInt();
     }
 
@@ -46,7 +46,7 @@ public class PointField extends frc.team88.ros.messages.RosMessage {
     public int getOffset() {
         return this.offset;
     }
-    public char getDatatype() {
+    public byte getDatatype() {
         return this.datatype;
     }
     public int getCount() {
@@ -59,7 +59,7 @@ public class PointField extends frc.team88.ros.messages.RosMessage {
     public void setOffset(int offset) {
         this.offset = offset;
     }
-    public void setDatatype(char datatype) {
+    public void setDatatype(byte datatype) {
         this.datatype = datatype;
     }
     public void setCount(int count) {

@@ -13,7 +13,7 @@ public class InteractiveMarkerUpdate extends frc.team88.ros.messages.RosMessage 
 
     private java.lang.String server_id = "";
     private long seq_num = 0;
-    private char type = 0;
+    private byte type = 0;
     private ArrayList<frc.team88.ros.messages.visualization_msgs.InteractiveMarker> markers = new ArrayList<>();
     private ArrayList<frc.team88.ros.messages.visualization_msgs.InteractiveMarkerPose> poses = new ArrayList<>();
     private ArrayList<java.lang.String> erases = new ArrayList<>();
@@ -25,7 +25,7 @@ public class InteractiveMarkerUpdate extends frc.team88.ros.messages.RosMessage 
 
     }
 
-    public InteractiveMarkerUpdate(java.lang.String server_id, long seq_num, char type, frc.team88.ros.messages.visualization_msgs.InteractiveMarker[] markers, frc.team88.ros.messages.visualization_msgs.InteractiveMarkerPose[] poses, java.lang.String[] erases) {
+    public InteractiveMarkerUpdate(java.lang.String server_id, long seq_num, byte type, frc.team88.ros.messages.visualization_msgs.InteractiveMarker[] markers, frc.team88.ros.messages.visualization_msgs.InteractiveMarkerPose[] poses, java.lang.String[] erases) {
         this.server_id = server_id;
         this.seq_num = seq_num;
         this.type = type;
@@ -37,7 +37,7 @@ public class InteractiveMarkerUpdate extends frc.team88.ros.messages.RosMessage 
     public InteractiveMarkerUpdate(JsonObject jsonObj) {
         this.server_id = jsonObj.get("server_id").getAsString();
         this.seq_num = jsonObj.get("seq_num").getAsLong();
-        this.type = (char)jsonObj.get("type").getAsByte();
+        this.type = jsonObj.get("type").getAsByte();
         for (JsonElement markers_element : jsonObj.getAsJsonArray("markers")) {
             this.markers.add(new frc.team88.ros.messages.visualization_msgs.InteractiveMarker(markers_element.getAsJsonObject()));
         }
@@ -55,7 +55,7 @@ public class InteractiveMarkerUpdate extends frc.team88.ros.messages.RosMessage 
     public long getSeqNum() {
         return this.seq_num;
     }
-    public char getType() {
+    public byte getType() {
         return this.type;
     }
     public ArrayList<frc.team88.ros.messages.visualization_msgs.InteractiveMarker> getMarkers() {
@@ -74,7 +74,7 @@ public class InteractiveMarkerUpdate extends frc.team88.ros.messages.RosMessage 
     public void setSeqNum(long seq_num) {
         this.seq_num = seq_num;
     }
-    public void setType(char type) {
+    public void setType(byte type) {
         this.type = type;
     }
     public void setMarkers(ArrayList<frc.team88.ros.messages.visualization_msgs.InteractiveMarker> markers) {

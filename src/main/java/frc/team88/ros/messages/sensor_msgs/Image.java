@@ -13,9 +13,9 @@ public class Image extends frc.team88.ros.messages.RosMessage {
     private int height = 0;
     private int width = 0;
     private java.lang.String encoding = "";
-    private char is_bigendian = 0;
+    private byte is_bigendian = 0;
     private int step = 0;
-    private ArrayList<java.lang.Character> data = new ArrayList<>();
+    private ArrayList<java.lang.Byte> data = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "sensor_msgs/Image";
@@ -24,7 +24,7 @@ public class Image extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Image(frc.team88.ros.messages.std_msgs.Header header, int height, int width, java.lang.String encoding, char is_bigendian, int step, java.lang.Character[] data) {
+    public Image(frc.team88.ros.messages.std_msgs.Header header, int height, int width, java.lang.String encoding, byte is_bigendian, int step, java.lang.Byte[] data) {
         this.header = header;
         this.height = height;
         this.width = width;
@@ -39,10 +39,10 @@ public class Image extends frc.team88.ros.messages.RosMessage {
         this.height = jsonObj.get("height").getAsInt();
         this.width = jsonObj.get("width").getAsInt();
         this.encoding = jsonObj.get("encoding").getAsString();
-        this.is_bigendian = (char)jsonObj.get("is_bigendian").getAsByte();
+        this.is_bigendian = jsonObj.get("is_bigendian").getAsByte();
         this.step = jsonObj.get("step").getAsInt();
         for (JsonElement data_element : jsonObj.getAsJsonArray("data")) {
-            this.data.add((char)data_element.getAsByte());
+            this.data.add(data_element.getAsByte());
         }
     }
 
@@ -58,13 +58,13 @@ public class Image extends frc.team88.ros.messages.RosMessage {
     public java.lang.String getEncoding() {
         return this.encoding;
     }
-    public char getIsBigendian() {
+    public byte getIsBigendian() {
         return this.is_bigendian;
     }
     public int getStep() {
         return this.step;
     }
-    public ArrayList<java.lang.Character> getData() {
+    public ArrayList<java.lang.Byte> getData() {
         return this.data;
     }
 
@@ -80,13 +80,13 @@ public class Image extends frc.team88.ros.messages.RosMessage {
     public void setEncoding(java.lang.String encoding) {
         this.encoding = encoding;
     }
-    public void setIsBigendian(char is_bigendian) {
+    public void setIsBigendian(byte is_bigendian) {
         this.is_bigendian = is_bigendian;
     }
     public void setStep(int step) {
         this.step = step;
     }
-    public void setData(ArrayList<java.lang.Character> data) {
+    public void setData(ArrayList<java.lang.Byte> data) {
         this.data = data;
     }
 

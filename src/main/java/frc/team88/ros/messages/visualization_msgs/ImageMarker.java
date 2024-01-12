@@ -24,7 +24,7 @@ public class ImageMarker extends frc.team88.ros.messages.RosMessage {
     private frc.team88.ros.messages.geometry_msgs.Point position = new frc.team88.ros.messages.geometry_msgs.Point();
     private float scale = 0.0f;
     private frc.team88.ros.messages.std_msgs.ColorRGBA outline_color = new frc.team88.ros.messages.std_msgs.ColorRGBA();
-    private char filled = 0;
+    private byte filled = 0;
     private frc.team88.ros.messages.std_msgs.ColorRGBA fill_color = new frc.team88.ros.messages.std_msgs.ColorRGBA();
     private frc.team88.ros.messages.DurationPrimitive lifetime = new frc.team88.ros.messages.DurationPrimitive();
     private ArrayList<frc.team88.ros.messages.geometry_msgs.Point> points = new ArrayList<>();
@@ -37,7 +37,7 @@ public class ImageMarker extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public ImageMarker(frc.team88.ros.messages.std_msgs.Header header, java.lang.String ns, int id, int type, int action, frc.team88.ros.messages.geometry_msgs.Point position, float scale, frc.team88.ros.messages.std_msgs.ColorRGBA outline_color, char filled, frc.team88.ros.messages.std_msgs.ColorRGBA fill_color, frc.team88.ros.messages.DurationPrimitive lifetime, frc.team88.ros.messages.geometry_msgs.Point[] points, frc.team88.ros.messages.std_msgs.ColorRGBA[] outline_colors) {
+    public ImageMarker(frc.team88.ros.messages.std_msgs.Header header, java.lang.String ns, int id, int type, int action, frc.team88.ros.messages.geometry_msgs.Point position, float scale, frc.team88.ros.messages.std_msgs.ColorRGBA outline_color, byte filled, frc.team88.ros.messages.std_msgs.ColorRGBA fill_color, frc.team88.ros.messages.DurationPrimitive lifetime, frc.team88.ros.messages.geometry_msgs.Point[] points, frc.team88.ros.messages.std_msgs.ColorRGBA[] outline_colors) {
         this.header = header;
         this.ns = ns;
         this.id = id;
@@ -62,7 +62,7 @@ public class ImageMarker extends frc.team88.ros.messages.RosMessage {
         this.position = new frc.team88.ros.messages.geometry_msgs.Point(jsonObj.get("position").getAsJsonObject());
         this.scale = jsonObj.get("scale").getAsFloat();
         this.outline_color = new frc.team88.ros.messages.std_msgs.ColorRGBA(jsonObj.get("outline_color").getAsJsonObject());
-        this.filled = (char)jsonObj.get("filled").getAsByte();
+        this.filled = jsonObj.get("filled").getAsByte();
         this.fill_color = new frc.team88.ros.messages.std_msgs.ColorRGBA(jsonObj.get("fill_color").getAsJsonObject());
         this.lifetime = new frc.team88.ros.messages.DurationPrimitive(jsonObj.get("lifetime").getAsJsonObject());
         for (JsonElement points_element : jsonObj.getAsJsonArray("points")) {
@@ -97,7 +97,7 @@ public class ImageMarker extends frc.team88.ros.messages.RosMessage {
     public frc.team88.ros.messages.std_msgs.ColorRGBA getOutlineColor() {
         return this.outline_color;
     }
-    public char getFilled() {
+    public byte getFilled() {
         return this.filled;
     }
     public frc.team88.ros.messages.std_msgs.ColorRGBA getFillColor() {
@@ -137,7 +137,7 @@ public class ImageMarker extends frc.team88.ros.messages.RosMessage {
     public void setOutlineColor(frc.team88.ros.messages.std_msgs.ColorRGBA outline_color) {
         this.outline_color = outline_color;
     }
-    public void setFilled(char filled) {
+    public void setFilled(byte filled) {
         this.filled = filled;
     }
     public void setFillColor(frc.team88.ros.messages.std_msgs.ColorRGBA fill_color) {

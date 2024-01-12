@@ -27,7 +27,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
         0.0,
         0.0
     };
-    private char position_covariance_type = 0;
+    private byte position_covariance_type = 0;
 
     @Expose(serialize = false, deserialize = false)
     public final java.lang.String _type = "sensor_msgs/NavSatFix";
@@ -36,7 +36,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public NavSatFix(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.sensor_msgs.NavSatStatus status, double latitude, double longitude, double altitude, java.lang.Double[] position_covariance, char position_covariance_type) {
+    public NavSatFix(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.sensor_msgs.NavSatStatus status, double latitude, double longitude, double altitude, java.lang.Double[] position_covariance, byte position_covariance_type) {
         this.header = header;
         this.status = status;
         this.latitude = latitude;
@@ -58,7 +58,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
         for (JsonElement position_covariance_element : jsonObj.getAsJsonArray("position_covariance")) {
             this.position_covariance[position_covariance_element_index] = position_covariance_element.getAsDouble();
         }
-        this.position_covariance_type = (char)jsonObj.get("position_covariance_type").getAsByte();
+        this.position_covariance_type = jsonObj.get("position_covariance_type").getAsByte();
     }
 
     public frc.team88.ros.messages.std_msgs.Header getHeader() {
@@ -79,7 +79,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
     public java.lang.Double[] getPositionCovariance() {
         return this.position_covariance;
     }
-    public char getPositionCovarianceType() {
+    public byte getPositionCovarianceType() {
         return this.position_covariance_type;
     }
 
@@ -101,7 +101,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
     public void setPositionCovariance(java.lang.Double[] position_covariance) {
         this.position_covariance = position_covariance;
     }
-    public void setPositionCovarianceType(char position_covariance_type) {
+    public void setPositionCovarianceType(byte position_covariance_type) {
         this.position_covariance_type = position_covariance_type;
     }
 

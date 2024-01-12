@@ -16,7 +16,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
     private java.lang.String client_id = "";
     private java.lang.String marker_name = "";
     private java.lang.String control_name = "";
-    private char event_type = 0;
+    private byte event_type = 0;
     private frc.team88.ros.messages.geometry_msgs.Pose pose = new frc.team88.ros.messages.geometry_msgs.Pose();
     private int menu_entry_id = 0;
     private frc.team88.ros.messages.geometry_msgs.Point mouse_point = new frc.team88.ros.messages.geometry_msgs.Point();
@@ -29,7 +29,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
 
     }
 
-    public InteractiveMarkerFeedback(frc.team88.ros.messages.std_msgs.Header header, java.lang.String client_id, java.lang.String marker_name, java.lang.String control_name, char event_type, frc.team88.ros.messages.geometry_msgs.Pose pose, int menu_entry_id, frc.team88.ros.messages.geometry_msgs.Point mouse_point, boolean mouse_point_valid) {
+    public InteractiveMarkerFeedback(frc.team88.ros.messages.std_msgs.Header header, java.lang.String client_id, java.lang.String marker_name, java.lang.String control_name, byte event_type, frc.team88.ros.messages.geometry_msgs.Pose pose, int menu_entry_id, frc.team88.ros.messages.geometry_msgs.Point mouse_point, boolean mouse_point_valid) {
         this.header = header;
         this.client_id = client_id;
         this.marker_name = marker_name;
@@ -46,7 +46,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
         this.client_id = jsonObj.get("client_id").getAsString();
         this.marker_name = jsonObj.get("marker_name").getAsString();
         this.control_name = jsonObj.get("control_name").getAsString();
-        this.event_type = (char)jsonObj.get("event_type").getAsByte();
+        this.event_type = jsonObj.get("event_type").getAsByte();
         this.pose = new frc.team88.ros.messages.geometry_msgs.Pose(jsonObj.get("pose").getAsJsonObject());
         this.menu_entry_id = jsonObj.get("menu_entry_id").getAsInt();
         this.mouse_point = new frc.team88.ros.messages.geometry_msgs.Point(jsonObj.get("mouse_point").getAsJsonObject());
@@ -65,7 +65,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
     public java.lang.String getControlName() {
         return this.control_name;
     }
-    public char getEventType() {
+    public byte getEventType() {
         return this.event_type;
     }
     public frc.team88.ros.messages.geometry_msgs.Pose getPose() {
@@ -93,7 +93,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
     public void setControlName(java.lang.String control_name) {
         this.control_name = control_name;
     }
-    public void setEventType(char event_type) {
+    public void setEventType(byte event_type) {
         this.event_type = event_type;
     }
     public void setPose(frc.team88.ros.messages.geometry_msgs.Pose pose) {

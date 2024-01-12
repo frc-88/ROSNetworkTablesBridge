@@ -21,7 +21,7 @@ public class SolidPrimitive extends frc.team88.ros.messages.RosMessage {
     public static int CONE_HEIGHT = 0;
     public static int CONE_RADIUS = 1;
 
-    private char type = 0;
+    private byte type = 0;
     private ArrayList<java.lang.Double> dimensions = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
@@ -31,26 +31,26 @@ public class SolidPrimitive extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public SolidPrimitive(char type, java.lang.Double[] dimensions) {
+    public SolidPrimitive(byte type, java.lang.Double[] dimensions) {
         this.type = type;
         this.dimensions = new ArrayList<>(Arrays.asList(dimensions));
     }
 
     public SolidPrimitive(JsonObject jsonObj) {
-        this.type = (char)jsonObj.get("type").getAsByte();
+        this.type = jsonObj.get("type").getAsByte();
         for (JsonElement dimensions_element : jsonObj.getAsJsonArray("dimensions")) {
             this.dimensions.add(dimensions_element.getAsDouble());
         }
     }
 
-    public char getType() {
+    public byte getType() {
         return this.type;
     }
     public ArrayList<java.lang.Double> getDimensions() {
         return this.dimensions;
     }
 
-    public void setType(char type) {
+    public void setType(byte type) {
         this.type = type;
     }
     public void setDimensions(ArrayList<java.lang.Double> dimensions) {
