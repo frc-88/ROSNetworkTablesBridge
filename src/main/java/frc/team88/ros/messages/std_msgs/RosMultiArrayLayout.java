@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class RosMultiArrayLayout extends frc.team88.ros.messages.RosMessage {
 
-    private ArrayList<frc.team88.ros.messages.std_msgs.MultiArrayDimension> dim = new ArrayList<>();
+    private ArrayList<frc.team88.ros.messages.std_msgs.RosMultiArrayDimension> dim = new ArrayList<>();
     private int data_offset = 0;
 
     @Expose(serialize = false, deserialize = false)
@@ -19,26 +19,26 @@ public class RosMultiArrayLayout extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public RosMultiArrayLayout(frc.team88.ros.messages.std_msgs.MultiArrayDimension[] dim, int data_offset) {
+    public RosMultiArrayLayout(frc.team88.ros.messages.std_msgs.RosMultiArrayDimension[] dim, int data_offset) {
         this.dim = new ArrayList<>(Arrays.asList(dim));
         this.data_offset = data_offset;
     }
 
     public RosMultiArrayLayout(JsonObject jsonObj) {
         for (JsonElement dim_element : jsonObj.getAsJsonArray("dim")) {
-            this.dim.add(new frc.team88.ros.messages.std_msgs.MultiArrayDimension(dim_element.getAsJsonObject()));
+            this.dim.add(new frc.team88.ros.messages.std_msgs.RosMultiArrayDimension(dim_element.getAsJsonObject()));
         }
         this.data_offset = jsonObj.get("data_offset").getAsInt();
     }
 
-    public ArrayList<frc.team88.ros.messages.std_msgs.MultiArrayDimension> getDim() {
+    public ArrayList<frc.team88.ros.messages.std_msgs.RosMultiArrayDimension> getDim() {
         return this.dim;
     }
     public int getDataOffset() {
         return this.data_offset;
     }
 
-    public void setDim(ArrayList<frc.team88.ros.messages.std_msgs.MultiArrayDimension> dim) {
+    public void setDim(ArrayList<frc.team88.ros.messages.std_msgs.RosMultiArrayDimension> dim) {
         this.dim = dim;
     }
     public void setDataOffset(int data_offset) {

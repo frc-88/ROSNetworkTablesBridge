@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class Joy extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private ArrayList<java.lang.Float> axes = new ArrayList<>();
     private ArrayList<java.lang.Integer> buttons = new ArrayList<>();
 
@@ -20,14 +20,14 @@ public class Joy extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Joy(frc.team88.ros.messages.std_msgs.Header header, java.lang.Float[] axes, java.lang.Integer[] buttons) {
+    public Joy(frc.team88.ros.messages.std_msgs.RosHeader header, java.lang.Float[] axes, java.lang.Integer[] buttons) {
         this.header = header;
         this.axes = new ArrayList<>(Arrays.asList(axes));
         this.buttons = new ArrayList<>(Arrays.asList(buttons));
     }
 
     public Joy(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         for (JsonElement axes_element : jsonObj.getAsJsonArray("axes")) {
             this.axes.add(axes_element.getAsFloat());
         }
@@ -36,7 +36,7 @@ public class Joy extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public ArrayList<java.lang.Float> getAxes() {
@@ -46,7 +46,7 @@ public class Joy extends frc.team88.ros.messages.RosMessage {
         return this.buttons;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setAxes(ArrayList<java.lang.Float> axes) {

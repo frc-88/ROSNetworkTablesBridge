@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class TwistWithCovarianceStamped extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.geometry_msgs.TwistWithCovariance twist = new frc.team88.ros.messages.geometry_msgs.TwistWithCovariance();
 
     @Expose(serialize = false, deserialize = false)
@@ -16,24 +16,24 @@ public class TwistWithCovarianceStamped extends frc.team88.ros.messages.RosMessa
 
     }
 
-    public TwistWithCovarianceStamped(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.TwistWithCovariance twist) {
+    public TwistWithCovarianceStamped(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.geometry_msgs.TwistWithCovariance twist) {
         this.header = header;
         this.twist = twist;
     }
 
     public TwistWithCovarianceStamped(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.twist = new frc.team88.ros.messages.geometry_msgs.TwistWithCovariance(jsonObj.get("twist").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.geometry_msgs.TwistWithCovariance getTwist() {
         return this.twist;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setTwist(frc.team88.ros.messages.geometry_msgs.TwistWithCovariance twist) {

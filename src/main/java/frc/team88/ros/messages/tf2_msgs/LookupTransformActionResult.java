@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class LookupTransformActionResult extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.actionlib_msgs.GoalStatus status = new frc.team88.ros.messages.actionlib_msgs.GoalStatus();
     private frc.team88.ros.messages.tf2_msgs.LookupTransformResult result = new frc.team88.ros.messages.tf2_msgs.LookupTransformResult();
 
@@ -17,19 +17,19 @@ public class LookupTransformActionResult extends frc.team88.ros.messages.RosMess
 
     }
 
-    public LookupTransformActionResult(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.actionlib_msgs.GoalStatus status, frc.team88.ros.messages.tf2_msgs.LookupTransformResult result) {
+    public LookupTransformActionResult(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.actionlib_msgs.GoalStatus status, frc.team88.ros.messages.tf2_msgs.LookupTransformResult result) {
         this.header = header;
         this.status = status;
         this.result = result;
     }
 
     public LookupTransformActionResult(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.status = new frc.team88.ros.messages.actionlib_msgs.GoalStatus(jsonObj.get("status").getAsJsonObject());
         this.result = new frc.team88.ros.messages.tf2_msgs.LookupTransformResult(jsonObj.get("result").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.actionlib_msgs.GoalStatus getStatus() {
@@ -39,7 +39,7 @@ public class LookupTransformActionResult extends frc.team88.ros.messages.RosMess
         return this.result;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setStatus(frc.team88.ros.messages.actionlib_msgs.GoalStatus status) {

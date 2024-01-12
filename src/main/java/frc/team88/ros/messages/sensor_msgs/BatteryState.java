@@ -30,7 +30,7 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
     public static int POWER_SUPPLY_TECHNOLOGY_NICD = 5;
     public static int POWER_SUPPLY_TECHNOLOGY_LIMN = 6;
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private float voltage = 0.0f;
     private float temperature = 0.0f;
     private float current = 0.0f;
@@ -54,7 +54,7 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public BatteryState(frc.team88.ros.messages.std_msgs.Header header, float voltage, float temperature, float current, float charge, float capacity, float design_capacity, float percentage, byte power_supply_status, byte power_supply_health, byte power_supply_technology, boolean present, java.lang.Float[] cell_voltage, java.lang.Float[] cell_temperature, java.lang.String location, java.lang.String serial_number) {
+    public BatteryState(frc.team88.ros.messages.std_msgs.RosHeader header, float voltage, float temperature, float current, float charge, float capacity, float design_capacity, float percentage, byte power_supply_status, byte power_supply_health, byte power_supply_technology, boolean present, java.lang.Float[] cell_voltage, java.lang.Float[] cell_temperature, java.lang.String location, java.lang.String serial_number) {
         this.header = header;
         this.voltage = voltage;
         this.temperature = temperature;
@@ -74,7 +74,7 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
     }
 
     public BatteryState(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.voltage = jsonObj.get("voltage").getAsFloat();
         this.temperature = jsonObj.get("temperature").getAsFloat();
         this.current = jsonObj.get("current").getAsFloat();
@@ -96,7 +96,7 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
         this.serial_number = jsonObj.get("serial_number").getAsString();
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public float getVoltage() {
@@ -145,7 +145,7 @@ public class BatteryState extends frc.team88.ros.messages.RosMessage {
         return this.serial_number;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setVoltage(float voltage) {

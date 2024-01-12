@@ -8,7 +8,7 @@ public class Range extends frc.team88.ros.messages.RosMessage {
     public static int ULTRASOUND = 0;
     public static int INFRARED = 1;
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private byte radiation_type = 0;
     private float field_of_view = 0.0f;
     private float min_range = 0.0f;
@@ -22,7 +22,7 @@ public class Range extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Range(frc.team88.ros.messages.std_msgs.Header header, byte radiation_type, float field_of_view, float min_range, float max_range, float range) {
+    public Range(frc.team88.ros.messages.std_msgs.RosHeader header, byte radiation_type, float field_of_view, float min_range, float max_range, float range) {
         this.header = header;
         this.radiation_type = radiation_type;
         this.field_of_view = field_of_view;
@@ -32,7 +32,7 @@ public class Range extends frc.team88.ros.messages.RosMessage {
     }
 
     public Range(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.radiation_type = jsonObj.get("radiation_type").getAsByte();
         this.field_of_view = jsonObj.get("field_of_view").getAsFloat();
         this.min_range = jsonObj.get("min_range").getAsFloat();
@@ -40,7 +40,7 @@ public class Range extends frc.team88.ros.messages.RosMessage {
         this.range = jsonObj.get("range").getAsFloat();
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public byte getRadiationType() {
@@ -59,7 +59,7 @@ public class Range extends frc.team88.ros.messages.RosMessage {
         return this.range;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setRadiationType(byte radiation_type) {

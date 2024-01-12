@@ -7,7 +7,7 @@ import com.google.gson.annotations.Expose;
 
 public class Imu extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.geometry_msgs.Quaternion orientation = new frc.team88.ros.messages.geometry_msgs.Quaternion();
     private java.lang.Double[] orientation_covariance = new java.lang.Double[] {
         0.0,
@@ -52,7 +52,7 @@ public class Imu extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Imu(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.Quaternion orientation, java.lang.Double[] orientation_covariance, frc.team88.ros.messages.geometry_msgs.Vector3 angular_velocity, java.lang.Double[] angular_velocity_covariance, frc.team88.ros.messages.geometry_msgs.Vector3 linear_acceleration, java.lang.Double[] linear_acceleration_covariance) {
+    public Imu(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.geometry_msgs.Quaternion orientation, java.lang.Double[] orientation_covariance, frc.team88.ros.messages.geometry_msgs.Vector3 angular_velocity, java.lang.Double[] angular_velocity_covariance, frc.team88.ros.messages.geometry_msgs.Vector3 linear_acceleration, java.lang.Double[] linear_acceleration_covariance) {
         this.header = header;
         this.orientation = orientation;
         for (int index = 0; index < 9; index++) {
@@ -69,7 +69,7 @@ public class Imu extends frc.team88.ros.messages.RosMessage {
     }
 
     public Imu(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.orientation = new frc.team88.ros.messages.geometry_msgs.Quaternion(jsonObj.get("orientation").getAsJsonObject());
         int orientation_covariance_element_index = 0;
         for (JsonElement orientation_covariance_element : jsonObj.getAsJsonArray("orientation_covariance")) {
@@ -87,7 +87,7 @@ public class Imu extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.geometry_msgs.Quaternion getOrientation() {
@@ -109,7 +109,7 @@ public class Imu extends frc.team88.ros.messages.RosMessage {
         return this.linear_acceleration_covariance;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setOrientation(frc.team88.ros.messages.geometry_msgs.Quaternion orientation) {

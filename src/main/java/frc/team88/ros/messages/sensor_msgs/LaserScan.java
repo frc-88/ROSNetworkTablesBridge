@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class LaserScan extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private float angle_min = 0.0f;
     private float angle_max = 0.0f;
     private float angle_increment = 0.0f;
@@ -27,7 +27,7 @@ public class LaserScan extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public LaserScan(frc.team88.ros.messages.std_msgs.Header header, float angle_min, float angle_max, float angle_increment, float time_increment, float scan_time, float range_min, float range_max, java.lang.Float[] ranges, java.lang.Float[] intensities) {
+    public LaserScan(frc.team88.ros.messages.std_msgs.RosHeader header, float angle_min, float angle_max, float angle_increment, float time_increment, float scan_time, float range_min, float range_max, java.lang.Float[] ranges, java.lang.Float[] intensities) {
         this.header = header;
         this.angle_min = angle_min;
         this.angle_max = angle_max;
@@ -41,7 +41,7 @@ public class LaserScan extends frc.team88.ros.messages.RosMessage {
     }
 
     public LaserScan(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.angle_min = jsonObj.get("angle_min").getAsFloat();
         this.angle_max = jsonObj.get("angle_max").getAsFloat();
         this.angle_increment = jsonObj.get("angle_increment").getAsFloat();
@@ -57,7 +57,7 @@ public class LaserScan extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public float getAngleMin() {
@@ -88,7 +88,7 @@ public class LaserScan extends frc.team88.ros.messages.RosMessage {
         return this.intensities;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setAngleMin(float angle_min) {

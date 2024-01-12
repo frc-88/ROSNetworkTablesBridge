@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class TransformStamped extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private java.lang.String child_frame_id = "";
     private frc.team88.ros.messages.geometry_msgs.Transform transform = new frc.team88.ros.messages.geometry_msgs.Transform();
 
@@ -17,19 +17,19 @@ public class TransformStamped extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public TransformStamped(frc.team88.ros.messages.std_msgs.Header header, java.lang.String child_frame_id, frc.team88.ros.messages.geometry_msgs.Transform transform) {
+    public TransformStamped(frc.team88.ros.messages.std_msgs.RosHeader header, java.lang.String child_frame_id, frc.team88.ros.messages.geometry_msgs.Transform transform) {
         this.header = header;
         this.child_frame_id = child_frame_id;
         this.transform = transform;
     }
 
     public TransformStamped(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.child_frame_id = jsonObj.get("child_frame_id").getAsString();
         this.transform = new frc.team88.ros.messages.geometry_msgs.Transform(jsonObj.get("transform").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public java.lang.String getChildFrameId() {
@@ -39,7 +39,7 @@ public class TransformStamped extends frc.team88.ros.messages.RosMessage {
         return this.transform;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setChildFrameId(java.lang.String child_frame_id) {

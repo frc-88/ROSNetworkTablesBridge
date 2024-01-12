@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class Image extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private int height = 0;
     private int width = 0;
     private java.lang.String encoding = "";
@@ -24,7 +24,7 @@ public class Image extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Image(frc.team88.ros.messages.std_msgs.Header header, int height, int width, java.lang.String encoding, byte is_bigendian, int step, java.lang.Byte[] data) {
+    public Image(frc.team88.ros.messages.std_msgs.RosHeader header, int height, int width, java.lang.String encoding, byte is_bigendian, int step, java.lang.Byte[] data) {
         this.header = header;
         this.height = height;
         this.width = width;
@@ -35,7 +35,7 @@ public class Image extends frc.team88.ros.messages.RosMessage {
     }
 
     public Image(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.height = jsonObj.get("height").getAsInt();
         this.width = jsonObj.get("width").getAsInt();
         this.encoding = jsonObj.get("encoding").getAsString();
@@ -46,7 +46,7 @@ public class Image extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public int getHeight() {
@@ -68,7 +68,7 @@ public class Image extends frc.team88.ros.messages.RosMessage {
         return this.data;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setHeight(int height) {

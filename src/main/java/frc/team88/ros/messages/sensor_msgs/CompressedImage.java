@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class CompressedImage extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private java.lang.String format = "";
     private ArrayList<java.lang.Byte> data = new ArrayList<>();
 
@@ -20,21 +20,21 @@ public class CompressedImage extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public CompressedImage(frc.team88.ros.messages.std_msgs.Header header, java.lang.String format, java.lang.Byte[] data) {
+    public CompressedImage(frc.team88.ros.messages.std_msgs.RosHeader header, java.lang.String format, java.lang.Byte[] data) {
         this.header = header;
         this.format = format;
         this.data = new ArrayList<>(Arrays.asList(data));
     }
 
     public CompressedImage(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.format = jsonObj.get("format").getAsString();
         for (JsonElement data_element : jsonObj.getAsJsonArray("data")) {
             this.data.add(data_element.getAsByte());
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public java.lang.String getFormat() {
@@ -44,7 +44,7 @@ public class CompressedImage extends frc.team88.ros.messages.RosMessage {
         return this.data;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setFormat(java.lang.String format) {

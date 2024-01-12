@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class GoalStatusArray extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private ArrayList<frc.team88.ros.messages.actionlib_msgs.GoalStatus> status_list = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
@@ -19,26 +19,26 @@ public class GoalStatusArray extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public GoalStatusArray(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.actionlib_msgs.GoalStatus[] status_list) {
+    public GoalStatusArray(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.actionlib_msgs.GoalStatus[] status_list) {
         this.header = header;
         this.status_list = new ArrayList<>(Arrays.asList(status_list));
     }
 
     public GoalStatusArray(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         for (JsonElement status_list_element : jsonObj.getAsJsonArray("status_list")) {
             this.status_list.add(new frc.team88.ros.messages.actionlib_msgs.GoalStatus(status_list_element.getAsJsonObject()));
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public ArrayList<frc.team88.ros.messages.actionlib_msgs.GoalStatus> getStatusList() {
         return this.status_list;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setStatusList(ArrayList<frc.team88.ros.messages.actionlib_msgs.GoalStatus> status_list) {

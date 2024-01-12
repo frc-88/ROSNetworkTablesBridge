@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class DisparityImage extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.sensor_msgs.Image image = new frc.team88.ros.messages.sensor_msgs.Image();
     private float f = 0.0f;
     private float T = 0.0f;
@@ -22,7 +22,7 @@ public class DisparityImage extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public DisparityImage(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.sensor_msgs.Image image, float f, float T, frc.team88.ros.messages.sensor_msgs.RegionOfInterest valid_window, float min_disparity, float max_disparity, float delta_d) {
+    public DisparityImage(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.sensor_msgs.Image image, float f, float T, frc.team88.ros.messages.sensor_msgs.RegionOfInterest valid_window, float min_disparity, float max_disparity, float delta_d) {
         this.header = header;
         this.image = image;
         this.f = f;
@@ -34,7 +34,7 @@ public class DisparityImage extends frc.team88.ros.messages.RosMessage {
     }
 
     public DisparityImage(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.image = new frc.team88.ros.messages.sensor_msgs.Image(jsonObj.get("image").getAsJsonObject());
         this.f = jsonObj.get("f").getAsFloat();
         this.T = jsonObj.get("T").getAsFloat();
@@ -44,7 +44,7 @@ public class DisparityImage extends frc.team88.ros.messages.RosMessage {
         this.delta_d = jsonObj.get("delta_d").getAsFloat();
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.sensor_msgs.Image getImage() {
@@ -69,7 +69,7 @@ public class DisparityImage extends frc.team88.ros.messages.RosMessage {
         return this.delta_d;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setImage(frc.team88.ros.messages.sensor_msgs.Image image) {

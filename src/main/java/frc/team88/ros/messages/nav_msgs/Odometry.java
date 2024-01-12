@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class Odometry extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private java.lang.String child_frame_id = "";
     private frc.team88.ros.messages.geometry_msgs.PoseWithCovariance pose = new frc.team88.ros.messages.geometry_msgs.PoseWithCovariance();
     private frc.team88.ros.messages.geometry_msgs.TwistWithCovariance twist = new frc.team88.ros.messages.geometry_msgs.TwistWithCovariance();
@@ -18,7 +18,7 @@ public class Odometry extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Odometry(frc.team88.ros.messages.std_msgs.Header header, java.lang.String child_frame_id, frc.team88.ros.messages.geometry_msgs.PoseWithCovariance pose, frc.team88.ros.messages.geometry_msgs.TwistWithCovariance twist) {
+    public Odometry(frc.team88.ros.messages.std_msgs.RosHeader header, java.lang.String child_frame_id, frc.team88.ros.messages.geometry_msgs.PoseWithCovariance pose, frc.team88.ros.messages.geometry_msgs.TwistWithCovariance twist) {
         this.header = header;
         this.child_frame_id = child_frame_id;
         this.pose = pose;
@@ -26,13 +26,13 @@ public class Odometry extends frc.team88.ros.messages.RosMessage {
     }
 
     public Odometry(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.child_frame_id = jsonObj.get("child_frame_id").getAsString();
         this.pose = new frc.team88.ros.messages.geometry_msgs.PoseWithCovariance(jsonObj.get("pose").getAsJsonObject());
         this.twist = new frc.team88.ros.messages.geometry_msgs.TwistWithCovariance(jsonObj.get("twist").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public java.lang.String getChildFrameId() {
@@ -45,7 +45,7 @@ public class Odometry extends frc.team88.ros.messages.RosMessage {
         return this.twist;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setChildFrameId(java.lang.String child_frame_id) {

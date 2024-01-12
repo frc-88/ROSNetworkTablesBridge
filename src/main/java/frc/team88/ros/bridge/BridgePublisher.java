@@ -4,7 +4,7 @@ import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.wpilibj.RobotController;
 import frc.team88.ros.messages.RosMessage;
 import frc.team88.ros.messages.TimePrimitive;
-import frc.team88.ros.messages.std_msgs.Header;
+import frc.team88.ros.messages.std_msgs.RosHeader;
 
 /**
  * The BridgePublisher class is responsible for publishing data from the client
@@ -42,8 +42,8 @@ public class BridgePublisher<T extends RosMessage> {
      * @param frame_id The frame_id to be set in the Header
      * @return A new Header object
      */
-    public Header getHeader(String frame_id) {
-        return new Header(getSeq(), getNow(), frame_id);
+    public RosHeader getHeader(String frame_id) {
+        return new RosHeader(getSeq(), getNow(), frame_id);
     }
 
     /**
@@ -63,8 +63,8 @@ public class BridgePublisher<T extends RosMessage> {
      * @param frame_id The frame_id to be set in the Header
      * @return A new Header object
      */
-    public Header getHeader(TimePrimitive time, String frame_id) {
-        return new Header(getSeq(), time, frame_id);
+    public RosHeader getHeader(TimePrimitive time, String frame_id) {
+        return new RosHeader(getSeq(), time, frame_id);
     }
 
     /**

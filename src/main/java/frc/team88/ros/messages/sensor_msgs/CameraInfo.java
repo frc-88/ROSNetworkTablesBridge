@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class CameraInfo extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private int height = 0;
     private int width = 0;
     private java.lang.String distortion_model = "";
@@ -61,7 +61,7 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public CameraInfo(frc.team88.ros.messages.std_msgs.Header header, int height, int width, java.lang.String distortion_model, java.lang.Double[] D, java.lang.Double[] K, java.lang.Double[] R, java.lang.Double[] P, int binning_x, int binning_y, frc.team88.ros.messages.sensor_msgs.RegionOfInterest roi) {
+    public CameraInfo(frc.team88.ros.messages.std_msgs.RosHeader header, int height, int width, java.lang.String distortion_model, java.lang.Double[] D, java.lang.Double[] K, java.lang.Double[] R, java.lang.Double[] P, int binning_x, int binning_y, frc.team88.ros.messages.sensor_msgs.RegionOfInterest roi) {
         this.header = header;
         this.height = height;
         this.width = width;
@@ -82,7 +82,7 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
     }
 
     public CameraInfo(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.height = jsonObj.get("height").getAsInt();
         this.width = jsonObj.get("width").getAsInt();
         this.distortion_model = jsonObj.get("distortion_model").getAsString();
@@ -106,7 +106,7 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
         this.roi = new frc.team88.ros.messages.sensor_msgs.RegionOfInterest(jsonObj.get("roi").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public int getHeight() {
@@ -140,7 +140,7 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
         return this.roi;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setHeight(int height) {

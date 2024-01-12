@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class RosFloat64MultiArray extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.MultiArrayLayout layout = new frc.team88.ros.messages.std_msgs.MultiArrayLayout();
+    private frc.team88.ros.messages.std_msgs.RosMultiArrayLayout layout = new frc.team88.ros.messages.std_msgs.RosMultiArrayLayout();
     private ArrayList<java.lang.Double> data = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
@@ -19,26 +19,26 @@ public class RosFloat64MultiArray extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public RosFloat64MultiArray(frc.team88.ros.messages.std_msgs.MultiArrayLayout layout, java.lang.Double[] data) {
+    public RosFloat64MultiArray(frc.team88.ros.messages.std_msgs.RosMultiArrayLayout layout, java.lang.Double[] data) {
         this.layout = layout;
         this.data = new ArrayList<>(Arrays.asList(data));
     }
 
     public RosFloat64MultiArray(JsonObject jsonObj) {
-        this.layout = new frc.team88.ros.messages.std_msgs.MultiArrayLayout(jsonObj.get("layout").getAsJsonObject());
+        this.layout = new frc.team88.ros.messages.std_msgs.RosMultiArrayLayout(jsonObj.get("layout").getAsJsonObject());
         for (JsonElement data_element : jsonObj.getAsJsonArray("data")) {
             this.data.add(data_element.getAsDouble());
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.MultiArrayLayout getLayout() {
+    public frc.team88.ros.messages.std_msgs.RosMultiArrayLayout getLayout() {
         return this.layout;
     }
     public ArrayList<java.lang.Double> getData() {
         return this.data;
     }
 
-    public void setLayout(frc.team88.ros.messages.std_msgs.MultiArrayLayout layout) {
+    public void setLayout(frc.team88.ros.messages.std_msgs.RosMultiArrayLayout layout) {
         this.layout = layout;
     }
     public void setData(ArrayList<java.lang.Double> data) {

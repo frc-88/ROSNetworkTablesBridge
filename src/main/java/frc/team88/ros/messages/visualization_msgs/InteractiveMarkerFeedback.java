@@ -12,7 +12,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
     public static int MOUSE_DOWN = 4;
     public static int MOUSE_UP = 5;
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private java.lang.String client_id = "";
     private java.lang.String marker_name = "";
     private java.lang.String control_name = "";
@@ -29,7 +29,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
 
     }
 
-    public InteractiveMarkerFeedback(frc.team88.ros.messages.std_msgs.Header header, java.lang.String client_id, java.lang.String marker_name, java.lang.String control_name, byte event_type, frc.team88.ros.messages.geometry_msgs.Pose pose, int menu_entry_id, frc.team88.ros.messages.geometry_msgs.Point mouse_point, boolean mouse_point_valid) {
+    public InteractiveMarkerFeedback(frc.team88.ros.messages.std_msgs.RosHeader header, java.lang.String client_id, java.lang.String marker_name, java.lang.String control_name, byte event_type, frc.team88.ros.messages.geometry_msgs.Pose pose, int menu_entry_id, frc.team88.ros.messages.geometry_msgs.Point mouse_point, boolean mouse_point_valid) {
         this.header = header;
         this.client_id = client_id;
         this.marker_name = marker_name;
@@ -42,7 +42,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
     }
 
     public InteractiveMarkerFeedback(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.client_id = jsonObj.get("client_id").getAsString();
         this.marker_name = jsonObj.get("marker_name").getAsString();
         this.control_name = jsonObj.get("control_name").getAsString();
@@ -53,7 +53,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
         this.mouse_point_valid = jsonObj.get("mouse_point_valid").getAsBoolean();
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public java.lang.String getClientId() {
@@ -81,7 +81,7 @@ public class InteractiveMarkerFeedback extends frc.team88.ros.messages.RosMessag
         return this.mouse_point_valid;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setClientId(java.lang.String client_id) {

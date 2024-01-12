@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class Illuminance extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private double illuminance = 0.0;
     private double variance = 0.0;
 
@@ -17,19 +17,19 @@ public class Illuminance extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Illuminance(frc.team88.ros.messages.std_msgs.Header header, double illuminance, double variance) {
+    public Illuminance(frc.team88.ros.messages.std_msgs.RosHeader header, double illuminance, double variance) {
         this.header = header;
         this.illuminance = illuminance;
         this.variance = variance;
     }
 
     public Illuminance(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.illuminance = jsonObj.get("illuminance").getAsDouble();
         this.variance = jsonObj.get("variance").getAsDouble();
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public double getIlluminance() {
@@ -39,7 +39,7 @@ public class Illuminance extends frc.team88.ros.messages.RosMessage {
         return this.variance;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setIlluminance(double illuminance) {

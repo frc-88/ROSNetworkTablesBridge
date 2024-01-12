@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class JointState extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private ArrayList<java.lang.String> name = new ArrayList<>();
     private ArrayList<java.lang.Double> position = new ArrayList<>();
     private ArrayList<java.lang.Double> velocity = new ArrayList<>();
@@ -22,7 +22,7 @@ public class JointState extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public JointState(frc.team88.ros.messages.std_msgs.Header header, java.lang.String[] name, java.lang.Double[] position, java.lang.Double[] velocity, java.lang.Double[] effort) {
+    public JointState(frc.team88.ros.messages.std_msgs.RosHeader header, java.lang.String[] name, java.lang.Double[] position, java.lang.Double[] velocity, java.lang.Double[] effort) {
         this.header = header;
         this.name = new ArrayList<>(Arrays.asList(name));
         this.position = new ArrayList<>(Arrays.asList(position));
@@ -31,7 +31,7 @@ public class JointState extends frc.team88.ros.messages.RosMessage {
     }
 
     public JointState(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         for (JsonElement name_element : jsonObj.getAsJsonArray("name")) {
             this.name.add(name_element.getAsString());
         }
@@ -46,7 +46,7 @@ public class JointState extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public ArrayList<java.lang.String> getName() {
@@ -62,7 +62,7 @@ public class JointState extends frc.team88.ros.messages.RosMessage {
         return this.effort;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setName(ArrayList<java.lang.String> name) {

@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private int height = 0;
     private int width = 0;
     private ArrayList<frc.team88.ros.messages.sensor_msgs.PointField> fields = new ArrayList<>();
@@ -26,7 +26,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public PointCloud2(frc.team88.ros.messages.std_msgs.Header header, int height, int width, frc.team88.ros.messages.sensor_msgs.PointField[] fields, boolean is_bigendian, int point_step, int row_step, java.lang.Byte[] data, boolean is_dense) {
+    public PointCloud2(frc.team88.ros.messages.std_msgs.RosHeader header, int height, int width, frc.team88.ros.messages.sensor_msgs.PointField[] fields, boolean is_bigendian, int point_step, int row_step, java.lang.Byte[] data, boolean is_dense) {
         this.header = header;
         this.height = height;
         this.width = width;
@@ -39,7 +39,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
     }
 
     public PointCloud2(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.height = jsonObj.get("height").getAsInt();
         this.width = jsonObj.get("width").getAsInt();
         for (JsonElement fields_element : jsonObj.getAsJsonArray("fields")) {
@@ -54,7 +54,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
         this.is_dense = jsonObj.get("is_dense").getAsBoolean();
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public int getHeight() {
@@ -82,7 +82,7 @@ public class PointCloud2 extends frc.team88.ros.messages.RosMessage {
         return this.is_dense;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setHeight(int height) {

@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class RelativeHumidity extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private double relative_humidity = 0.0;
     private double variance = 0.0;
 
@@ -17,19 +17,19 @@ public class RelativeHumidity extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public RelativeHumidity(frc.team88.ros.messages.std_msgs.Header header, double relative_humidity, double variance) {
+    public RelativeHumidity(frc.team88.ros.messages.std_msgs.RosHeader header, double relative_humidity, double variance) {
         this.header = header;
         this.relative_humidity = relative_humidity;
         this.variance = variance;
     }
 
     public RelativeHumidity(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.relative_humidity = jsonObj.get("relative_humidity").getAsDouble();
         this.variance = jsonObj.get("variance").getAsDouble();
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public double getRelativeHumidity() {
@@ -39,7 +39,7 @@ public class RelativeHumidity extends frc.team88.ros.messages.RosMessage {
         return this.variance;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setRelativeHumidity(double relative_humidity) {

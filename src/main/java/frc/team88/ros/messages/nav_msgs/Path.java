@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class Path extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private ArrayList<frc.team88.ros.messages.geometry_msgs.PoseStamped> poses = new ArrayList<>();
 
     @Expose(serialize = false, deserialize = false)
@@ -19,26 +19,26 @@ public class Path extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Path(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.PoseStamped[] poses) {
+    public Path(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.geometry_msgs.PoseStamped[] poses) {
         this.header = header;
         this.poses = new ArrayList<>(Arrays.asList(poses));
     }
 
     public Path(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         for (JsonElement poses_element : jsonObj.getAsJsonArray("poses")) {
             this.poses.add(new frc.team88.ros.messages.geometry_msgs.PoseStamped(poses_element.getAsJsonObject()));
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public ArrayList<frc.team88.ros.messages.geometry_msgs.PoseStamped> getPoses() {
         return this.poses;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setPoses(ArrayList<frc.team88.ros.messages.geometry_msgs.PoseStamped> poses) {

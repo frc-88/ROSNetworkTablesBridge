@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class OccupancyGrid extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.nav_msgs.MapMetaData info = new frc.team88.ros.messages.nav_msgs.MapMetaData();
     private ArrayList<java.lang.Byte> data = new ArrayList<>();
 
@@ -20,21 +20,21 @@ public class OccupancyGrid extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public OccupancyGrid(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.nav_msgs.MapMetaData info, java.lang.Byte[] data) {
+    public OccupancyGrid(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.nav_msgs.MapMetaData info, java.lang.Byte[] data) {
         this.header = header;
         this.info = info;
         this.data = new ArrayList<>(Arrays.asList(data));
     }
 
     public OccupancyGrid(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.info = new frc.team88.ros.messages.nav_msgs.MapMetaData(jsonObj.get("info").getAsJsonObject());
         for (JsonElement data_element : jsonObj.getAsJsonArray("data")) {
             this.data.add(data_element.getAsByte());
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.nav_msgs.MapMetaData getInfo() {
@@ -44,7 +44,7 @@ public class OccupancyGrid extends frc.team88.ros.messages.RosMessage {
         return this.data;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setInfo(frc.team88.ros.messages.nav_msgs.MapMetaData info) {

@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class InteractiveMarker extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.geometry_msgs.Pose pose = new frc.team88.ros.messages.geometry_msgs.Pose();
     private java.lang.String name = "";
     private java.lang.String description = "";
@@ -24,7 +24,7 @@ public class InteractiveMarker extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public InteractiveMarker(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.Pose pose, java.lang.String name, java.lang.String description, float scale, frc.team88.ros.messages.visualization_msgs.MenuEntry[] menu_entries, frc.team88.ros.messages.visualization_msgs.InteractiveMarkerControl[] controls) {
+    public InteractiveMarker(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.geometry_msgs.Pose pose, java.lang.String name, java.lang.String description, float scale, frc.team88.ros.messages.visualization_msgs.MenuEntry[] menu_entries, frc.team88.ros.messages.visualization_msgs.InteractiveMarkerControl[] controls) {
         this.header = header;
         this.pose = pose;
         this.name = name;
@@ -35,7 +35,7 @@ public class InteractiveMarker extends frc.team88.ros.messages.RosMessage {
     }
 
     public InteractiveMarker(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.pose = new frc.team88.ros.messages.geometry_msgs.Pose(jsonObj.get("pose").getAsJsonObject());
         this.name = jsonObj.get("name").getAsString();
         this.description = jsonObj.get("description").getAsString();
@@ -48,7 +48,7 @@ public class InteractiveMarker extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.geometry_msgs.Pose getPose() {
@@ -70,7 +70,7 @@ public class InteractiveMarker extends frc.team88.ros.messages.RosMessage {
         return this.controls;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setPose(frc.team88.ros.messages.geometry_msgs.Pose pose) {

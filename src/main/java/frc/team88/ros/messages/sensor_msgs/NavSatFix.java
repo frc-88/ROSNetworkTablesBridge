@@ -11,7 +11,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
     public static int COVARIANCE_TYPE_DIAGONAL_KNOWN = 2;
     public static int COVARIANCE_TYPE_KNOWN = 3;
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.sensor_msgs.NavSatStatus status = new frc.team88.ros.messages.sensor_msgs.NavSatStatus();
     private double latitude = 0.0;
     private double longitude = 0.0;
@@ -36,7 +36,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public NavSatFix(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.sensor_msgs.NavSatStatus status, double latitude, double longitude, double altitude, java.lang.Double[] position_covariance, byte position_covariance_type) {
+    public NavSatFix(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.sensor_msgs.NavSatStatus status, double latitude, double longitude, double altitude, java.lang.Double[] position_covariance, byte position_covariance_type) {
         this.header = header;
         this.status = status;
         this.latitude = latitude;
@@ -49,7 +49,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
     }
 
     public NavSatFix(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.status = new frc.team88.ros.messages.sensor_msgs.NavSatStatus(jsonObj.get("status").getAsJsonObject());
         this.latitude = jsonObj.get("latitude").getAsDouble();
         this.longitude = jsonObj.get("longitude").getAsDouble();
@@ -61,7 +61,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
         this.position_covariance_type = jsonObj.get("position_covariance_type").getAsByte();
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.sensor_msgs.NavSatStatus getStatus() {
@@ -83,7 +83,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
         return this.position_covariance_type;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setStatus(frc.team88.ros.messages.sensor_msgs.NavSatStatus status) {

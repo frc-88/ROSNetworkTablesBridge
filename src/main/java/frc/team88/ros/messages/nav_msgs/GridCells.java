@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class GridCells extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private float cell_width = 0.0f;
     private float cell_height = 0.0f;
     private ArrayList<frc.team88.ros.messages.geometry_msgs.Point> cells = new ArrayList<>();
@@ -21,7 +21,7 @@ public class GridCells extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public GridCells(frc.team88.ros.messages.std_msgs.Header header, float cell_width, float cell_height, frc.team88.ros.messages.geometry_msgs.Point[] cells) {
+    public GridCells(frc.team88.ros.messages.std_msgs.RosHeader header, float cell_width, float cell_height, frc.team88.ros.messages.geometry_msgs.Point[] cells) {
         this.header = header;
         this.cell_width = cell_width;
         this.cell_height = cell_height;
@@ -29,7 +29,7 @@ public class GridCells extends frc.team88.ros.messages.RosMessage {
     }
 
     public GridCells(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.cell_width = jsonObj.get("cell_width").getAsFloat();
         this.cell_height = jsonObj.get("cell_height").getAsFloat();
         for (JsonElement cells_element : jsonObj.getAsJsonArray("cells")) {
@@ -37,7 +37,7 @@ public class GridCells extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public float getCellWidth() {
@@ -50,7 +50,7 @@ public class GridCells extends frc.team88.ros.messages.RosMessage {
         return this.cells;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setCellWidth(float cell_width) {

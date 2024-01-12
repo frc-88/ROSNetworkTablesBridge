@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 public class PointCloud extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private ArrayList<frc.team88.ros.messages.geometry_msgs.Point32> points = new ArrayList<>();
     private ArrayList<frc.team88.ros.messages.sensor_msgs.ChannelFloat32> channels = new ArrayList<>();
 
@@ -20,14 +20,14 @@ public class PointCloud extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public PointCloud(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.Point32[] points, frc.team88.ros.messages.sensor_msgs.ChannelFloat32[] channels) {
+    public PointCloud(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.geometry_msgs.Point32[] points, frc.team88.ros.messages.sensor_msgs.ChannelFloat32[] channels) {
         this.header = header;
         this.points = new ArrayList<>(Arrays.asList(points));
         this.channels = new ArrayList<>(Arrays.asList(channels));
     }
 
     public PointCloud(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         for (JsonElement points_element : jsonObj.getAsJsonArray("points")) {
             this.points.add(new frc.team88.ros.messages.geometry_msgs.Point32(points_element.getAsJsonObject()));
         }
@@ -36,7 +36,7 @@ public class PointCloud extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public ArrayList<frc.team88.ros.messages.geometry_msgs.Point32> getPoints() {
@@ -46,7 +46,7 @@ public class PointCloud extends frc.team88.ros.messages.RosMessage {
         return this.channels;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setPoints(ArrayList<frc.team88.ros.messages.geometry_msgs.Point32> points) {

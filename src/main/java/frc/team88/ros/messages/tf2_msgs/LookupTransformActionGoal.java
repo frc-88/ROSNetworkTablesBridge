@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class LookupTransformActionGoal extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.actionlib_msgs.GoalID goal_id = new frc.team88.ros.messages.actionlib_msgs.GoalID();
     private frc.team88.ros.messages.tf2_msgs.LookupTransformGoal goal = new frc.team88.ros.messages.tf2_msgs.LookupTransformGoal();
 
@@ -17,19 +17,19 @@ public class LookupTransformActionGoal extends frc.team88.ros.messages.RosMessag
 
     }
 
-    public LookupTransformActionGoal(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.actionlib_msgs.GoalID goal_id, frc.team88.ros.messages.tf2_msgs.LookupTransformGoal goal) {
+    public LookupTransformActionGoal(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.actionlib_msgs.GoalID goal_id, frc.team88.ros.messages.tf2_msgs.LookupTransformGoal goal) {
         this.header = header;
         this.goal_id = goal_id;
         this.goal = goal;
     }
 
     public LookupTransformActionGoal(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.goal_id = new frc.team88.ros.messages.actionlib_msgs.GoalID(jsonObj.get("goal_id").getAsJsonObject());
         this.goal = new frc.team88.ros.messages.tf2_msgs.LookupTransformGoal(jsonObj.get("goal").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.actionlib_msgs.GoalID getGoalId() {
@@ -39,7 +39,7 @@ public class LookupTransformActionGoal extends frc.team88.ros.messages.RosMessag
         return this.goal;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setGoalId(frc.team88.ros.messages.actionlib_msgs.GoalID goal_id) {

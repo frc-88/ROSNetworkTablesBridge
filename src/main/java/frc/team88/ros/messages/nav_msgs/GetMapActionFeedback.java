@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class GetMapActionFeedback extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.actionlib_msgs.GoalStatus status = new frc.team88.ros.messages.actionlib_msgs.GoalStatus();
     private frc.team88.ros.messages.nav_msgs.GetMapFeedback feedback = new frc.team88.ros.messages.nav_msgs.GetMapFeedback();
 
@@ -17,19 +17,19 @@ public class GetMapActionFeedback extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public GetMapActionFeedback(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.actionlib_msgs.GoalStatus status, frc.team88.ros.messages.nav_msgs.GetMapFeedback feedback) {
+    public GetMapActionFeedback(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.actionlib_msgs.GoalStatus status, frc.team88.ros.messages.nav_msgs.GetMapFeedback feedback) {
         this.header = header;
         this.status = status;
         this.feedback = feedback;
     }
 
     public GetMapActionFeedback(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.status = new frc.team88.ros.messages.actionlib_msgs.GoalStatus(jsonObj.get("status").getAsJsonObject());
         this.feedback = new frc.team88.ros.messages.nav_msgs.GetMapFeedback(jsonObj.get("feedback").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.actionlib_msgs.GoalStatus getStatus() {
@@ -39,7 +39,7 @@ public class GetMapActionFeedback extends frc.team88.ros.messages.RosMessage {
         return this.feedback;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setStatus(frc.team88.ros.messages.actionlib_msgs.GoalStatus status) {

@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class Vector3Stamped extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.geometry_msgs.Vector3 vector = new frc.team88.ros.messages.geometry_msgs.Vector3();
 
     @Expose(serialize = false, deserialize = false)
@@ -16,24 +16,24 @@ public class Vector3Stamped extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public Vector3Stamped(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.Vector3 vector) {
+    public Vector3Stamped(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.geometry_msgs.Vector3 vector) {
         this.header = header;
         this.vector = vector;
     }
 
     public Vector3Stamped(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.vector = new frc.team88.ros.messages.geometry_msgs.Vector3(jsonObj.get("vector").getAsJsonObject());
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.geometry_msgs.Vector3 getVector() {
         return this.vector;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setVector(frc.team88.ros.messages.geometry_msgs.Vector3 vector) {

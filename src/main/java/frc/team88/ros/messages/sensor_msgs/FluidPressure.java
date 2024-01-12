@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose;
 
 public class FluidPressure extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private double fluid_pressure = 0.0;
     private double variance = 0.0;
 
@@ -17,19 +17,19 @@ public class FluidPressure extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public FluidPressure(frc.team88.ros.messages.std_msgs.Header header, double fluid_pressure, double variance) {
+    public FluidPressure(frc.team88.ros.messages.std_msgs.RosHeader header, double fluid_pressure, double variance) {
         this.header = header;
         this.fluid_pressure = fluid_pressure;
         this.variance = variance;
     }
 
     public FluidPressure(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.fluid_pressure = jsonObj.get("fluid_pressure").getAsDouble();
         this.variance = jsonObj.get("variance").getAsDouble();
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public double getFluidPressure() {
@@ -39,7 +39,7 @@ public class FluidPressure extends frc.team88.ros.messages.RosMessage {
         return this.variance;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setFluidPressure(double fluid_pressure) {

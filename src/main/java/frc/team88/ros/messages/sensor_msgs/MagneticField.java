@@ -7,7 +7,7 @@ import com.google.gson.annotations.Expose;
 
 public class MagneticField extends frc.team88.ros.messages.RosMessage {
 
-    private frc.team88.ros.messages.std_msgs.Header header = new frc.team88.ros.messages.std_msgs.Header();
+    private frc.team88.ros.messages.std_msgs.RosHeader header = new frc.team88.ros.messages.std_msgs.RosHeader();
     private frc.team88.ros.messages.geometry_msgs.Vector3 magnetic_field = new frc.team88.ros.messages.geometry_msgs.Vector3();
     private java.lang.Double[] magnetic_field_covariance = new java.lang.Double[] {
         0.0,
@@ -28,7 +28,7 @@ public class MagneticField extends frc.team88.ros.messages.RosMessage {
 
     }
 
-    public MagneticField(frc.team88.ros.messages.std_msgs.Header header, frc.team88.ros.messages.geometry_msgs.Vector3 magnetic_field, java.lang.Double[] magnetic_field_covariance) {
+    public MagneticField(frc.team88.ros.messages.std_msgs.RosHeader header, frc.team88.ros.messages.geometry_msgs.Vector3 magnetic_field, java.lang.Double[] magnetic_field_covariance) {
         this.header = header;
         this.magnetic_field = magnetic_field;
         for (int index = 0; index < 9; index++) {
@@ -37,7 +37,7 @@ public class MagneticField extends frc.team88.ros.messages.RosMessage {
     }
 
     public MagneticField(JsonObject jsonObj) {
-        this.header = new frc.team88.ros.messages.std_msgs.Header(jsonObj.get("header").getAsJsonObject());
+        this.header = new frc.team88.ros.messages.std_msgs.RosHeader(jsonObj.get("header").getAsJsonObject());
         this.magnetic_field = new frc.team88.ros.messages.geometry_msgs.Vector3(jsonObj.get("magnetic_field").getAsJsonObject());
         int magnetic_field_covariance_element_index = 0;
         for (JsonElement magnetic_field_covariance_element : jsonObj.getAsJsonArray("magnetic_field_covariance")) {
@@ -45,7 +45,7 @@ public class MagneticField extends frc.team88.ros.messages.RosMessage {
         }
     }
 
-    public frc.team88.ros.messages.std_msgs.Header getHeader() {
+    public frc.team88.ros.messages.std_msgs.RosHeader getHeader() {
         return this.header;
     }
     public frc.team88.ros.messages.geometry_msgs.Vector3 getMagneticField() {
@@ -55,7 +55,7 @@ public class MagneticField extends frc.team88.ros.messages.RosMessage {
         return this.magnetic_field_covariance;
     }
 
-    public void setHeader(frc.team88.ros.messages.std_msgs.Header header) {
+    public void setHeader(frc.team88.ros.messages.std_msgs.RosHeader header) {
         this.header = header;
     }
     public void setMagneticField(frc.team88.ros.messages.geometry_msgs.Vector3 magnetic_field) {
