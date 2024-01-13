@@ -1,6 +1,6 @@
 plugins {
     id "java"
-    id "edu.wpi.first.GradleRIO" version "2023.4.3" apply false
+    id "edu.wpi.first.GradleRIO" version "2024.1.1" apply false
     id "maven-publish"
 }
 
@@ -10,8 +10,8 @@ apply plugin: "maven-publish"
 group = 'com.github.jitpack'
 version = '2.0'
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 repositories {
     jcenter()
@@ -30,7 +30,7 @@ java {
 }
 
 wrapper {
-    gradleVersion = "7.3.3"
+    gradleVersion = "8.5"
     distributionType = Wrapper.DistributionType.ALL
 }
 
@@ -40,7 +40,7 @@ publishing {
             archivesBaseName = 'ROSNetworkTablesBridge'
             artifactId = "ROSNetworkTablesBridge"
             group = "io.github.frc-88"
-            version = "v2024-01-11"
+            version = "v2024-01-13"
 
             from components.java
 

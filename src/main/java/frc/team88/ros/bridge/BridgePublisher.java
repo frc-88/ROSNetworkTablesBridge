@@ -1,7 +1,6 @@
 package frc.team88.ros.bridge;
 
 import edu.wpi.first.networktables.StringPublisher;
-import edu.wpi.first.wpilibj.RobotController;
 import frc.team88.ros.messages.RosMessage;
 import frc.team88.ros.messages.TimePrimitive;
 import frc.team88.ros.messages.std_msgs.RosHeader;
