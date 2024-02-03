@@ -5,7 +5,6 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.PubSubOption;
 import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.networktables.StringSubscriber;
-import frc.team88.ros.messages.TimePrimitive;
 
 /**
  * The ROSNetworkTablesBridge class is responsible for creating and managing the
