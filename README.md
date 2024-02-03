@@ -58,6 +58,15 @@ dependencies {
 Create a new subsystem:
 
 ```java
+package frc.robot.ros.bridge;
+
+import java.util.Optional;
+
+import frc.team88.ros.bridge.BridgePublisher;
+import frc.team88.ros.bridge.BridgeSubscriber;
+import frc.team88.ros.bridge.ROSNetworkTablesBridge;
+import frc.team88.ros.messages.std_msgs.RosFloat64;
+
 /**
  * CoprocessorBridge is an example class demonstrating how to use the
  * ROSNetworkTablesBridge to enable communication between a WPILib Java robot
@@ -65,20 +74,20 @@ Create a new subsystem:
  */
 public class CoprocessorBridge extends SubsystemBase {
     private final ROSNetworkTablesBridge m_ros_interface;
-    private final BridgeSubscriber<Float64> m_pingSendSub;
-    private final BridgePublisher<Float64> m_pingReturnPub;
+    private final BridgeSubscriber<RosFloat64> m_pingSendSub;
+    private final BridgePublisher<RosFloat64> m_pingReturnPub;
 
     /**
      * Constructor for the CoprocessorBridge class.
      */
     public CoprocessorBridge() {
-        double updateDelay = 0.02;
+        long updateDelay = 20;
         NetworkTableInstance instance = NetworkTableInstance.getDefault();
 
         m_ros_interface = new ROSNetworkTablesBridge(instance.getTable(""), updateDelay);
 
         // Initialize ROS bridge objects
-        m_pingSendSub = new BridgeSubscriber<>(m_ros_interface, "/ping_send", Float64.class);
+        m_pingSendSub = new BridgeSubscriber<>(m_ros_interface, "/ping_send", RosFloat64.class);
         m_pingReturnPub = new BridgePublisher<>(m_ros_interface, "/ping_return");
     }
 
@@ -87,10 +96,9 @@ public class CoprocessorBridge extends SubsystemBase {
      * and if so, sends it back as a response. This measures the round trip response time.
      */
     private void checkPing() {
-        Optional<Float64> optPing;
-        if ((optPing = m_pingSendSub.receive()).isPresent()) {
-            Float64 ping = optPing.get();
-            m_pingReturnPub.send(ping);
+        Optional<RosFloat64> ping;
+        if ((ping = pingSendSub.receive()).isPresent()) {
+            pingReturnPub.send(ping.get());
         }
     }
 

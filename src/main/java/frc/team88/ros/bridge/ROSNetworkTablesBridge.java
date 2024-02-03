@@ -5,6 +5,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.PubSubOption;
 import edu.wpi.first.networktables.StringPublisher;
 import edu.wpi.first.networktables.StringSubscriber;
+import frc.team88.ros.messages.TimePrimitive;
 
 /**
  * The ROSNetworkTablesBridge class is responsible for creating and managing the
@@ -18,7 +19,7 @@ public class ROSNetworkTablesBridge {
     private final NetworkTable rosToNtRequestedTopicsTable;
     private final NetworkTable ntToRosRequestedTopicsTable;
     private final TimeSyncManager timeSync;
-    private final double updateInterval;
+    private final long updateInterval;
     public final String TOPICS_ENTRY_KEY = "@topics";
     public final String TIME_ENTRY_KEY = "@time";
 
@@ -28,9 +29,9 @@ public class ROSNetworkTablesBridge {
      *
      * @param table          The parent NetworkTable to create the subtables from
      * @param updateInterval The desired update interval for publishing and
-     *                       subscribing to data
+     *                       subscribing to data in milliseconds
      */
-    public ROSNetworkTablesBridge(NetworkTable table, double updateInterval) {
+    public ROSNetworkTablesBridge(NetworkTable table, long updateInterval) {
         this.updateInterval = updateInterval;
 
         rosToNtSubtable = table.getSubTable("ros_to_nt");
@@ -42,7 +43,7 @@ public class ROSNetworkTablesBridge {
 
     private DoubleSubscriber makeTimeSyncSub() {
         return rosToNtSubtable.getDoubleTopic(TIME_ENTRY_KEY).subscribe(0.0, PubSubOption.sendAll(true),
-                PubSubOption.periodic(this.updateInterval));
+                PubSubOption.periodic((double) this.updateInterval / 1000.0));
     }
 
     /**
@@ -54,9 +55,9 @@ public class ROSNetworkTablesBridge {
      * @param rosToNtSubtable The ros_to_nt NetworkTable for subscribing to ROS data
      * @param ntToRosSubtable The nt_to_ros NetworkTable for publishing data to ROS
      * @param updateInterval  The desired update interval for publishing and
-     *                        subscribing to data
+     *                        subscribing to data in milliseconds
      */
-    public ROSNetworkTablesBridge(NetworkTable rosToNtSubtable, NetworkTable ntToRosSubtable, double updateInterval) {
+    public ROSNetworkTablesBridge(NetworkTable rosToNtSubtable, NetworkTable ntToRosSubtable, long updateInterval) {
         this.updateInterval = updateInterval;
 
         this.rosToNtSubtable = rosToNtSubtable;
@@ -90,7 +91,7 @@ public class ROSNetworkTablesBridge {
         System.out.println("Publishing to " + topicName);
         String ntTopic = topicName.replace('/', '\\');
         StringPublisher pub = ntToRosSubtable.getStringTopic(ntTopic)
-                .publish(PubSubOption.periodic(this.updateInterval));
+                .publish(PubSubOption.periodic((double) this.updateInterval / 1000.0));
         pub.set("");
         setTopicEnable(ntToRosRequestedTopicsTable, ntTopic, true);
         return pub;
@@ -126,7 +127,7 @@ public class ROSNetworkTablesBridge {
         System.out.println("Subscribing to " + topicName);
         String ntTopic = topicName.replace('/', '\\');
         StringSubscriber sub = rosToNtSubtable.getStringTopic(ntTopic).subscribe("", PubSubOption.sendAll(true),
-                PubSubOption.periodic(this.updateInterval));
+                PubSubOption.periodic((double) this.updateInterval / 1000.0));
         setTopicEnable(rosToNtRequestedTopicsTable, ntTopic, true);
         return sub;
     }
@@ -138,5 +139,32 @@ public class ROSNetworkTablesBridge {
      */
     public TimeSyncManager getTimeSync() {
         return timeSync;
+    }
+
+    /**
+     * Check if the host is alive. The host is considered alive if it has received
+     * a message within the last aliveThreshold milliseconds.
+     * 
+     * @param aliveThreshold The time in milliseconds that the host is considered
+     *                       alive
+     * 
+     * @return True if the host is alive, false otherwise
+     */
+    public boolean isAlive(long aliveThreshold) {
+        long lastReceived = timeSync.lastReceived();
+        if (lastReceived == 0) {
+            return false;
+        }
+        return timeSync.getLocalTime() - lastReceived < aliveThreshold;
+    }
+
+    /**
+     * Check if the host is alive. The host is considered alive if it has received
+     * a message within the last 10 * updateInterval milliseconds.
+     * 
+     * @return True if the host is alive, false otherwise
+     */
+    public boolean isAlive() {
+        return isAlive(10 * updateInterval);
     }
 }
