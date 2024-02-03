@@ -17,7 +17,7 @@ public class ROSNetworkTablesBridge {
     private final NetworkTable ntToRosSubtable;
     private final NetworkTable rosToNtRequestedTopicsTable;
     private final NetworkTable ntToRosRequestedTopicsTable;
-    private final DoubleSubscriber timeSyncSub;
+    private final TimeSyncManager timeSync;
     private final double updateInterval;
     public final String TOPICS_ENTRY_KEY = "@topics";
     public final String TIME_ENTRY_KEY = "@time";
@@ -37,7 +37,7 @@ public class ROSNetworkTablesBridge {
         ntToRosSubtable = table.getSubTable("nt_to_ros");
         rosToNtRequestedTopicsTable = rosToNtSubtable.getSubTable(TOPICS_ENTRY_KEY);
         ntToRosRequestedTopicsTable = ntToRosSubtable.getSubTable(TOPICS_ENTRY_KEY);
-        timeSyncSub = makeTimeSyncSub();
+        timeSync = new TimeSyncManager(makeTimeSyncSub());
     }
 
     private DoubleSubscriber makeTimeSyncSub() {
@@ -63,7 +63,7 @@ public class ROSNetworkTablesBridge {
         this.ntToRosSubtable = ntToRosSubtable;
         rosToNtRequestedTopicsTable = rosToNtSubtable.getSubTable(TOPICS_ENTRY_KEY);
         ntToRosRequestedTopicsTable = ntToRosSubtable.getSubTable(TOPICS_ENTRY_KEY);
-        timeSyncSub = makeTimeSyncSub();
+        timeSync = new TimeSyncManager(makeTimeSyncSub());
     }
 
     /**
@@ -79,8 +79,8 @@ public class ROSNetworkTablesBridge {
      * 
      * Topic format should match ROS. ex. /tj2/odom.
      * Relative topic names are interpreted at the discretion of the ROS host. ex.
-     * tj2/odom will be put the namespace of the ROS host node's namespace. If the
-     * ROS host node is in the root namespace, it will behave the same as supplying
+     * odom will be put the namespace of the ROS host node's namespace. If the
+     * ROS host node is in the tj2 namespace, it will behave the same as supplying
      * /tj2/odom
      *
      * @param topicName The name of the topic to be advertised
@@ -115,8 +115,8 @@ public class ROSNetworkTablesBridge {
      * 
      * Topic format should match ROS. ex. /tj2/odom.
      * Relative topic names are interpreted at the discretion of the ROS host. ex.
-     * tj2/odom will be put the namespace of the ROS host node's namespace. If the
-     * ROS host node is in the root namespace, it will behave the same as supplying
+     * odom will be put the namespace of the ROS host node's namespace. If the
+     * ROS host node is in the tj2 namespace, it will behave the same as supplying
      * /tj2/odom
      *
      * @param topicName The name of the topic to be subscribed to
@@ -132,12 +132,11 @@ public class ROSNetworkTablesBridge {
     }
 
     /**
-     * Getter for the timeSyncSub attribute.
+     * Gets the TimeSyncManager instance used for time synchronization.
      *
-     * @return The DoubleSubscriber instance that is used for subscribing to time
-     *         synchronization data.
+     * @return The TimeSyncManager instance
      */
-    public DoubleSubscriber getTimeSyncSub() {
-        return timeSyncSub;
+    public TimeSyncManager getTimeSync() {
+        return timeSync;
     }
 }

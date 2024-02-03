@@ -9,8 +9,6 @@ import frc.team88.ros.messages.TimePrimitive;
  * Manages time synchronization between a ROS node and a NetworkTables server.
  */
 public class TimeSyncManager {
-    private final ROSNetworkTablesBridge bridge;
-
     // Subscriber to the time synchronization topic
     private final DoubleSubscriber timeSyncSub;
 
@@ -20,9 +18,8 @@ public class TimeSyncManager {
      * @param bridge The ROSNetworkTablesBridge instance this class will use for
      *               time synchronization.
      */
-    public TimeSyncManager(ROSNetworkTablesBridge bridge) {
-        this.bridge = bridge;
-        this.timeSyncSub = this.bridge.getTimeSyncSub();
+    public TimeSyncManager(DoubleSubscriber timeSyncSub) {
+        this.timeSyncSub = timeSyncSub;
     }
 
     /**

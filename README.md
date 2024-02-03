@@ -87,8 +87,9 @@ public class CoprocessorBridge extends SubsystemBase {
      * and if so, sends it back as a response. This measures the round trip response time.
      */
     private void checkPing() {
-        Float64 ping;
-        if ((ping = m_pingSendSub.receive()) != null) {
+        Optional<Float64> optPing;
+        if ((optPing = m_pingSendSub.receive()).isPresent()) {
+            Float64 ping = optPing.get();
             m_pingReturnPub.send(ping);
         }
     }
