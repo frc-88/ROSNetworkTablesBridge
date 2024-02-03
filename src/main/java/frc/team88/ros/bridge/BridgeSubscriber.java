@@ -1,6 +1,7 @@
 package frc.team88.ros.bridge;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Optional;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -8,6 +9,7 @@ import com.google.gson.JsonParser;
 import edu.wpi.first.networktables.StringSubscriber;
 import edu.wpi.first.networktables.TimestampedString;
 import frc.team88.ros.messages.RosMessage;
+import frc.team88.ros.messages.TimePrimitive;
 
 /**
  * The BridgePublisher class is responsible for subscibing to data from the ROS
@@ -18,9 +20,10 @@ import frc.team88.ros.messages.RosMessage;
  * @param <T> The type of RosMessage to receive
  */
 public class BridgeSubscriber<T extends RosMessage> {
-    private ROSNetworkTablesBridge bridge;
-    private String topicName;
-    private Class<T> reference;
+    private final ROSNetworkTablesBridge bridge;
+    private final TimeSyncManager timeSync;
+    private final String topicName;
+    private final Class<T> reference;
     private StringSubscriber sub = null;
     private long prevAtomic = 0;
     private boolean enabled = true;
@@ -36,6 +39,7 @@ public class BridgeSubscriber<T extends RosMessage> {
         this.bridge = bridge;
         this.topicName = topicName;
         this.reference = reference;
+        this.timeSync = bridge.getTimeSync();
     }
 
     /**
@@ -45,9 +49,9 @@ public class BridgeSubscriber<T extends RosMessage> {
      * @return An instance of the specified class containing the received data, or
      *         null if no new data is available.
      */
-    public T receive() {
+    public Optional<T> receive() {
         if (!this.enabled) {
-            return null;
+            return Optional.empty();
         }
 
         // Initialize the data subscriber if it hasn't been already
@@ -60,7 +64,7 @@ public class BridgeSubscriber<T extends RosMessage> {
 
         // If the timestamp is the same as the previous one, no new data is available
         if (stampedString.timestamp == prevAtomic) {
-            return null;
+            return Optional.empty();
         }
 
         // Update the timestamp of the last received data
@@ -71,7 +75,7 @@ public class BridgeSubscriber<T extends RosMessage> {
 
         // If the JSON string is empty, no data is available
         if (jsonString.length() == 0) {
-            return null;
+            return Optional.empty();
         }
 
         // Parse the JSON string into a JsonObject
@@ -80,17 +84,26 @@ public class BridgeSubscriber<T extends RosMessage> {
             jsonObject = JsonParser.parseString(jsonString).getAsJsonObject();
         } catch (java.lang.IllegalStateException e) {
             e.printStackTrace();
-            return null;
+            return Optional.empty();
         }
 
         // Create a new instance of the specified class using the JsonObject
         try {
-            return reference.getConstructor(JsonObject.class).newInstance(jsonObject);
+            return Optional.of(reference.getConstructor(JsonObject.class).newInstance(jsonObject));
         } catch (InstantiationException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException | NoSuchMethodException | SecurityException e) {
             e.printStackTrace();
-            return null;
+            return Optional.empty();
         }
+    }
+
+    /**
+     * Gets time as remote time
+     *
+     * @return A new Time object representing the current remote time
+     */
+    public TimePrimitive getNow() {
+        return timeSync.getNow();
     }
 
     /**

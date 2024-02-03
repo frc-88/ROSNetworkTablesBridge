@@ -31,7 +31,7 @@ public class BridgePublisher<T extends RosMessage> {
     public BridgePublisher(ROSNetworkTablesBridge bridge, String topicName) {
         this.bridge = bridge;
         this.topicName = topicName;
-        this.timeSync = new TimeSyncManager(bridge);
+        this.timeSync = bridge.getTimeSync();
     }
 
     /**
