@@ -29,7 +29,7 @@ public class MeshTriangle extends frc.team88.ros.messages.RosMessage {
     public MeshTriangle(JsonObject jsonObj) {
         int vertex_indices_element_index = 0;
         for (JsonElement vertex_indices_element : jsonObj.getAsJsonArray("vertex_indices")) {
-            this.vertex_indices[vertex_indices_element_index] = vertex_indices_element.getAsInt();
+            this.vertex_indices[vertex_indices_element_index++] = vertex_indices_element.getAsInt();
         }
     }
 

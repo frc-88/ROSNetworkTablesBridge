@@ -73,17 +73,17 @@ public class Imu extends frc.team88.ros.messages.RosMessage {
         this.orientation = new frc.team88.ros.messages.geometry_msgs.Quaternion(jsonObj.get("orientation").getAsJsonObject());
         int orientation_covariance_element_index = 0;
         for (JsonElement orientation_covariance_element : jsonObj.getAsJsonArray("orientation_covariance")) {
-            this.orientation_covariance[orientation_covariance_element_index] = orientation_covariance_element.getAsDouble();
+            this.orientation_covariance[orientation_covariance_element_index++] = orientation_covariance_element.getAsDouble();
         }
         this.angular_velocity = new frc.team88.ros.messages.geometry_msgs.Vector3(jsonObj.get("angular_velocity").getAsJsonObject());
         int angular_velocity_covariance_element_index = 0;
         for (JsonElement angular_velocity_covariance_element : jsonObj.getAsJsonArray("angular_velocity_covariance")) {
-            this.angular_velocity_covariance[angular_velocity_covariance_element_index] = angular_velocity_covariance_element.getAsDouble();
+            this.angular_velocity_covariance[angular_velocity_covariance_element_index++] = angular_velocity_covariance_element.getAsDouble();
         }
         this.linear_acceleration = new frc.team88.ros.messages.geometry_msgs.Vector3(jsonObj.get("linear_acceleration").getAsJsonObject());
         int linear_acceleration_covariance_element_index = 0;
         for (JsonElement linear_acceleration_covariance_element : jsonObj.getAsJsonArray("linear_acceleration_covariance")) {
-            this.linear_acceleration_covariance[linear_acceleration_covariance_element_index] = linear_acceleration_covariance_element.getAsDouble();
+            this.linear_acceleration_covariance[linear_acceleration_covariance_element_index++] = linear_acceleration_covariance_element.getAsDouble();
         }
     }
 

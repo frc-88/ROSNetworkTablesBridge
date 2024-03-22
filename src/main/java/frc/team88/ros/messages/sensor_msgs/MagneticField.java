@@ -41,7 +41,7 @@ public class MagneticField extends frc.team88.ros.messages.RosMessage {
         this.magnetic_field = new frc.team88.ros.messages.geometry_msgs.Vector3(jsonObj.get("magnetic_field").getAsJsonObject());
         int magnetic_field_covariance_element_index = 0;
         for (JsonElement magnetic_field_covariance_element : jsonObj.getAsJsonArray("magnetic_field_covariance")) {
-            this.magnetic_field_covariance[magnetic_field_covariance_element_index] = magnetic_field_covariance_element.getAsDouble();
+            this.magnetic_field_covariance[magnetic_field_covariance_element_index++] = magnetic_field_covariance_element.getAsDouble();
         }
     }
 

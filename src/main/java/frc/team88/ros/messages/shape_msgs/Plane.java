@@ -30,7 +30,7 @@ public class Plane extends frc.team88.ros.messages.RosMessage {
     public Plane(JsonObject jsonObj) {
         int coef_element_index = 0;
         for (JsonElement coef_element : jsonObj.getAsJsonArray("coef")) {
-            this.coef[coef_element_index] = coef_element.getAsDouble();
+            this.coef[coef_element_index++] = coef_element.getAsDouble();
         }
     }
 

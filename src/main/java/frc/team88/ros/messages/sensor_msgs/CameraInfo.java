@@ -91,15 +91,15 @@ public class CameraInfo extends frc.team88.ros.messages.RosMessage {
         }
         int K_element_index = 0;
         for (JsonElement K_element : jsonObj.getAsJsonArray("K")) {
-            this.K[K_element_index] = K_element.getAsDouble();
+            this.K[K_element_index++] = K_element.getAsDouble();
         }
         int R_element_index = 0;
         for (JsonElement R_element : jsonObj.getAsJsonArray("R")) {
-            this.R[R_element_index] = R_element.getAsDouble();
+            this.R[R_element_index++] = R_element.getAsDouble();
         }
         int P_element_index = 0;
         for (JsonElement P_element : jsonObj.getAsJsonArray("P")) {
-            this.P[P_element_index] = P_element.getAsDouble();
+            this.P[P_element_index++] = P_element.getAsDouble();
         }
         this.binning_x = jsonObj.get("binning_x").getAsInt();
         this.binning_y = jsonObj.get("binning_y").getAsInt();

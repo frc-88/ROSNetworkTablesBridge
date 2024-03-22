@@ -65,7 +65,7 @@ public class AccelWithCovariance extends frc.team88.ros.messages.RosMessage {
         this.accel = new frc.team88.ros.messages.geometry_msgs.Accel(jsonObj.get("accel").getAsJsonObject());
         int covariance_element_index = 0;
         for (JsonElement covariance_element : jsonObj.getAsJsonArray("covariance")) {
-            this.covariance[covariance_element_index] = covariance_element.getAsDouble();
+            this.covariance[covariance_element_index++] = covariance_element.getAsDouble();
         }
     }
 

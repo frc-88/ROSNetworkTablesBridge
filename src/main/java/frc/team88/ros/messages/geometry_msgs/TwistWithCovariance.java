@@ -65,7 +65,7 @@ public class TwistWithCovariance extends frc.team88.ros.messages.RosMessage {
         this.twist = new frc.team88.ros.messages.geometry_msgs.Twist(jsonObj.get("twist").getAsJsonObject());
         int covariance_element_index = 0;
         for (JsonElement covariance_element : jsonObj.getAsJsonArray("covariance")) {
-            this.covariance[covariance_element_index] = covariance_element.getAsDouble();
+            this.covariance[covariance_element_index++] = covariance_element.getAsDouble();
         }
     }
 

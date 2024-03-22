@@ -56,7 +56,7 @@ public class NavSatFix extends frc.team88.ros.messages.RosMessage {
         this.altitude = jsonObj.get("altitude").getAsDouble();
         int position_covariance_element_index = 0;
         for (JsonElement position_covariance_element : jsonObj.getAsJsonArray("position_covariance")) {
-            this.position_covariance[position_covariance_element_index] = position_covariance_element.getAsDouble();
+            this.position_covariance[position_covariance_element_index++] = position_covariance_element.getAsDouble();
         }
         this.position_covariance_type = jsonObj.get("position_covariance_type").getAsByte();
     }
